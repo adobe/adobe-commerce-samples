@@ -1,17 +1,14 @@
-# Open Source Adobe Commerce Samples
+# Adobe Commerce - Extensibility Code Samples
 
-## Motivation
+This project is a collection of code samples that demonstrate common extensibility use cases for Adobe Commerce. 
 
-The intent is to learn by example, following our best practices for developing Out-of-Process Extensions for Adobe Commerce.
+### What this project is
 
-## Goals
+This project is intended as a reference for developers to learn how to extend and integrate Adobe Commerce. The code is meant to showcase concepts and may not necessarily implement real-world scenarios. 
 
-- Provide samples to test integrations with Adobe Commerce.
-- Samples for code best practices in Adobe Commerce.
+### What this project isn't
 
-## Non-Goals
-
-- Code that can be deployed to production.
+The code in the project is not meant to be construed as production-ready code and should not be used as-is in production use cases. It may not have been tested for security, performance, or other best practices.
 
 ## Prerequisites
 
@@ -20,9 +17,18 @@ The intent is to learn by example, following our best practices for developing O
 - Project and workspaces has been created and correctly configured.
 - AIO CLI installed to run commands.
 
-### Contributing
+### How to use this project
 
-Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
+The code and comments are expected to be self-explanatory and developers can use them to learn the concepts. When deploying code from this project, ensure it is only used in development environments
+
+### Contributing to this project
+
+Contributions are welcomed!
+
+* Contribute new samples: runtime actions, mesh configs, dropins, etc…
+* Samples should be heavily commented describing WHAT the code does and WHY.
+* Report or fix any bugs or inefficiencies.
+* Participate in code reviews.
 
 ### Licensing
 
