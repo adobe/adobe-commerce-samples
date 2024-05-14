@@ -1,24 +1,31 @@
-# SampleExtension
+# Sample Extension
 
-Welcome to my Adobe I/O Application!
+The sample extension is an App Builder application that helps you start with Out-of-Process extensibility for Adobe Commerce.
+
+## Prerequisites
+
+- Have the Adobe AIO CLI installed.
+- Have an App Builder project created in your IMS organization.
 
 ## Setup
 
-- Run `npm install`
-- Populate the `.env` file in the project root and fill it as shown [below](#env)
+- Run `npm install`.
+- Run `aio console where` to check if the right project and workspace are selected. If not, you can run `aio console project select` and `aio console workspace select`.
+- Run `aio app use` to create and populate `.env` and `.aio` files. Make sure you defined your OAuth credentials in the project first and added the I/O Management API to the workspace.
+- Run `aio app build`.
 
 ## Local Dev
 
-- `aio app run` to start your local Dev server
-- App will run on `localhost:9080` by default
+- `aio app run` to start your local Dev server.
+- App will run on `localhost:9080` by default.
 
-By default the UI will be served locally but actions will be deployed and served from Adobe I/O Runtime. To start a
+By default, the UI will be served locally but actions will be deployed and served from Adobe I/O Runtime. To start a
 local serverless stack and also run your actions locally use the `aio app run --local` option.
 
 ## Test & Coverage
 
-- Run `aio app test` to run unit tests for ui and actions
-- Run `aio app test --e2e` to run e2e tests
+- Run `aio app test` to run unit tests for ui and actions.
+- Run `aio app test --e2e` to run e2e tests.
 
 ## Deploy & Cleanup
 
@@ -27,17 +34,9 @@ local serverless stack and also run your actions locally use the `aio app run --
 
 ## Config
 
-### `.env`
+### `.env` and `.aio`
 
-You can generate this file using the command `aio app use`. 
-
-```bash
-# This file must **not** be committed to source control
-
-## please provide your Adobe I/O Runtime credentials
-# AIO_RUNTIME_AUTH=
-# AIO_RUNTIME_NAMESPACE=
-```
+The `.env` and `.aio` files should not be committed to source control.
 
 ### `app.config.yaml`
 
@@ -80,3 +79,13 @@ and make sure you have the below config added
     }
   } 
 ```
+
+## Test Admin UI SDK registrations in your Commerce instance
+
+### Local development
+
+For your local development you can refer to the following [documentation](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/configuration/).
+
+### Cloud instance
+
+For your cloud instance testing, you'll have to publish your application by following this [documentation](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/publish/).
