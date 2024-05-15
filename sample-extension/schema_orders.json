@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "orderGridColumns": {
+      "type": "object",
+      "patternProperties": {
+        "^0": {
+          "type": "object",
+          "properties": {
+            "first_column": {
+              "type": "string"
+            },
+            "second_column": {
+              "type": "integer"
+            },
+            "third_column": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "orderGridColumns"
+  ]
+}
