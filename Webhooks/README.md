@@ -14,3 +14,7 @@ Please refer to the README file of each individual application for more details.
 ## Getting Started
 
 To get started with these applications, simply navigate to the directory of the application you are interested in and follow the instructions provided in its README file.
+
+## Note
+
+Please note that this section is still a **work in progress**. Application examples will be available soon. 
