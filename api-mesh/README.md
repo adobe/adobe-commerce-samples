@@ -7,13 +7,6 @@ Welcome to the Adobe API Mesh Examples repository! This repository contains a co
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Examples](#examples)
-  - [Example 1: Basic API Mesh Setup](#example-1-basic-api-mesh-setup)
-  - [Example 2: Advanced API Integration](#example-2-advanced-api-integration)
-  - [Example 3: Security and Authentication](#example-3-security-and-authentication)
-- [Contributing](#contributing)
-- [License](#license)
-- [Support](#support)
 
 ## Introduction
 
