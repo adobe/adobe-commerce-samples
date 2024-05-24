@@ -1,4 +1,4 @@
-name: AIO App CI
+name: Sample Extension CI
 
 on: [pull_request, push]
 jobs:
@@ -15,11 +15,11 @@ jobs:
 
       - name: Prepare Context (Linux/macOS)
         if: runner.os != 'Windows'
-        run: mv -f webhooks/* .
+        run: mv -f sample-extension/* .
       - name: Prepare Context (Windows)
         if: runner.os == 'Windows'
         run: |
-          $source = "webhooks\*"
+          $source = "sample-extension\*"
           $destination = "."
           $files = Get-ChildItem -Path $source
           foreach ($file in $files) {

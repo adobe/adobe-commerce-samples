@@ -1,4 +1,4 @@
-name: AIO App CI
+name: Webhooks CI
 
 on: [pull_request, push]
 jobs:
