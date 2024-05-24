@@ -3,7 +3,7 @@ application:
   web: web-src
   runtimeManifest:
     packages:
-      Webhooks:
+      add-to-cart-stock-validation:
         license: Apache-2.0
         actions:
           product-validate-stock:
