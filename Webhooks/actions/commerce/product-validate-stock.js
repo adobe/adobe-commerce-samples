@@ -31,7 +31,8 @@ async function main(params) {
 
         // check for missing request input parameters and headers
         const requiredParams = ['product', 'info']
-        const errorMessage = checkMissingRequestInputs(params, requiredParams)
+        const requiredHeaders = ['Authorization']
+        const errorMessage = checkMissingRequestInputs(params, requiredParams, requiredHeaders)
         if (errorMessage) {
             // return and log client errors
             return errorResponse(400, errorMessage, logger)

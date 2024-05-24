@@ -13,5 +13,5 @@ application:
             inputs:
               LOG_LEVEL: debug
             annotations:
-              require-adobe-auth: false
+              require-adobe-auth: true
               final: true
