@@ -36,53 +36,15 @@ To get started with the examples, follow these steps:
 
 1. Clone this repository:
 
-   git clone https://github.com/yourusername/adobe-api-mesh-examples.git
+   git clone [adobe-commerce-samples](https://github.com/adobe/adobe-commerce-samples.git)
 
 2. Navigate to the cloned directory:
 
-   cd adobe-api-mesh-examples
+   cd api-mesh-examples
 
-3. Install the required dependencies for each example:
+3. Navigate to the example you are interested in
 
-   cd examples/example-name
-   npm install
+   cd mock-response
 
-## Examples
+4. [Provision](https://developer.adobe.com/graphql-mesh-gateway/gateway/getting-started/) an API Mesh using the create or update command.
 
-### Example 1: Basic API Mesh Setup
-
-This example demonstrates how to set up a basic API Mesh with two simple REST APIs. You'll learn how to create a mesh configuration and deploy it.
-
-- [View Example 1](examples/basic-setup)
-
-### Example 2: Advanced API Integration
-
-In this example, we delve into more complex scenarios, integrating multiple APIs with different authentication methods and data transformations.
-
-- [View Example 2](examples/advanced-integration)
-
-### Example 3: Security and Authentication
-
-Learn how to secure your API Mesh with authentication mechanisms such as OAuth, API keys, and JWT.
-
-- [View Example 3](examples/security-authentication)
-
-## Contributing
-
-We welcome contributions to this repository! If you have an example you'd like to add or improvements to existing examples, please follow these steps:
-
-1. Fork this repository.
-2. Create a new branch (git checkout -b feature/your-feature-name).
-3. Make your changes and commit them (git commit -m 'Add some feature').
-4. Push to the branch (git push origin feature/your-feature-name).
-5. Open a pull request.
-
-For detailed information, please read our [Contributing Guide](CONTRIBUTING.md).
-
-## License
-
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
-## Support
-
-If you have any questions or need further assistance, please open an issue in this repository or contact Adobe Support.
