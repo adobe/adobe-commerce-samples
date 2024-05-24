@@ -1,0 +1,20 @@
+{
+    "meshConfig": {
+        "sources": [
+            {
+                "name": "Commerce",
+                "handler": {
+                    "graphql": {
+                        "endpoint": "https://venia.magento.com/graphql/"
+                    }
+                }
+            }
+        ],
+        "additionalTypeDefs": [
+            "extend type Query {\n  mockedField: String\n}"
+        ],
+        "additionalResolvers": [
+            "./resolvers.js"
+        ]
+    }
+}
