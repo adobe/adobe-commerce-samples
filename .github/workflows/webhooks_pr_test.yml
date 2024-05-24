@@ -15,11 +15,11 @@ jobs:
 
       - name: Prepare Context (Linux/macOS)
         if: runner.os != 'Windows'
-        run: mv -f Webhooks/* .
+        run: mv -f webhooks/* .
       - name: Prepare Context (Windows)
         if: runner.os == 'Windows'
         run: |
-          $source = "Webhooks\*"
+          $source = "webhooks\*"
           $destination = "."
           $files = Get-ChildItem -Path $source
           foreach ($file in $files) {
