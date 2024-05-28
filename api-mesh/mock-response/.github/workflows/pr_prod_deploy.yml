@@ -60,4 +60,4 @@ jobs:
           echo API_KEY=${{ secrets.API_KEY }} >> .env
           cat .env
       - name: api-mesh update
-        run: aio api-mesh:update -c meshConfig.json --env .env 
+        run: aio api-mesh:update -c meshConfig.json --env .env
