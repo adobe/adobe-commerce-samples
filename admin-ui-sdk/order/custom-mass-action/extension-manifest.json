@@ -1,0 +1,8 @@
+{
+  "name": "order-custom-mass-action",
+  "displayName": "Adobe Commerce order grid custom mass action",
+  "description": "Adobe Commerce order grid custom mass action in admin panel",
+  "platform": "web",
+  "id": "order-custom-mass-action",
+  "version": "1.0.0"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "embedded-menu",
+  "displayName": "Adobe Commerce embedded menu",
+  "description": "Adobe Commerce embedded menu example in admin panel",
+  "platform": "web",
+  "id": "embedded-menu",
+  "version": "1.0.0"
+}
