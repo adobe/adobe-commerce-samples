@@ -1,0 +1,22 @@
+operations:
+  view:
+    - type: web
+      impl: index.html
+actions: actions
+web: web-src
+runtimeManifest:
+  packages:
+    api-mesh:
+      license: Apache-2.0
+      actions:
+        api-mesh-query-content:
+          function: actions/api-mesh-query-content/index.js
+          web: 'yes'
+          runtime: nodejs:16
+          inputs:
+            MESH_ID: $MESH_ID
+            MESH_API_KEY: $MESH_API_KEY
+            LOG_LEVEL: debug
+          annotations:
+            require-adobe-auth: true
+            final: true
