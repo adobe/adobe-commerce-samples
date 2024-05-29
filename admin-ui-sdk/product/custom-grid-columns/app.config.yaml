@@ -8,7 +8,7 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        CustomMassAction:
+        CustomGridColumns:
           license: Apache-2.0
           actions:
             get-product-grid-columns:

@@ -7,5 +7,5 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        CustomMassAction:
+        CustomViewButton:
           license: Apache-2.0
