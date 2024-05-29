@@ -1,0 +1,8 @@
+{
+  "name": "order-custom-view-button",
+  "displayName": "Adobe Commerce order grid custom view button",
+  "description": "Adobe Commerce order grid custom view button in admin panel",
+  "platform": "web",
+  "id": "order-custom-view-button",
+  "version": "1.0.0"
+}

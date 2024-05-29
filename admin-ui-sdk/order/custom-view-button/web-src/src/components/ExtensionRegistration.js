@@ -17,39 +17,34 @@ export default function ExtensionRegistration() {
 
 const init = async () => {
 
-  const extensionId = 'order-custom-grid-columns'
+  const extensionId = 'order-custom-view-button'
 
   await register({
     id: extensionId,
     methods: {
       order: {
-        getGridColumns() {
-          return {
-            data: {
-              meshId: '',
-              apiKey: ''
+        getOrderViewButtons() {
+          return [
+            {
+              buttonId: `${extensionId}::delete-order`,
+              label: 'Delete',
+              confirm: {
+                message: 'Are you sure your want to proceed to delete order?'
+              },
+              path: '#/delete-order',
+              class: 'custom',
+              level: 0,
+              sortOrder: 80
             },
-            properties:[
-              {
-                label: 'First App Column',
-                columnId: 'first_column',
-                type: 'string',
-                align: 'left'
-              },
-              {
-                label: 'Second App Column',
-                columnId: 'second_column',
-                type: 'integer',
-                align: 'left'
-              },
-              {
-                label: 'Third App Column',
-                columnId: 'third_column',
-                type: 'date',
-                align: 'left'
-              }
-            ]
-          }
+            {
+              buttonId: `${extensionId}::create-return`,
+              label: 'Create Return',
+              path: '#/create-return',
+              class: 'custom',
+              level: 0,
+              sortOrder: 80
+            }
+          ]
         }
       }
     }

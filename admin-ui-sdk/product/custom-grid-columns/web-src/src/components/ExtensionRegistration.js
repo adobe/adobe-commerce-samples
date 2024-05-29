@@ -17,7 +17,7 @@ export default function ExtensionRegistration() {
 
 const init = async () => {
 
-  const extensionId = 'order-custom-mass-action'
+  const extensionId = 'product-custom-grid-columns'
 
   await register({
     id: extensionId,
