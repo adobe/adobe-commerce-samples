@@ -57,7 +57,7 @@ When a shopper adds a product to the cart, the app will check whether the item i
 </config>
 ```
 
-### Adobe Commerce Webhook Response:
+### Adobe Commerce Webhook Payload:
 ```json
 {
     "info": {
