@@ -21,9 +21,10 @@ These Admin customizations were traditionally defined in a PHP module, but the p
 
 ## Installation
 
-- Run npm install
-- Run aio app use (select the correct project and workspace)
-- Run aio app deploy
+- Run `npm install` to install the dependencies
+- Run `aio auth:login` to login to your Adobe I/O account
+- Run `aio app use` (select the correct project and workspace)
+- Run `aio app deploy` to deploy the application
 
 ## Local testing
 
