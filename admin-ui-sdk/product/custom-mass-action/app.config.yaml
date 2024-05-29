@@ -1,0 +1,11 @@
+extensions:
+  commerce/backend-ui/1:
+    operations:
+      view:
+        - type: web
+          impl: index.html
+    web: web-src
+    runtimeManifest:
+      packages:
+        CustomMassAction:
+          license: Apache-2.0
