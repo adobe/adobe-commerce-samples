@@ -3,7 +3,6 @@ operations:
     - type: web
       impl: index.html
 actions: actions
-web: web-src
 runtimeManifest:
   packages:
     api-mesh:

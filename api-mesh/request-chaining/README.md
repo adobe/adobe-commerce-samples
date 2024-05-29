@@ -47,7 +47,7 @@ mutation {
 }
 ```
 
-Here's the GraphQL Mesh configuration used in this example:
+### Mesh configuration used in this example:
 
 ```json
 {
