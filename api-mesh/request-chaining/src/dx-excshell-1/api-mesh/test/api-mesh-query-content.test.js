@@ -58,7 +58,7 @@ describe('api-mesh-query-content', () => {
       statusCode: 200,
       body: {
         storeConfig: {
-          store_name: '[App Builder]: Test Store'
+          store_name: 'Test Store'
         }
       }
     })
