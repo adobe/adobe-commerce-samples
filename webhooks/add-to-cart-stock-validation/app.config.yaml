@@ -1,6 +1,5 @@
 application:
   actions: actions
-  web: web-src
   runtimeManifest:
     packages:
       add-to-cart-stock-validation:
