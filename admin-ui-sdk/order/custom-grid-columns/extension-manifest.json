@@ -1,0 +1,8 @@
+{
+  "name": "order-custom-grid-columns",
+  "displayName": "Adobe Commerce order grid custom columns",
+  "description": "Adobe Commerce order grid custom columns in admin panel",
+  "platform": "web",
+  "id": "order-custom-grid-columns",
+  "version": "1.0.0"
+}
