@@ -8,7 +8,7 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        EmbeddedMenu:
+        CustomMenu:
           license: Apache-2.0
           actions:
             commerce-rest-get:

@@ -1,4 +1,4 @@
-# Adobe Commerce Admin UI SDK - Embedded Menu
+# Adobe Commerce Admin UI SDK - Custom Menu
 
 This application extends the Adobe Commerce Admin UI by adding custom menus using the Adobe Commerce Admin UI SDK.
 
