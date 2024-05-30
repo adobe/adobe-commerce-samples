@@ -24,6 +24,12 @@ These Admin customizations were traditionally defined in a PHP module, but the p
 - Run `npm install` to install the dependencies
 - Run `aio auth:login` to login to your Adobe I/O account
 - Run `aio app use` (select the correct project and workspace)
+- Append .env file with the following values:
+  - `COMMERCE_BASE_URL=`
+  - `COMMERCE_CONSUMER_KEY=`
+  - `COMMERCE_CONSUMER_SECRET=`
+  - `COMMERCE_ACCESS_TOKEN=`
+  - `COMMERCE_ACCESS_TOKEN_SECRET=`
 - Run `aio app deploy` to deploy the application
 
 ## Local testing

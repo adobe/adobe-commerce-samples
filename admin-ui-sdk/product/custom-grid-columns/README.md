@@ -22,7 +22,9 @@ These instructions will get you a copy of the project up and running on your loc
 - Run `npm install` to install the dependencies
 - Run `aio auth:login` to login to your Adobe I/O account
 - Run `aio app use` (select the correct project and workspace)
+- Update the `mesh.json` file with the correct base URL for the application
 - Run `aio api-mesh:create mesh.json` to create the API mesh
+- Update the ExtensionRegistration with the correct meshId and apiKey from the API mesh
 - Run `aio app deploy` to deploy the application
 
 ## Local testing

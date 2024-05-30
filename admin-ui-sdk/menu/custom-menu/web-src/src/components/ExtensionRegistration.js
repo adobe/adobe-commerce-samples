@@ -19,7 +19,7 @@ export default function ExtensionRegistration(props) {
 
 const init = async () => {
 
-  const extensionId = 'custom-menu'
+  const extensionId = 'custommenu'
 
   await register({
     id: extensionId,
