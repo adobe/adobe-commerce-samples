@@ -1,0 +1,23 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "data",
+        "handler": {
+          "JsonSchema": {
+            "baseUrl": "",
+            "operations": [
+              {
+                "type": "Query",
+                "field": "orders",
+                "path": "/get-order-grid-columns",
+                "method": "GET",
+                "responseSchema": "./schema_orders.json"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

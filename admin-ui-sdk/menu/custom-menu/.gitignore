@@ -1,0 +1,23 @@
+# package directories
+node_modules
+
+# build
+build
+dist
+.manifest-dist.yml
+
+# Config
+config.json
+.env*
+!.env.dist
+.aio
+
+# Adobe I/O console config
+console.json
+
+.idea
+.aws.tmp.creds.json
+.parcel-cache
+.DS_Store
+.vscode
+
