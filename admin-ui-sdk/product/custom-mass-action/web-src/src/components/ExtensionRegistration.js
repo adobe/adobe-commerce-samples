@@ -34,7 +34,7 @@ const init = async () => {
                 message: 'Are you sure your want to proceed with Mass Action on selected orders?'
               },
               path: '#/order-mass-action',
-              orderSelectLimit: 1
+              productSelectLimit: 1
             },
             {
               actionId: `${extensionId}::mass-action-with-redirect`,
