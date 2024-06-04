@@ -32,8 +32,8 @@ The runtime action ```events/customer-login``` will receive the Commerce event p
     xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_AdobeCommerceEventsClient:etc/io_events.xsd">
     <event name="observer.customer_login">
         <fields>
-            <field name="firstname" />
-            <field name="lastname" />
+            <field name="customer.firstname" />
+            <field name="customer.lastname" />
         </fields>
     </event>
 </config>
@@ -44,10 +44,12 @@ The runtime action ```events/customer-login``` will receive the Commerce event p
 ```json
 {
     "data": {
-        "key": "b2d1addf-50af-4ae9-8d29-26a786d5161f",
+        "key": "4fbbb851-285f-4733-a3b4-77556e019691",
         "value": {
-            "firstname": "John",
-            "lastname": "Doe"
+            "customer": {
+                "firstname": "John",
+                "lastname": "Doe"
+            }
         },
         "source": "evergreen.evergreen_staging",
         "_metadata": {
@@ -59,13 +61,13 @@ The runtime action ```events/customer-login``` will receive the Commerce event p
             "storeGroupId": "1"
         }
     },
-    "id": "5c37b224-349e-4cc2-a621-a7ab419654e4",
+    "id": "f7813962-c119-401c-aa8c-266421aa1053",
     "source": "urn:uuid:420ba332-4e1c-4373-8e23-81175c9e79fd",
     "specversion": "1.0",
     "type": "com.adobe.commerce.observer.customer_login",
     "datacontenttype": "application/json",
-    "time": "2024-05-31T12:51:03.902Z",
-    "event_id": "dafb64a8-7823-4be0-8291-cf46baf66ede",
+    "time": "2024-06-04T16:05:04.542Z",
+    "event_id": "7c9ae597-f382-49bc-85b7-3a2b4da6e0bf",
     "recipient_client_id": "531f2f763b2f4c34b03001d8bf2bd4df"
 }
 ```
