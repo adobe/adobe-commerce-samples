@@ -1,6 +1,6 @@
-# Adobe Commerce Admin UI SDK Examples
+# Admin UI SDK Samples
 
-This directory contains examples for different extension points of the Adobe Commerce Admin UI SDK.
+This directory contains samples for different extension points of the Adobe Commerce Admin UI SDK.
 
 ## Overview
 
@@ -9,8 +9,8 @@ These examples demonstrate how to use the SDK to create these extensions.
 
 ## Directory Structure
 
-- `menu`: Contains examples of how to create custom menus in the Commerce Admin.
-- `order`: Contains examples of how to create 
+- `menu`: Contains samples of how to create custom menus in the Commerce Admin.
+- `order`: Contains samples of how to create 
   - `order view button`: custom order view button in the Commerce Admin.
   - `order grid columns`: custom columns in the order grid in the Commerce Admin.
   - `order mass action`: custom mass action in the order grid in the Commerce Admin.
@@ -20,8 +20,12 @@ These examples demonstrate how to use the SDK to create these extensions.
 
 ## Installation
 
-Each example has its own README file with specific installation instructions. Please refer to the README file in the respective example directory for more information.
+Each sample has its own README file with specific installation instructions. Please refer to the README file in the respective sample directory for more information.
 
 ## Usage
 
-After installing an example, you can access the custom features from the Commerce Admin panel.
+After installing a sample, you can access the custom features from the Commerce Admin panel.
+
+## More Information 
+
+To learn more about the Admin UI SDK visit the [Developer docs](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/).
