@@ -49,10 +49,7 @@ const main = async params => {
      var slackText = "Customer Login - " + JSON.stringify(params)
 
      const payload = {
-       "channel": params.SLACK_CHANNEL,
-       "username": "incoming-commerce-evergreen-event",
-       "text": slackText,
-       "mrkdwn": true
+       "text": slackText
      }
 
      const res = await fetch(params.SLACK_WEBHOOK, {

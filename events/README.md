@@ -19,11 +19,25 @@ Before you begin, ensure you have the following:
 - An Adobe Developer account
 - Node.js and npm installed on your local machine (nvm 18.x.x (Mac/Linux) or nvm-windows (Windows))
 - App Builder project created and configured to work with I/O Events.
-- A Slack App configured to receive incoming webhooks.
+- A Slack App configured to receive incoming webhooks. See link: [Slack API](https://api.slack.com/messaging/webhooks)
 
 ## Explanation
 
 The runtime action ```events/customer-login``` will receive the Commerce event payload and send to the configured Slack channel.
+
+### Commerce configured io_events.xml file:
+
+```xml
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_AdobeCommerceEventsClient:etc/io_events.xsd">
+    <event name="observer.customer_login">
+        <fields>
+            <field name="firstname" />
+            <field name="lastname" />
+        </fields>
+    </event>
+</config>
+```
 
 ### Commerce event payload example:
 
@@ -31,7 +45,10 @@ The runtime action ```events/customer-login``` will receive the Commerce event p
 {
     "data": {
         "key": "b2d1addf-50af-4ae9-8d29-26a786d5161f",
-        "value": {},
+        "value": {
+            "firstname": "John",
+            "lastname": "Doe"
+        },
         "source": "evergreen.evergreen_staging",
         "_metadata": {
             "commerceEdition": "Adobe Commerce + B2B",
