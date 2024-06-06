@@ -1,0 +1,42 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "ACOMGQL",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "prefix": {
+              "includeRootOperations": true,
+              "value": "ACOM_"
+            }
+          }
+        ]
+      },
+      {
+        "name": "TBGQL",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://countries.trevorblades.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "prefix": {
+              "includeRootOperations": true,
+              "value": "TB_"
+            }
+          }
+        ]
+      }
+    ],
+    "additionalTypeDefs": "extend type ACOM_Country { capital: String currency: String }",
+    "additionalResolvers": [
+      "./resolvers/cc-resolver.js"
+    ]
+  }
+}
