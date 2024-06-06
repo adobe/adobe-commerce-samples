@@ -1,0 +1,67 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "CommerceAPI",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://integration-5ojmyuq-7yvbzwvtkgerq.us-4.magentosite.cloud/graphql",
+            "useGETForQueries": true,
+            "operationHeaders": {
+              "Content-Type": "application/json",
+              "Store": "{context.headers['store']}",
+              "Authorization": "context.headers['Authorization']"
+            }
+          }
+        },
+        "transforms": [
+          {
+            "filterSchema": {
+              "mode": "bare",
+              "filters": [
+                "Query.!category",
+                "Query.!customerOrders",
+                "Query.!products",
+                "Query.!categories",
+                "Query.!urlResolver",
+                "Query.!wishlist",
+                "Query.!categoryList",
+                "Mutation.!setPaymentMethodAndPlaceOrder",
+                "Mutation.!addBundleProductsToCart",
+                "Mutation.!addConfigurableProductsToCart",
+                "Mutation.!addDownloadableProductsToCart",
+                "Mutation.!addSimpleProductsToCart",
+                "Mutation.!addVirtualProductsToCart",
+                "Mutation.!createCustomer",
+                "Mutation.!updateCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "CatalogAPI",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://catalog-service-sandbox.adobe.io/graphql",
+            "useGETForQueries": true,
+            "schemaHeaders": {
+              "Content-Type": "application/json",
+              "x-api-key": "9753cd30401a477e816ed850c4f77e18"
+            },
+            "operationHeaders": {
+              "Content-Type": "application/json",
+              "Magento-Environment-Id": "{context.headers['magento-environment-id']}",
+              "Magento-Website-Code": "{context.headers['magento-website-code']}",
+              "Magento-Store-View-Code": "{context.headers['magento-store-view-code']}",
+              "Magento-Store-Code": "{context.headers['magento-store-code']}",
+              "Magento-Customer-Group": "{context.headers['magento-customer-group']}",
+              "x-api-key": "{context.headers['x-api-key']}",
+              "Authorization": "context.headers['Authorization']"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
