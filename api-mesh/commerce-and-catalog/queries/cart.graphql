@@ -1,0 +1,54 @@
+query GUEST_CART_QUERY($cartId: String!) {
+  cart(cart_id: $cartId) {
+    id
+    total_quantity
+    is_virtual
+    prices {
+      subtotal_with_discount_excluding_tax {
+        currency
+        value
+      }
+      subtotal_including_tax {
+        currency
+        value
+      }
+      subtotal_excluding_tax {
+        currency
+        value
+      }
+      grand_total {
+        currency
+        value
+      }
+      applied_taxes {
+        label
+        amount {
+          value
+          currency
+        }
+      }
+      discounts {
+        amount {
+          value
+          currency
+        }
+        label
+      }
+    }
+    shipping_addresses {
+      country {
+        code
+      }
+      region {
+        code
+      }
+      postcode
+    }
+  }
+}
+
+# Sample Variables:
+
+# {
+#   "cartId": "Y8HrBP9pLdVhiWJ6gNyM5WmxjR97S7ra"
+# }

@@ -1,0 +1,13 @@
+query STORE_CONFIG_QUERY {
+  storeConfig {
+    minicart_display
+    minicart_max_items
+    cart_expires_in_days
+    cart_summary_display_quantity
+    default_country
+    category_fixed_product_tax_display_setting
+    product_fixed_product_tax_display_setting
+    sales_fixed_product_tax_display_setting
+    shopping_cart_display_zero_tax
+  }
+}

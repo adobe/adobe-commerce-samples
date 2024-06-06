@@ -1,0 +1,75 @@
+query ProductQuery($sku: String!) {
+  products(skus: [$sku]) {
+    externalId
+    sku
+    name
+    description
+    shortDescription
+    urlKey
+    inStock
+    metaTitle
+    metaKeyword
+    metaDescription
+    images(roles: []) {
+      url
+      label
+      roles
+    }
+    attributes(roles: []) {
+      name
+      label
+      value
+      roles
+    }
+    ... on SimpleProductView {
+      price {
+        ...priceFields
+      }
+    }
+    ... on ComplexProductView {
+      options {
+        id
+        title
+        required
+        values {
+          id
+          title
+          inStock
+          ... on ProductViewOptionValueSwatch {
+            type
+            value
+          }
+        }
+      }
+      priceRange {
+        maximum {
+          ...priceFields
+        }
+        minimum {
+          ...priceFields
+        }
+      }
+    }
+  }
+}
+fragment priceFields on ProductViewPrice {
+  roles
+  regular {
+    amount {
+      currency
+      value
+    }
+  }
+  final {
+    amount {
+      currency
+      value
+    }
+  }
+}
+
+# Sample Variables:
+
+# {
+#   "sku": "24-WG080"
+# }

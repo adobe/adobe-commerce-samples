@@ -1,0 +1,51 @@
+query GetRecommendations(
+  $pageType: PageType!
+  $category: String
+  $currentSku: String
+  $cartSkus: [String]
+  $userPurchaseHistory: [PurchaseHistory]
+  $userViewHistory: [ViewHistory]
+) {
+  recommendations(
+    cartSkus: $cartSkus
+    category: $category
+    currentSku: $currentSku
+    pageType: $pageType
+    userPurchaseHistory: $userPurchaseHistory
+    userViewHistory: $userViewHistory
+  ) {
+    results {
+      displayOrder
+      pageType
+      productsView {
+        name
+        sku
+        url
+        images {
+          url
+        }
+        externalId
+        __typename
+      }
+      storefrontLabel
+      totalProducts
+      typeId
+      unitId
+      unitName
+    }
+    totalResults
+  }
+}
+
+# Sample Variables:
+
+# {
+#   "pageType": "Product",
+#   "currentSku": "24-WG03",
+#   "userViewHistory": [
+#     { "date": "2024-06-05T18:19:52.730Z", "sku": "24-WB06" },
+#     { "date": "2024-06-05T18:23:22.712Z", "sku": "24-UG07" },
+#     { "date": "2024-06-06T15:05:31.836Z", "sku": "24-WG03" }
+#   ],
+#   "userPurchaseHistory": []
+# }
