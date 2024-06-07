@@ -1,5 +1,5 @@
 name: API Mesh/Mock Response CI
-on: [pull_request, push]
+on: [workflow_dispatch]
 jobs:
    deploy:
     name: Lint

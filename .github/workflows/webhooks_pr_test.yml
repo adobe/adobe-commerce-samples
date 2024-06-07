@@ -1,6 +1,6 @@
 name: Webhooks CI
 
-on: [pull_request, push]
+on: [workflow_dispatch]
 jobs:
   test:
     name: Test PR
