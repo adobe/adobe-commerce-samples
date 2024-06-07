@@ -1,0 +1,26 @@
+application:
+  runtimeManifest:
+    packages:
+      events:
+        license: Apache-2.0
+        actions:
+          customer-login:
+            function: actions/customer-login/index.js
+            web: 'no'
+            runtime: nodejs:18
+            inputs:
+              LOG_LEVEL: debug
+              SLACK_WEBHOOK: $SLACK_WEBHOOK
+              SLACK_CHANNEL: $SLACK_CHANNEL
+            annotations:
+              require-adobe-auth: false
+              final: true
+  events:
+    registrations:
+      Event commerce evergreen:
+        description: Registration for IO Events
+        events_of_interest:
+          - provider_metadata: dx_commerce_events
+            event_codes:
+              - com.adobe.commerce.observer.customer_login
+        runtime_action: events/customer-login
