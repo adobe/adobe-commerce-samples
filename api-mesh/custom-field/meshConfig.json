@@ -1,0 +1,39 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "CommerceAPI",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql/",
+            "useGETForQueries": true,
+            "operationHeaders": {
+              "Content-Type": "application/json",
+              "Store": "{context.headers['store']}",
+              "Authorization": "context.headers['Authorization']"
+            }
+          }
+        }
+      },
+      {
+        "name": "Announcements",
+        "handler": {
+          "JsonSchema": {
+            "baseUrl": "https://announcements-api.apimesh-adobe-test.workers.dev",
+            "operations": [
+              {
+                "type": "Query",
+                "field": "announcements",
+                "path": "/",
+                "method": "GET",
+                "responseSample": "./samplesAnnouncement.json"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "additionalTypeDefs": "extend type StoreConfig {announcement: String}",
+    "additionalResolvers": ["./resolvers.js"]
+  }
+}
