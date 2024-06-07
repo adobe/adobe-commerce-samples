@@ -17,3 +17,5 @@ The following are the variables required for the github actions to execute corre
 | TECHNICALACCID_STAGE         | The identifier for the technical account in the staging environment, used for managing the technical user and associated resources. | `tech-account-id-stage`        |
 
 Credentials like Technical Account Email can be found by adding an I/O Action Event to the App Builder workspace and then adding an `Oauth Server-to-server` credential, this will generate most of the credentials needed above. For anything else, within the workspace click `Download All` and copy the information from the json file.
+
+Change the ```on``` parameter to define which events can cause the workflow to run, for a list of available events, see [Events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
