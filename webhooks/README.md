@@ -11,7 +11,7 @@ Webhooks enable developers to configure synchronous logic to execute calls to ex
 
 The applications covered in this section include:
 
-- 
+- **add-to-cart-stock-validation**: Product add to cart stock validation.
 
 Please refer to the README file of each individual application for more details.
 
