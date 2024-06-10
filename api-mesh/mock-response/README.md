@@ -1,7 +1,7 @@
 # API Mesh Configuration with Custom Resolver
 ## Mocking a field in API Mesh
 
-This is an example API Mesh configuration that demonstrates how to extend the GraphQL Query type with a custom field and add a resolver to return a specific mock response.
+This is a sample API Mesh configuration that demonstrates how to extend the GraphQL Query type with a custom field and add a resolver to return a specific mock response.
 
 ## Table of Contents
 

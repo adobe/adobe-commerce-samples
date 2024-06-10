@@ -1,18 +1,12 @@
-# Adobe API Mesh Examples
+# API Mesh Samples
 
-Welcome to the Adobe API Mesh Examples repository! This repository contains a collection of examples demonstrating how to effectively use Adobe API Mesh to integrate and manage multiple APIs in a unified and secure manner.
+Welcome to the API Mesh samples repository! This repository contains a collection of samples demonstrating how to effectively use Adobe API Mesh to integrate and manage multiple APIs in a unified and secure manner.
 
-## Table of Contents
+## Overview
 
-- [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
+API Mesh allows you to simplify the integration of multiple APIs by providing a unified endpoint for your clients. This makes it easier to manage, secure, and scale your API integrations.
 
-## Introduction
-
-Adobe API Mesh allows you to simplify the integration of multiple APIs by providing a single endpoint for your clients. This makes it easier to manage, secure, and scale your API integrations.
-
-In this repository, you'll find various examples demonstrating how to set up and use Adobe API Mesh for different scenarios. Whether you're new to Adobe API Mesh or looking to expand your knowledge, these examples will help you get started and improve your skills.
+In this repository, you'll find various samples demonstrating how to set up and use API Mesh for different scenarios. Whether you're new to API Mesh or looking to expand your knowledge, these examples will help you get started and improve your skills.
 
 ## Prerequisites
 
