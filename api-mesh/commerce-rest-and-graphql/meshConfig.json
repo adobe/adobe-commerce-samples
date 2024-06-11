@@ -1,0 +1,22 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "CommerceGraphql",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      },
+      {
+        "name": "CommerceREST",
+        "handler": {
+          "openapi": {
+            "source": "https://venia.magento.com/rest/all/schema?services=all"
+          }
+        }
+      }
+    ]
+  }
+}
