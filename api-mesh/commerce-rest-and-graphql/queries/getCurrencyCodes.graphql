@@ -1,0 +1,10 @@
+{
+  GetV1DirectoryCurrency {
+    ... on directory_data_currency_information_interface {
+      available_currency_codes
+    }
+  }
+  storeConfig {
+    base_currency_code
+  }
+}

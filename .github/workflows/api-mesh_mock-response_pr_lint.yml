@@ -1,0 +1,43 @@
+name: API Mesh/Mock Response CI
+on: [workflow_dispatch]
+jobs:
+   deploy:
+    name: Lint
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: ['20']
+        os: [ubuntu-latest]
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare Context (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: mv -f api-mesh/mock-response/* .
+      - name: Prepare Context (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          $source = "api-mesh\mock-response\*"
+          $destination = "."
+          $files = Get-ChildItem -Path $source
+          foreach ($file in $files) {
+            $destPath = Join-Path -Path $destination -ChildPath $file.Name
+            if (Test-Path -Path $destPath) {
+              Remove-Item -Path $destPath -Recurse -Force
+            }
+          }
+          Move-Item -Path $source -Destination $destination -Force
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: setup dependancies
+        run: npm install -g eslint jsonlint
+      - name: Lint JSON
+        run: jsonlint *.json
+      - name: Lint Js
+        run: eslint *.js
