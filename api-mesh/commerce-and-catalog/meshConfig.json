@@ -5,7 +5,7 @@
         "name": "CommerceAPI",
         "handler": {
           "graphql": {
-            "endpoint": "https://integration-5ojmyuq-7yvbzwvtkgerq.us-4.magentosite.cloud/graphql",
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}",
             "useGETForQueries": true,
             "operationHeaders": {
               "Content-Type": "application/json",
@@ -43,11 +43,11 @@
         "name": "CatalogAPI",
         "handler": {
           "graphql": {
-            "endpoint": "https://catalog-service-sandbox.adobe.io/graphql",
+            "endpoint": "{{env.CATALOG_ENDPOINT}}",
             "useGETForQueries": true,
             "schemaHeaders": {
               "Content-Type": "application/json",
-              "x-api-key": "9753cd30401a477e816ed850c4f77e18"
+              "x-api-key": "{{env.CATALOG_API_KEY}}"
             },
             "operationHeaders": {
               "Content-Type": "application/json",
