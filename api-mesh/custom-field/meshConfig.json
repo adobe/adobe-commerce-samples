@@ -26,7 +26,7 @@
                 "field": "announcements",
                 "path": "/",
                 "method": "GET",
-                "responseSample": "./samplesAnnouncement.json"
+                "responseSample": "https://announcements-api.apimesh-adobe-test.workers.dev"
               }
             ]
           }

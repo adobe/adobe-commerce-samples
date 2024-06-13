@@ -12,21 +12,27 @@ governing permissions and limitations under the License.
 
 module.exports = {
   resolvers: {
+    // Selecting the `StoreConfig` type.
     StoreConfig: {
+      // Selecting the `announcement` field on the `StoreConfig` type to add a resolver.
       announcement: {
         selectionSet: "{store_code}",
+        // This resolver is called when the `announcement` field is requested on the `StoreConfig` type.
         resolve: (root, args, context, info) => {
+          // Call the `announcements` query from the `Announcements` source to get the latest announcement.
           return context.Announcements.Query.announcements({
             root,
             args,
             context,
             info,
-            selectionSet: "{announcement}",
+            selectionSet: "{announcement}", // Selecting the `announcement` field from the response.
           })
             .then((response) => {
+              // Return the announcement from the response.
               return response.announcement;
             })
             .catch(() => {
+              // Return null if there is an error.
               return null;
             });
         },

@@ -1,4 +1,5 @@
 # API Mesh Configuration with Custom Resolver
+
 ## Implementing a Custom Field in API Mesh
 
 This is an example API Mesh configuration that demonstrates how to extend the GraphQL Query type with a custom field and add a resolver to connect it to an existing source.
@@ -53,7 +54,6 @@ Here's the GraphQL Mesh configuration used in this example:
     "additionalResolvers": ["./resolvers.js"]
   }
 }
-
 ```
 
 ### Explanation
@@ -61,3 +61,17 @@ Here's the GraphQL Mesh configuration used in this example:
 - **sources**: Defines the external GraphQL API to be included in the mesh. In this example, we are using the Adobe Commerce GraphQL endpoint.
 - **additionalTypeDefs**: Extends the existing GraphQL schema by adding a new field `announcement` to the StoreConfig type.
 - **additionalResolvers**: Points to a resolver file that contains the logic to resolve the `announcement` on the StoreConfig type.
+
+## Verification Steps
+
+Create a mesh with the above config and resolver. Run the following command to verify:
+
+```graphql
+{
+  storeConfig {
+    announcement
+  }
+}
+```
+
+<img width="1303" alt="image" src="https://github.com/adobe/adobe-commerce-samples/assets/35203638/fce4ebea-05a7-483e-966e-543790c45080">
