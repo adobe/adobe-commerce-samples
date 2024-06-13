@@ -9,6 +9,8 @@ In this example, we will connect the Commerce Source with the Announcements Sour
 ## Table of Contents
 
 - [Configuration](#configuration)
+- [Explanation](#explanation)
+- [Verification Steps](#verification-steps)
 
 ## Configuration
 
@@ -22,7 +24,7 @@ Here's the GraphQL Mesh configuration used in this example:
         "name": "CommerceAPI",
         "handler": {
           "graphql": {
-            "endpoint": "https://venia.magento.com/graphql/",
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}",
             "useGETForQueries": true,
             "operationHeaders": {
               "Content-Type": "application/json",
@@ -36,14 +38,14 @@ Here's the GraphQL Mesh configuration used in this example:
         "name": "Announcements",
         "handler": {
           "JsonSchema": {
-            "baseUrl": "https://announcements-api.apimesh-adobe-test.workers.dev",
+            "baseUrl": "{{env.ANNOUNCEMENTS_ENDPOINT}}",
             "operations": [
               {
                 "type": "Query",
                 "field": "announcements",
                 "path": "/",
                 "method": "GET",
-                "responseSample": "./samplesAnnouncement.json"
+                "responseSample": "{{env.ANNOUNCEMENTS_ENDPOINT}}"
               }
             ]
           }
@@ -56,7 +58,9 @@ Here's the GraphQL Mesh configuration used in this example:
 }
 ```
 
-### Explanation
+Note: This mesh depends on few variables which need to be provided through `.env`. A [sample env file](./sample.env) has been provided to get started.
+
+## Explanation
 
 - **sources**: Defines the external GraphQL API to be included in the mesh. In this example, we are using the Adobe Commerce GraphQL endpoint.
 - **additionalTypeDefs**: Extends the existing GraphQL schema by adding a new field `announcement` to the StoreConfig type.

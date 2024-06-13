@@ -5,7 +5,7 @@
         "name": "CommerceAPI",
         "handler": {
           "graphql": {
-            "endpoint": "https://venia.magento.com/graphql/",
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}",
             "useGETForQueries": true,
             "operationHeaders": {
               "Content-Type": "application/json",
@@ -19,14 +19,14 @@
         "name": "Announcements",
         "handler": {
           "JsonSchema": {
-            "baseUrl": "https://announcements-api.apimesh-adobe-test.workers.dev",
+            "baseUrl": "{{env.ANNOUNCEMENTS_ENDPOINT}}",
             "operations": [
               {
                 "type": "Query",
                 "field": "announcements",
                 "path": "/",
                 "method": "GET",
-                "responseSample": "https://announcements-api.apimesh-adobe-test.workers.dev"
+                "responseSample": "{{env.ANNOUNCEMENTS_ENDPOINT}}"
               }
             ]
           }
