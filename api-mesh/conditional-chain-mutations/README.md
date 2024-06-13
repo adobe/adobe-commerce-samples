@@ -1,0 +1,55 @@
+# API Mesh Configuration with Chain Mutations
+
+## Chain Mutations
+
+This is a sample configuration that demonstrates how to orchestrate chain mutations through OOP Extensibilty (out of process) capabilities of API Mesh.
+
+This sample configuration will define and implement a new Mutation to add products to cart and set free shipping on the cart if the cart has 5 or more items.
+
+## Table of Contents
+
+- [Configuration](#configuration)
+
+## Configuration
+
+Here's the GraphQL Mesh configuration used in this example:
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      }
+    ],
+    "additionalTypeDefs": `
+      type AddProductsToCartAndSetShippingMethodOutput {
+        cartId: String!
+      }
+
+      extend type Mutation {
+        addProductsToCartAndSetShippingMethod(
+          cartId: String!
+          product: CartItemInput!
+        ): AddProductsToCartAndSetShippingMethodOutput
+      }
+    `,
+    "additionalResolvers": ["./resolver.js"]
+  }
+}
+```
+
+### Explanation
+
+- **sources**: Defines the GraphQL API to be included in the mesh. In this example, we are using the Adobe Commerce GraphQL endpoint.
+- **additionalTypeDefs**: Extends the existing GraphQL schema by adding a new field called `addProductsToCartAndSetShippingMethod` to the Mutation type. It takes 2 arguments, `cartId` and `product` and outputs `AddProductsToCartAndSetShippingMethodOutput` which is also defined in the type defs.
+- **additionalResolvers**: Points to a resolver file that contains the logic to resolve the `addProductsToCartAndSetShippingMethod` mutation. This resolver aims to add products to the cart and set Free Shipping on the cart if `cart.total_qantity >= 5`.
+
+## How to test?
+
+Use the operations provided in [preRequisite.graphql](./mutations/preRequisite.graphql) to create and setup a cart for `addProductsToCartAndSetShippingMethod`. Once the setup is done, take note of the `cartId` and use the same in [chainMutation](./mutations/chainMutation.graphql).

@@ -1,0 +1,38 @@
+mutation createEmptyCart {
+  createGuestCart {
+    cart {
+      id
+    }
+  }
+}
+
+mutation SetShippingAddressOnCart(
+  $cartId: String!
+  $address: CartAddressInput!
+) {
+  setShippingAddressesOnCart(
+    input: { cart_id: $cartId, shipping_addresses: [{ address: $address }] }
+  ) {
+    cart {
+      id
+    }
+  }
+}
+
+# Sample Variables
+
+# {
+#   "cartId": "<CART_ID_FROM_createEmptyCart_MUTATION>",
+#   "address": {
+#     "city": "city",
+#     "firstname": "firstname",
+#     "lastname": "lastname",
+#     "street": [
+#       "street"
+#     ],
+#     "telephone": "telephone",
+#     "country_code": "US",
+#     "postcode": "78759",
+#     "region": "TX"
+#   }
+# }
