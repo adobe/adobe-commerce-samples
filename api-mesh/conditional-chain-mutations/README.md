@@ -52,4 +52,4 @@ Here's the GraphQL Mesh configuration used in this example:
 
 ## How to test?
 
-Use the operations provided in [preRequisite.graphql](./mutations/preRequisite.graphql) to create and setup a cart for `addProductsToCartAndSetShippingMethod`. Once the setup is done, take note of the `cartId` and use the same in [chainMutation](./mutations/chainMutation.graphql).
+Use the operations provided in [preRequisite.graphql](./mutations/preRequisite.graphql) to create and setup a cart for `addProductsToCartAndSetShippingMethod`. Once the setup is done, take note of the `cartId` and use the same in [chainMutation](./mutations/chainMutation.graphql). Use the [cart query](./queries/cart.graphql) to verify the `quantity` and `shippingMethod` on the Cart.
