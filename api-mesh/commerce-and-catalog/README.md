@@ -7,6 +7,8 @@ This is an example API Mesh configuration that demonstrates how to use Commerce 
 ## Table of Contents
 
 - [Configuration](#configuration)
+- [Explanation](#explanation)
+- [Verification Steps](#verification-steps)
 
 ## Configuration
 
@@ -84,7 +86,7 @@ Here's the GraphQL Mesh configuration used in this example:
 
 Note: This mesh depends on few variables which need to be provided through `.env`. A [sample env file](./sample.env) has been provided to get started.
 
-### Explanation
+## Explanation
 
 - **sources**: Defines the GraphQL API to be included in the mesh. In this example, we are using the Adobe Commerce GraphQL endpoint and Adobe Commerce Catalog endpoint.
 - **transforms**:
