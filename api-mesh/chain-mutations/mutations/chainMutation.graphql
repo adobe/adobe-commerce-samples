@@ -1,0 +1,25 @@
+mutation chainMutation(
+  $cartId: String!
+  $product: CartItemInput!
+) {
+  addProductsToCartAndSetShippingMethod(
+    cartId: $cartId
+    product: $product
+  ) {
+    cartId
+  }
+}
+
+# Sample Variables
+#
+# {
+#   "cartId": "<USE_CART_ID_FROM_preRequisite.graphql_createEmptyCart_MUTATION>",
+#   "product": {
+#     "sku": "VT02",
+#     "quantity": 1,
+#     "selected_options": [
+#       "Y29uZmlndXJhYmxlLzU0MC8xMDI=",
+#       "Y29uZmlndXJhYmxlLzU3My8xMzI="
+#     ]
+#   }
+# }

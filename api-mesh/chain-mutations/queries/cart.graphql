@@ -1,0 +1,27 @@
+query getCartDetails($cartId: String!) {
+  cart(cart_id: $cartId) {
+    id
+    total_quantity
+    itemsV2 {
+      items {
+        product {
+          name
+          sku
+        }
+        quantity
+      }
+    }
+    shipping_addresses {
+      selected_shipping_method {
+        method_title
+        method_code
+      }
+    }
+  }
+}
+
+# Sample Variables
+
+# {
+#   "cartId": "<USE_CART_ID_FROM_preRequisite.graphql_createEmptyCart_MUTATION>"
+# }

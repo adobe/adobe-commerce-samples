@@ -1,0 +1,16 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}"
+          }
+        }
+      }
+    ],
+    "additionalTypeDefs": "type AddProductsToCartAndSetShippingMethodOutput {\n  cartId: String!\n}\n\nextend type Mutation {\n  addProductsToCartAndSetShippingMethod(\n    cartId: String!\n    product: CartItemInput!\n): AddProductsToCartAndSetShippingMethodOutput\n}\n",
+    "additionalResolvers": ["./resolver.js"]
+  }
+}
