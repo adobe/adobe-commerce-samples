@@ -1,0 +1,35 @@
+mutation ADD_PRODUCTS_TO_CART_MUTATION(
+  $cartId: String!
+  $cartItems: [CartItemInput!]!
+) {
+  addProductsToCart(cartId: $cartId, cartItems: $cartItems) {
+    cart {
+      id
+      total_quantity
+      is_virtual
+      itemsV2 {
+        items {
+          product {
+            name
+            sku
+          }
+        }
+      }
+    }
+    user_errors {
+      code
+      message
+    }
+  }
+}
+
+# Sample Variables:
+#  {
+#     "cartId": "Y8HrBP9pLdVhiWJ6gNyM5WmxjR97S7ra",
+#     "cartItems": [
+#       {
+#         "sku": "24-UG07",
+#         "quantity": 1
+#       }
+#     ]
+#   }

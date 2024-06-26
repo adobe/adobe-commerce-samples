@@ -1,0 +1,119 @@
+# This is an authenticated query. Authentication token needs to be passed in the header to run this query.
+
+query getCustomerWishlist($id: ID!, $currentPage: Int) {
+  customer {
+    wishlist_v2(id: $id) {
+      id
+      items_v2(currentPage: $currentPage) {
+        items {
+          id
+          ...WishlistItemFragment
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+fragment WishlistItemFragment on WishlistItemInterface {
+  id
+  product {
+    uid
+    image {
+      label
+      url
+      __typename
+    }
+    name
+    price_range {
+      maximum_price {
+        final_price {
+          currency
+          value
+          __typename
+        }
+        discount {
+          amount_off
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    sku
+    stock_status
+    ... on ConfigurableProduct {
+      configurable_options {
+        uid
+        attribute_code
+        attribute_id
+        attribute_id_v2
+        label
+        values {
+          uid
+          default_label
+          label
+          store_label
+          use_default_value
+          value_index
+          swatch_data {
+            ... on ImageSwatchData {
+              thumbnail
+              __typename
+            }
+            value
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      variants {
+        attributes {
+          uid
+          code
+          value_index
+          __typename
+        }
+        product {
+          uid
+          stock_status
+          small_image {
+            url
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  ... on ConfigurableWishlistItem {
+    configurable_options {
+      id
+      option_label
+      value_id
+      value_label
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
+
+Sample Variables:
+    {
+    "id":"5841",
+    "currentPage":1
+    }
+
+# Sample Variables:
+
+# {
+#   "id":"5841",
+#   "currentPage":1
+# }
