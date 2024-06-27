@@ -40,3 +40,7 @@ These Admin customizations were traditionally defined in a PHP module, but the p
 ## Usage
 
 After installation and configuration, you can access the custom menus and pages from the Commerce Admin panel.
+
+## More Information
+
+To learn more about the Admin UI SDK menu extension point visit the [Developer docs](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/extension-points/menu/).
