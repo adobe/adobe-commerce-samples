@@ -35,3 +35,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Usage
 
 After installation and configuration, you can access the custom menus and pages from the Commerce Admin panel.
+
+## More Information
+
+To learn more about the Admin UI SDK product grid columns extension point visit the [Developer docs](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/extension-points/product/grid-columns/).

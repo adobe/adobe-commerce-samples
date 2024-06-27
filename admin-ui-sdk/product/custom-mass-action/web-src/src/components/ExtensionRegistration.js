@@ -26,14 +26,14 @@ const init = async () => {
         getMassActions() {
           return [
             {
-              actionId: `${extensionId}::order-mass-action`,
-              label: 'Order Mass Action',
-              type: `${extensionId}.order-mass-action`,
+              actionId: `${extensionId}::product-mass-action`,
+              label: 'Product Mass Action',
+              type: `${extensionId}.product-mass-action`,
               confirm: {
                 title: 'Mass Action',
-                message: 'Are you sure your want to proceed with Mass Action on selected orders?'
+                message: 'Are you sure your want to proceed with Mass Action on selected products?'
               },
-              path: '#/order-mass-action',
+              path: '#/mass-action',
               productSelectLimit: 1
             },
             {
