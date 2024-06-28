@@ -14,8 +14,6 @@ import { Provider, lightTheme } from '@adobe/react-spectrum'
 import { ErrorBoundary } from 'react-error-boundary'
 import { Route, Routes, HashRouter } from 'react-router-dom'
 import ExtensionRegistration from './ExtensionRegistration'
-import { CreateReturn } from '../../../../../order/custom-view-button/web-src/src/components/CreateReturn'
-import { DeleteOrder } from '../../../../../order/custom-view-button/web-src/src/components/DeleteOrder'
 
 function App (props) {
   // use exc runtime event handlers
@@ -34,8 +32,6 @@ function App (props) {
               <Provider theme={lightTheme} colorScheme={'light'}>
                   <Routes>
                       <Route index element={<ExtensionRegistration runtime={props.runtime} ims={props.ims} />} />
-                      <Route path={'create-return'} element={<CreateReturn runtime={props.runtime} ims={props.ims} />} />
-                      <Route path={'delete-order'} element={<DeleteOrder runtime={props.runtime} ims={props.ims} />} />
                   </Routes>
               </Provider>
           </HashRouter>
