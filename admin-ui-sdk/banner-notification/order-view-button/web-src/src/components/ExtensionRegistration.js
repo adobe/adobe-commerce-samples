@@ -20,20 +20,20 @@ const init = async () => {
     const extensionId = 'order-custom-view-button'
 
     await register({
-        id: extensionId,
+        id: 'banner-notification-order-custom-view-button',
         methods: {
             bannerNotification: {
                 getOrderViewButtons() {
                     return [
                         {
                             buttonId: `${extensionId}::delete-order`,
-                            successMessage: 'Yay it works',
-                            errorMessage: 'BOO it failed'
+                            successMessage: 'Custom success message',
+                            errorMessage: 'Custom error message'
                         },
                         {
                             buttonId: `${extensionId}::create-return`,
-                            successMessage: 'Yay it works',
-                            errorMessage: 'BOO it failed'
+                            successMessage: 'Custom success message',
+                            errorMessage: 'Custom error message'
                         }
                     ]
                 }

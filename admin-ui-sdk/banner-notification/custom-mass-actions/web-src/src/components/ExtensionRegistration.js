@@ -20,7 +20,7 @@ const init = async () => {
     const productExtensionId = 'product-custom-mass-action'
 
     await register({
-        id: orderExtensionId,
+        id: 'banner-notification-custom-mass-action',
         methods: {
             bannerNotification: {
                 getMassActions() {
@@ -28,29 +28,17 @@ const init = async () => {
                         order: [
                             {
                                 actionId: `${orderExtensionId}::second-mass-action`,
-                                successMessage: 'Yay it works',
-                                errorMessage: 'BOO it failed'
+                                successMessage: 'Custom success message',
+                                errorMessage: 'Custom error message'
                             }
                         ],
-                    }
-                }
-            }
-        }
-    })
-
-    await register({
-        id: productExtensionId,
-        methods: {
-            bannerNotification: {
-                getMassActions() {
-                    return {
                         product: [
                             {
                                 actionId: `${productExtensionId}::second-mass-action`,
-                                successMessage: 'Yay it works',
-                                errorMessage: 'BOO it failed'
+                                successMessage: 'Custom success message',
+                                errorMessage: 'Custom error message'
                             }
-                        ],
+                        ]
                     }
                 }
             }
