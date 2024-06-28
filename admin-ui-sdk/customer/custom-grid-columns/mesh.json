@@ -1,0 +1,23 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "data",
+        "handler": {
+          "JsonSchema": {
+            "baseUrl": "",
+            "operations": [
+              {
+                "type": "Query",
+                "field": "customers",
+                "path": "/get-customer-grid-columns",
+                "method": "GET",
+                "responseSchema": "./schema_customers.json"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
