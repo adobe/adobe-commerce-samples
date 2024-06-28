@@ -1,0 +1,8 @@
+{
+  "name": "order-custom-fees",
+  "displayName": "Adobe Commerce order custom fees",
+  "description": "Adobe Commerce order custom fees when creating an order",
+  "platform": "web",
+  "id": "order-custom-fees",
+  "version": "1.0.0"
+}

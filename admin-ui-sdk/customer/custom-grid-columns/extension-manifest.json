@@ -1,0 +1,8 @@
+{
+  "name": "customer-custom-grid-columns",
+  "displayName": "Adobe Commerce customer grid custom columns",
+  "description": "Adobe Commerce customer grid custom columns in admin panel",
+  "platform": "web",
+  "id": "customer-custom-grid-columns",
+  "version": "1.0.0"
+}
