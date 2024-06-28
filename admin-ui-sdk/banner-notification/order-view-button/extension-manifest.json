@@ -1,0 +1,8 @@
+{
+    "name": "banner-notification-order-custom-view-button",
+    "displayName": "Adobe Commerce banner notification order custom view button",
+    "description": "Adobe Commerce banner notification order custom view button",
+    "platform": "web",
+    "id": "banner-notification-order-custom-view-button",
+    "version": "1.0.0"
+}
