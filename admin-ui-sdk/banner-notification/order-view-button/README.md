@@ -12,6 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
  
+-  Admin UI SDK 1.4.0+
 - Order custom view button extension point registered.
 - Adobe Commerce instance with IMS module installed and enabled.
 - Adobe Commerce Admin UI SDK installed and enabled.

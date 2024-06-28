@@ -16,6 +16,7 @@ export default function ExtensionRegistration() {
 }
 
 const init = async () => {
+
     const orderExtensionId = 'order-custom-mass-action'
     const productExtensionId = 'product-custom-mass-action'
 

@@ -38,6 +38,6 @@
         "e2e": "jest --collectCoverage=false --testRegex ./e2e"
     },
     "engines": {
-        
+        "node": "^16.13 || >=18"
     }
 }

@@ -12,6 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
 
+- Admin UI SDK 1.4.0+
 - Product and/or Order Mass Action extension point registered. 
 - Adobe Commerce instance with IMS module installed and enabled.
 - Adobe Commerce Admin UI SDK installed and enabled.
