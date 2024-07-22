@@ -1,0 +1,8 @@
+{
+    "name": "banner-notification-custom-mass-action",
+    "displayName": "Adobe Commerce banner notification custom mass action",
+    "description": "Adobe Commerce banner norification custom mass action in admin panel",
+    "platform": "web",
+    "id": "banner-notification-custom-mass-action",
+    "version": "1.0.0"
+}
