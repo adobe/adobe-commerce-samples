@@ -28,14 +28,14 @@ const init = async () => {
                     return {
                         order: [
                             {
-                                actionId: `${orderExtensionId}::second-mass-action`,
+                                actionId: `${orderExtensionId}::mass-action-with-redirect`,
                                 successMessage: 'Custom success message',
                                 errorMessage: 'Custom error message'
                             }
                         ],
                         product: [
                             {
-                                actionId: `${productExtensionId}::second-mass-action`,
+                                actionId: `${productExtensionId}::mass-action-with-redirect`,
                                 successMessage: 'Custom success message',
                                 errorMessage: 'Custom error message'
                             }

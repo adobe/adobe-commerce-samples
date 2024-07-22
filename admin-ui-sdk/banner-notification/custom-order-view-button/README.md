@@ -1,4 +1,4 @@
-# Adobe Commerce Order View Button Banner Notification Extension Point
+# Adobe Commerce Custom Order View Button Banner Notification Extension Point
 
 This application demonstrates how to customize Banner Notifications for order view buttons in the Adobe Commerce Admin using the Admin UI SDK.
 

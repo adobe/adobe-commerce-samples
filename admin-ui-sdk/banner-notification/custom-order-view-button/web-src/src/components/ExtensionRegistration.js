@@ -26,7 +26,7 @@ const init = async () => {
                 getOrderViewButtons() {
                     return [
                         {
-                            buttonId: `${extensionId}::delete-order`,
+                            buttonId: `${extensionId}::mass-action-with-redirect`,
                             successMessage: 'Custom success message',
                             errorMessage: 'Custom error message'
                         },
