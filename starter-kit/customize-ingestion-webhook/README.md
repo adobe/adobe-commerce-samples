@@ -1,6 +1,6 @@
 # Customize Event Ingestion Webhook
 
-This sample code shows how to customize the event ingestion webhook provided by the Adobe Commerce integration starter kit.
+This sample code shows how to customize the event [ingestion webhook](https://developer.adobe.com/commerce/extensibility/starter-kit/events/#ingestion-webhook) provided by the Adobe Commerce integration starter kit.
 The customizations implemented in the sample code include:
 - mapping the incoming event name to the event name configured in the external event provider
 - trimming the incoming event data to match the data expected by the external event
