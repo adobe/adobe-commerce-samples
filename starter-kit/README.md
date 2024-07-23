@@ -17,7 +17,7 @@ Use the Adobe Commerce integration starter kit to enrich customer shopping exper
 
 To get started with these samples, follow these steps:
 
-1. Clone the [Adobe Commerce integration starter kit](https://github.com/adobe/commerce-integration-starter-kit) repository
+1. Clone the [Adobe Commerce integration starter kit](https://github.com/adobe/commerce-integration-starter-kit) repository.
    ```bash
    git clone git@github.com:adobe/commerce-integration-starter-kit.git
    ```
