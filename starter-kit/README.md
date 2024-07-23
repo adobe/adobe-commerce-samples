@@ -5,7 +5,7 @@ Each folder serves as a practical example of a particular customization.
 
 ## Overview
 
-Use the Adobe Commerce integration starter kit to enrich your shopping experience and support multichannel, global commerce for B2B, B2C, and hybrid businesses.
+Use the Adobe Commerce integration starter kit to enrich customer shopping experiences and to support multichannel, global commerce for B2B, B2C, and hybrid businesses.
 
 ## Directory Structure
 
