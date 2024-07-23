@@ -25,7 +25,7 @@ To get started with these samples, follow these steps:
    ```bash
    cd commerce-integration-starter-kit
    ```
-3. Override the `commerce-integration-starter-kit` files with the files from the sample you want to use
+3. Override the `commerce-integration-starter-kit` files with the files from the sample you want to use.
    ```bash
    cp -r <path-to-sample-folder>/* .
    ```
