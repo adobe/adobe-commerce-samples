@@ -7,7 +7,7 @@ The customizations implemented in the sample code include:
 
 ## Usage
 
-After installation and configuration, the event ingestion webhook can be activated by running the following command in a terminal
+After installation and configuration, activate the event ingestion webhook by running the following command in a terminal.
 ```bash
 curl --request POST \
   --url https://${PROJECT_NAMESPACE}.adobeioruntime.net/api/v1/web/ingestion/webhook \
