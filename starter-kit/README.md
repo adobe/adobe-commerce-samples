@@ -21,7 +21,7 @@ To get started with these samples, follow these steps:
    ```bash
    git clone git@github.com:adobe/commerce-integration-starter-kit.git
    ```
-2. Navigate to the cloned directory
+2. Navigate to the cloned directory.
    ```bash
    cd commerce-integration-starter-kit
    ```
