@@ -19,7 +19,7 @@ The customizations implemented in the sample code include:
     - no `stock` events
 - Subscribing Commerce to propagate to App Builder only the events of interest to your integration.
 
-To learn more about Adobe Commerce Integration Starter Kit configuration visit the [Complete the configuration](https://developer.adobe.com/commerce/extensibility/starter-kit/create-integration/#complete-the-configuration) Developer docs page.
+[Complete the configuration](https://developer.adobe.com/commerce/extensibility/starter-kit/create-integration/#complete-the-configuration) provides additional information about setting up your integration.
   
 After installation, configuration and deployment
 - Only the runtime actions relevant to the integration you are building will be deployed, and
