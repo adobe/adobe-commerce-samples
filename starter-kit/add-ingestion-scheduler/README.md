@@ -1,6 +1,7 @@
 # Scheduled Ingestion Action
 
-This sample code shows how to create a scheduled ingestion action using the Adobe Commerce integration starter kit.
+This sample code shows how to create a scheduled ingestion action using the Adobe Commerce integration starter kit. 
+It provides an alternative to the event [ingestion webhook](https://developer.adobe.com/commerce/extensibility/starter-kit/events/#ingestion-webhook), practical when the third-party system cannot push events to the starter kit, and a pull mechanism from an event storage has to be used instead.
 
 ## Usage
 
