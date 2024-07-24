@@ -5,7 +5,7 @@ This sample code shows how to customize the registrations and events predefined 
 ## Usage
 
 The customizations implemented in the sample code include:
-- registering only to the events relevant to the integration you are building. For example, the following `scripts/onboarding/config/starter-kit-registrations.json` indicate that your integration is only concerned about
+- Registering only to the events relevant to the integration you are building. For example, the following `scripts/onboarding/config/starter-kit-registrations.json` indicate that your integration is only concerned about
     ```json
       {
           "product": ["commerce"],
@@ -17,7 +17,7 @@ The customizations implemented in the sample code include:
     - `product` and `order` events originating from Commerce
     - `customer` events originating from both systems
     - no `stock` events
-- subscribing Commerce to propagate to App Builder only the events of interest to your integration.
+- Subscribing Commerce to propagate to App Builder only the events of interest to your integration.
 
 To learn more about Adobe Commerce Integration Starter Kit configuration visit the [Complete the configuration](https://developer.adobe.com/commerce/extensibility/starter-kit/create-integration/#complete-the-configuration) Developer docs page.
   
