@@ -64,7 +64,7 @@ async function main (params) {
             }
         }
 
-        // validate data
+        // validate data - add here your validation if needed
 
         // map event name
         const eventType = eventMappings[externalEventPayload.data?.event]
