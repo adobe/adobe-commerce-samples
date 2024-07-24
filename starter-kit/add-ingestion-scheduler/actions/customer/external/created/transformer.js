@@ -17,8 +17,6 @@ governing permissions and limitations under the License.
  * @returns {object} - Returns transformed data object
  */
 function transformData (params) {
-  // @TODO This is a sample implementation. Please adapt based on your needs
-  // @TODO Notice that the attribute_set_id may need to be changed
   return {
     customer: {
       email: params.data.PrimaryContactEmail,
