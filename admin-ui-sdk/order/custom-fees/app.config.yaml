@@ -4,8 +4,19 @@ extensions:
       view:
         - type: web
           impl: index.html
+    actions: actions
     web: web-src
     runtimeManifest:
       packages:
-        CustomMassAction:
+        order-custom-fees:
           license: Apache-2.0
+          actions:
+            registration:
+              function: actions/registration/index.js
+              web: 'yes'
+              runtime: 'nodejs:18'
+              inputs:
+                LOG_LEVEL: debug
+              annotations:
+                require-adobe-auth: false
+                final: true

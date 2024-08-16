@@ -8,13 +8,22 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        CustomGridColumns:
+        product-custom-grid-columns:
           license: Apache-2.0
           actions:
+            registration:
+              function: actions/registration/index.js
+              web: 'yes'
+              runtime: 'nodejs:18'
+              inputs:
+                LOG_LEVEL: debug
+              annotations:
+                require-adobe-auth: false
+                final: true
             get-product-grid-columns:
               function: actions/data/productGridColumns.js
               web: 'yes'
-              runtime: 'nodejs:16'
+              runtime: 'nodejs:18'
               inputs:
                 LOG_LEVEL: debug
               annotations:

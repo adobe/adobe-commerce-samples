@@ -17,30 +17,11 @@ export default function ExtensionRegistration() {
 
 const init = async () => {
 
-  const extensionId = 'order-custom-mass-action'
+  const extensionId = 'order-custom-fees'
 
   await register({
     id: extensionId,
     methods: {
-      order: {
-        getOrderCustomFees() {
-          return [
-            {
-              id: 'test-fee-1',
-              label: 'Test Fee 1',
-              value: 1.00,
-              applyFeeOnLastCreditMemo: false
-            },
-            {
-              id: 'test-fee-2',
-              label: 'Test Fee 2',
-              value: 5.00,
-              orderMinimumAmount: 20,
-              applyFeeOnLastInvoice: true
-            }
-          ]
-        }
-      }
     }
   })
 }

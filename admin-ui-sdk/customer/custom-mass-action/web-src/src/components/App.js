@@ -34,7 +34,7 @@ function App (props) {
               <Provider theme={lightTheme} colorScheme={'light'}>
                   <Routes>
                       <Route index element={<ExtensionRegistration runtime={props.runtime} ims={props.ims} />} />
-                      <Route path={'mass-action'} element={<MassAction runtime={props.runtime} ims={props.ims} />} />
+                      <Route path={'customer-mass-action'} element={<MassAction runtime={props.runtime} ims={props.ims} />} />
                       <Route path={'mass-action-with-redirect'} element={<MassActionWithRedirectOnDone runtime={props.runtime} ims={props.ims} />} />
                   </Routes>
               </Provider>

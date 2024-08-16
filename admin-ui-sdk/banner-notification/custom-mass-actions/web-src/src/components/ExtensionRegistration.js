@@ -17,32 +17,9 @@ export default function ExtensionRegistration() {
 
 const init = async () => {
 
-    const orderExtensionId = 'order-custom-mass-action'
-    const productExtensionId = 'product-custom-mass-action'
-
     await register({
         id: 'banner-notification-custom-mass-action',
         methods: {
-            bannerNotification: {
-                getMassActions() {
-                    return {
-                        order: [
-                            {
-                                actionId: `${orderExtensionId}::mass-action-with-redirect`,
-                                successMessage: 'Custom success message',
-                                errorMessage: 'Custom error message'
-                            }
-                        ],
-                        product: [
-                            {
-                                actionId: `${productExtensionId}::mass-action-with-redirect`,
-                                successMessage: 'Custom success message',
-                                errorMessage: 'Custom error message'
-                            }
-                        ]
-                    }
-                }
-            }
         }
     })
 }

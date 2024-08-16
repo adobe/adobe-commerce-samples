@@ -17,34 +17,11 @@ export default function ExtensionRegistration() {
 
 const init = async () => {
 
-  const extensionId = 'product-custom-mass-action'
+  const extensionId = 'customer-custom-mass-action'
 
   await register({
     id: extensionId,
     methods: {
-      product: {
-        getMassActions() {
-          return [
-            {
-              actionId: `${extensionId}::customer-mass-action`,
-              label: 'Customer Mass Action',
-              type: `${extensionId}.customer-mass-action`,
-              confirm: {
-                title: 'Mass Action',
-                message: 'Are you sure your want to proceed with Mass Action on selected customers?'
-              },
-              path: '#/mass-action',
-              customerSelectLimit: 1
-            },
-            {
-              actionId: `${extensionId}::mass-action-with-redirect`,
-              label: 'Mass Action With Redirect',
-              type: `${extensionId}.mass-action-with-redirect`,
-              path: '#/mass-action-with-redirect'
-            }
-          ]
-        }
-      }
     }
   })
 }

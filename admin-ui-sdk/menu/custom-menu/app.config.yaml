@@ -8,9 +8,18 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        CustomMenu:
+        custom-menu:
           license: Apache-2.0
           actions:
+            registration:
+              function: actions/registration/index.js
+              web: 'yes'
+              runtime: 'nodejs:18'
+              inputs:
+                LOG_LEVEL: debug
+              annotations:
+                require-adobe-auth: false
+                final: true
             commerce-rest-get:
               function: actions/commerce/index.js
               web: 'yes'

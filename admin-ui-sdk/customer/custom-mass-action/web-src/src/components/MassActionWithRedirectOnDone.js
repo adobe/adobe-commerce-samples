@@ -25,7 +25,7 @@ export const MassActionWithRedirectOnDone = () => {
 
     const getGuestConnection = async () => {
         return await attach({
-            id: 'product-custom-mass-action'
+            id: 'customer-custom-mass-action'
         })
     }
 
