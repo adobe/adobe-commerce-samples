@@ -19,7 +19,7 @@ export const useCommerceOrders = props => {
     const fetchCommerceOrders = async () => {
         const commerceOrdersResponse = await callAction(
             props,
-            'commerce-rest-get',
+            'CustomMenu/commerce-rest-get',
             'orders?searchCriteria=all'
         )
         setCommerceOrders(commerceOrdersResponse.error ? [] : commerceOrdersResponse.items)

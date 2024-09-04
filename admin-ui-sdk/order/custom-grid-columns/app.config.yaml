@@ -8,7 +8,7 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        order-custom-grid-columns:
+        admin-ui-sdk:
           license: Apache-2.0
           actions:
             registration:
@@ -20,6 +20,9 @@ extensions:
               annotations:
                 require-adobe-auth: false
                 final: true
+        order-custom-grid-columns:
+          license: Apache-2.0
+          actions:
             get-order-grid-columns:
               function: actions/data/orderGridColumns.js
               web: 'yes'

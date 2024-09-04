@@ -22,7 +22,6 @@ async function main() {
                         {
                             actionId: `${extensionId}::product-mass-action`,
                             label: 'Product Mass Action',
-                            type: `${extensionId}.product-mass-action`,
                             confirm: {
                                 title: 'Mass Action',
                                 message: 'Are you sure your want to proceed with Mass Action on selected products?'
@@ -33,7 +32,6 @@ async function main() {
                         {
                             actionId: `${extensionId}::mass-action-with-redirect`,
                             label: 'Mass Action With Redirect',
-                            type: `${extensionId}.mass-action-with-redirect`,
                             path: '#/mass-action-with-redirect'
                         }
                     ]

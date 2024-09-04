@@ -1,8 +1,8 @@
 {
-  "name": "custom-menu",
+  "name": "CustomMenu",
   "displayName": "Adobe Commerce custom menu",
   "description": "Adobe Commerce custom menu example in admin panel",
   "platform": "web",
-  "id": "custom-menu",
+  "id": "CustomMenu",
   "version": "1.0.0"
 }

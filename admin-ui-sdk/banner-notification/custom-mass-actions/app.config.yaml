@@ -8,7 +8,7 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        banner-notification-custom-mass-action:
+        admin-ui-sdk:
           license: Apache-2.0
           actions:
             registration:

@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 */
 
 async function main() {
-    const extensionId = 'custom-menu'
+    const extensionId = 'CustomMenu'
 
     return {
         statusCode: 200,
@@ -30,7 +30,10 @@ async function main() {
                         isSection: true,
                         sortOrder: 100
                     }
-                ]
+                ],
+                page: {
+                    title: 'Adobe Commerce First App on App Builder'
+                }
             }
         }
     }

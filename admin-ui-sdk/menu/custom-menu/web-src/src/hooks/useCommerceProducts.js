@@ -19,7 +19,7 @@ export const useCommerceProducts = props => {
     const fetchCommerceProducts = async () => {
         const commerceProductsResponse = await callAction(
             props,
-            'commerce-rest-get',
+            'CustomMenu/commerce-rest-get',
             `products?searchCriteria[pageSize]=${props.pageSize}&searchCriteria[currentPage]=${props.currentPage}`
         )
         console.log(commerceProductsResponse)

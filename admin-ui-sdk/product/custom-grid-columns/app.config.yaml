@@ -8,7 +8,7 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        product-custom-grid-columns:
+        admin-ui-sdk:
           license: Apache-2.0
           actions:
             registration:
@@ -20,6 +20,9 @@ extensions:
               annotations:
                 require-adobe-auth: false
                 final: true
+        product-custom-grid-columns:
+          license: Apache-2.0
+          actions:
             get-product-grid-columns:
               function: actions/data/productGridColumns.js
               web: 'yes'
