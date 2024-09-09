@@ -22,36 +22,6 @@ const init = async () => {
   await register({
     id: extensionId,
     methods: {
-      customer: {
-        getGridColumns() {
-          return {
-            data: {
-              meshId: '',
-              apiKey: ''
-            },
-            properties:[
-              {
-                label: 'First App Column',
-                columnId: 'first_column',
-                type: 'string',
-                align: 'left'
-              },
-              {
-                label: 'Second App Column',
-                columnId: 'second_column',
-                type: 'integer',
-                align: 'left'
-              },
-              {
-                label: 'Third App Column',
-                columnId: 'third_column',
-                type: 'date',
-                align: 'left'
-              }
-            ]
-          }
-        }
-      }
     }
   })
 }

@@ -17,27 +17,9 @@ export default function ExtensionRegistration() {
 
 const init = async () => {
 
-    const extensionId = 'order-custom-view-button'
-
     await register({
         id: 'banner-notification-order-custom-view-button',
         methods: {
-            bannerNotification: {
-                getOrderViewButtons() {
-                    return [
-                        {
-                            buttonId: `${extensionId}::mass-action-with-redirect`,
-                            successMessage: 'Custom success message',
-                            errorMessage: 'Custom error message'
-                        },
-                        {
-                            buttonId: `${extensionId}::create-return`,
-                            successMessage: 'Custom success message',
-                            errorMessage: 'Custom error message'
-                        }
-                    ]
-                }
-            }
         }
     }
 )}

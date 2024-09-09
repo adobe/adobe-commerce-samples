@@ -19,33 +19,11 @@ export default function ExtensionRegistration(props) {
 
 const init = async () => {
 
-  const extensionId = 'custommenu'
+  const extensionId = 'custom-menu'
 
   await register({
     id: extensionId,
     methods: {
-      menu: {
-        getItems() {
-          return [
-            {
-              id: `${extensionId}::first`,
-              title: 'First App on App Builder',
-              parent: `${extensionId}::apps`,
-              sortOrder: 1
-            },
-            {
-              id: `${extensionId}::apps`,
-              title: 'Apps',
-              isSection: true
-            }
-          ]
-        }
-      },
-      page: {
-        getTitle() {
-          return 'First App on App Builder'
-        }
-      }
     }
   })
 }

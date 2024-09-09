@@ -7,5 +7,15 @@ extensions:
     web: web-src
     runtimeManifest:
       packages:
-        CustomMassAction:
+        admin-ui-sdk:
           license: Apache-2.0
+          actions:
+            registration:
+              function: actions/registration/index.js
+              web: 'yes'
+              runtime: 'nodejs:18'
+              inputs:
+                LOG_LEVEL: debug
+              annotations:
+                require-adobe-auth: false
+                final: true
