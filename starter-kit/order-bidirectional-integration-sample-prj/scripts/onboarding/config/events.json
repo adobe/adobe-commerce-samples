@@ -1,0 +1,71 @@
+{
+  "order": {
+    "commerce": {
+      "com.adobe.commerce.observer.sales_order_save_commit_after": {
+        "sampleEventTemplate": {
+          "value": {
+            "id": "12",
+            "increment_id": "000000012",
+            "created_at": "2024-08-05 14:34:19",
+            "updated_at": "2024-08-05 14:34:19",
+            "items": [
+              {
+                "item_id": 12,
+                "sku": "SKU-1",
+                "qty_ordered": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    "backoffice": {
+      "be-observer.sales_order_shipment_create": {
+        "sampleEventTemplate": {
+          "id": 8,
+          "items": [{"id": 8, "qty": 1}],
+          "tracks": [{"number": "Custom Value", "carrier": {"title": "Custom Title", "code": "custom"}}],
+          "comment": "Order Shipped in Backoffice",
+          "inventoryCode": "default"
+        }
+      },
+      "be-observer.sales_order_shipment_update": {
+        "sampleEventTemplate": {
+          "id": 33,
+          "orderId": 8,
+          "items": [
+            {
+              "entityId": 19,
+              "orderItemId": 8,
+              "qty": 1
+            }
+          ],
+          "tracks": [
+            {
+              "entityId": 19,
+              "trackNumber": "Custom Value Upd",
+              "title": "Custom Title Upd",
+              "carrierCode": "custom"
+            }
+          ],
+          "comments": [
+            {
+              "entityId": 19,
+              "notifyCustomer": false,
+              "comment": "Order Shipment Updated in Backoffice",
+              "visibleOnFront": true
+            }
+          ],
+          "stockSourceCode": "default"
+        }
+      }
+    },
+    "email": {
+      "email.sales_order.created": {
+        "sampleEventTemplate": {
+          "orderId": "000000060"
+        }
+      }
+    }
+  }
+}

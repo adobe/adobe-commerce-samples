@@ -1,0 +1,30 @@
+[
+  {
+    "event": {
+      "name": "observer.sales_order_save_commit_after",
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "increment_id"
+        },
+        {
+          "name": "created_at"
+        },
+        {
+          "name": "updated_at"
+        },
+        {
+          "name": "items[].item_id"
+        },
+        {
+          "name": "items[].sku"
+        },
+        {
+          "name": "items[].qty_ordered"
+        }
+      ]
+    }
+  }
+]
