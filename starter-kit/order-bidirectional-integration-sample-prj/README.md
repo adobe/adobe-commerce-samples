@@ -6,7 +6,8 @@ The project includes the following features:
 - Integration of the order entity between Adobe Commerce and a mock third-party back-office system.
 - Integration of an email notification system to send an email when an order is created in Adobe Commerce.
 
-The code was used in this Integration Starter Kit for Adobe Commerce video tutorial:
+The code was used in this Adobe Developer's Integration Starter Kit for Adobe Commerce session:
+
 [![Integration Starter Kit for Adobe Commerce](https://img.youtube.com/vi/PQvdt7DrO7I/0.jpg)](https://www.youtube.com/watch?v=PQvdt7DrO7I)
 
 The starter kit public documentation can be found at [Adobe Developer Starter Kit docs](https://developer.adobe.com/commerce/extensibility/starter-kit/)…
