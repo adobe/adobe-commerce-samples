@@ -1,11 +1,5 @@
 # Order Bidirectional Integration Sample Project
 
-  
-* [Prerequisites](#prerequisites)
-* [Starter Kit first deploy & onboarding](#starter-kit-first-deploy--onboarding)
-* [Development](#development)
-* [References](#references)
-
 Sample code for a starter kit based project that demonstrates how to integrate Adobe Commerce with a mock third-party back-office system.
 
 The project includes the following features:
@@ -16,6 +10,11 @@ The code was used in this Integration Starter Kit for Adobe Commerce video tutor
 [![Integration Starter Kit for Adobe Commerce](https://img.youtube.com/vi/PQvdt7DrO7I/0.jpg)](https://www.youtube.com/watch?v=PQvdt7DrO7I)
 
 The starter kit public documentation can be found at [Adobe Developer Starter Kit docs](https://developer.adobe.com/commerce/extensibility/starter-kit/)…
+  
+* [Prerequisites](#prerequisites)
+* [Starter Kit first deploy & onboarding](#starter-kit-first-deploy--onboarding)
+* [Development](#development)
+* [References](#references)
 
 ## Prerequisites
 
@@ -34,11 +33,9 @@ Go to the [Adobe developer console](https://developer.adobe.com/console) portal
 ### Configure a new Integration in commerce
 Configure a new Integration to secure the calls to Commerce from App Builder using OAuth by following these steps:
 - In the Commerce Admin, navigate to System > Extensions > Integrations.
-- Click the `Add New Integration` button. The following screen displays
-  ![Alt text](docs/new-integration.png "New Integration")
+- Click the `Add New Integration` button.
 - Give the integration a name. The rest of the fields can be left blank.
 - Select API on the left and grant access to all the resources.
-  ![Alt text](docs/integration-all-apis-access.png "New Integration")
 - Click Save.
 - In the list of integrations, activate your integration.
 - To configure the starter kit, you will need the integration details (consumer key, consumer secret, access token, and access token secret).
@@ -84,8 +81,7 @@ Run the following command to deploy the project; this will deploy the runtime ac
 ```bash
 aio app deploy
 ```
-You can confirm the success of the deployment in the Adobe Developer Console by navigating to the `Runtime` section on your workspace:
-![Alt text](docs/console-user-defined-actions.png "Workspace runtimes packages")
+You can confirm the success of the deployment in the Adobe Developer Console by navigating to the `Runtime` section on your workspace.
 
 ### Onboarding
 
@@ -124,8 +120,7 @@ Process of On-Boarding done successfully: [
 ]
 
 ```
-Check your App developer console to confirm the creation of the registrations:
-![Alt text](docs/console-event-registrations.png "Workspace registrations")
+Check your App developer console to confirm the creation of the registrations.
 
 
 ### Complete the Adobe Commerce eventing configuration
@@ -139,8 +134,7 @@ You will configure your Adobe Commerce instance to send events to your App build
 
 #### Configure Adobe I/O Events in Adobe Commerce instance
 To configure the provider in Commerce, do the following:
-- In the Adobe Commerce Admin, navigate to Stores > Settings > Configuration > Adobe Services > Adobe I/O Events > General configuration. The following screen displays.
-  ![Alt text](docs/commerce-events-configuration.webp "Commerce eventing configuration")
+- In the Adobe Commerce Admin, navigate to Stores > Settings > Configuration > Adobe Services > Adobe I/O Events > General configuration
 - Select `OAuth (Recommended)` from the `Adobe I/O Authorization Type` menu.
 - Copy the contents of the `<workspace-name>.json` (Workspace configuration JSON you downloaded in the previous step [`Create app builder project`](#create-app-builder-project)) into the `Adobe I/O Workspace Configuration` field.
 - Copy the commerce provider instance ID you saved in the previous step [`Execute the onboarding](#execute-the-onboarding) into the `Adobe Commerce Instance ID` field.
