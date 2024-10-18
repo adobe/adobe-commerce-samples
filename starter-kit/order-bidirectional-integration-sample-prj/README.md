@@ -10,7 +10,7 @@ The code was used in this Adobe Developer's Integration Starter Kit for Adobe Co
 
 [![Integration Starter Kit for Adobe Commerce](https://img.youtube.com/vi/PQvdt7DrO7I/0.jpg)](https://www.youtube.com/watch?v=PQvdt7DrO7I)
 
-The starter kit public documentation can be found at [Adobe Developer Starter Kit docs](https://developer.adobe.com/commerce/extensibility/starter-kit/)…
+The starter kit public documentation can be found at [Adobe Developer Starter Kit docs](https://developer.adobe.com/commerce/extensibility/starter-kit/).
   
 * [Prerequisites](#prerequisites)
 * [Starter Kit first deploy & onboarding](#starter-kit-first-deploy--onboarding)
