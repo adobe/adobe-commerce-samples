@@ -14,9 +14,7 @@ The project includes the following features:
 
 The code was used in this Integration Starter Kit for Adobe Commerce video tutorial:
 
-```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PQvdt7DrO7I?si=u0pu_YwXeHDskH7R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-```
 
 The starter kit public documentation can be found at [Adobe Developer Starter Kit docs](https://developer.adobe.com/commerce/extensibility/starter-kit/)…
 
