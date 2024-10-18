@@ -13,8 +13,7 @@ The project includes the following features:
 - Integration of an email notification system to send an email when an order is created in Adobe Commerce.
 
 The code was used in this Integration Starter Kit for Adobe Commerce video tutorial:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PQvdt7DrO7I?si=u0pu_YwXeHDskH7R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Integration Starter Kit for Adobe Commerce](https://img.youtube.com/vi/PQvdt7DrO7I/0.jpg)](https://www.youtube.com/watch?v=PQvdt7DrO7I)
 
 The starter kit public documentation can be found at [Adobe Developer Starter Kit docs](https://developer.adobe.com/commerce/extensibility/starter-kit/)…
 
