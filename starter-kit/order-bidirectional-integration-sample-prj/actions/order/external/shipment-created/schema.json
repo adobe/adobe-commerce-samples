@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type":  "number" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type":  "number" },
+          "qty": { "type":  "number" }
+        },
+        "required": ["id", "qty"],
+        "additionalProperties": false
+      }
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": { "type":  "string" },
+          "carrier": {
+              "type": "object",
+              "properties": {
+              "title": { "type":  "string" },
+              "code": { "type":  "string" }
+              },
+              "required": ["title", "code"],
+              "additionalProperties": false
+          }
+        },
+        "required": ["number", "carrier"],
+        "additionalProperties": false
+      }
+    },
+    "comment" : {
+        "type": "string"
+    },
+    "inventoryCode": { "type":  "string" }
+  },
+  "required": ["id", "items", "tracks", "comment", "inventoryCode"],
+  "additionalProperties": false
+}

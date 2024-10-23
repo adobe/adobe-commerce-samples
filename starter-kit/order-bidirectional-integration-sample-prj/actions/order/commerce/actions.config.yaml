@@ -1,0 +1,34 @@
+consumer:
+  function: consumer/index.js
+  web: 'no'
+  runtime: nodejs:20
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: true
+    final: true
+created:
+  function: created/index.js
+  web: 'no'
+  runtime: nodejs:20
+  inputs:
+    LOG_LEVEL: debug
+    OMS_API_BASE_URL: $OMS_API_BASE_URL
+    OAUTH_CLIENT_ID: $OAUTH_CLIENT_ID
+    OAUTH_CLIENT_SECRET: $OAUTH_CLIENT_SECRET
+    OAUTH_TECHNICAL_ACCOUNT_ID: $OAUTH_TECHNICAL_ACCOUNT_ID
+    OAUTH_TECHNICAL_ACCOUNT_EMAIL: $OAUTH_TECHNICAL_ACCOUNT_EMAIL
+    OAUTH_ORG_ID: $OAUTH_ORG_ID
+    EMAIL_PROVIDER_ID: $EMAIL_PROVIDER_ID
+  annotations:
+    require-adobe-auth: true
+    final: true
+updated:
+  function: updated/index.js
+  web: 'no'
+  runtime: nodejs:20
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: true
+    final: true
