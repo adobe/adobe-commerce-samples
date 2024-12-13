@@ -1,0 +1,37 @@
+operations:
+  view:
+    - type: web
+      impl: index.html
+actions: actions
+web: web-src
+runtimeManifest:
+  packages:
+    admin-ui-sdk:
+      license: Apache-2.0
+      actions:
+        registration:
+          function: actions/registration/index.js
+          web: 'yes'
+          runtime: 'nodejs:18'
+          inputs:
+            LOG_LEVEL: debug
+          annotations:
+            require-adobe-auth: false
+            final: true
+    CustomMenu:
+      license: Apache-2.0
+      actions:
+        commerce-rest-get:
+          function: actions/commerce/index.js
+          web: 'yes'
+          runtime: 'nodejs:16'
+          inputs:
+            LOG_LEVEL: debug
+            COMMERCE_BASE_URL: $COMMERCE_BASE_URL
+            COMMERCE_CONSUMER_KEY: $COMMERCE_CONSUMER_KEY
+            COMMERCE_CONSUMER_SECRET: $COMMERCE_CONSUMER_SECRET
+            COMMERCE_ACCESS_TOKEN: $COMMERCE_ACCESS_TOKEN
+            COMMERCE_ACCESS_TOKEN_SECRET: $COMMERCE_ACCESS_TOKEN_SECRET
+          annotations:
+            require-adobe-auth: false
+            final: true
