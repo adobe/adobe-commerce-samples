@@ -18,8 +18,7 @@ async function main() {
                 product: {
                     gridColumns: {
                         data: {
-                            meshId: '',
-                            apiKey: ''
+                            meshId: ''
                         },
                         properties:[
                             {

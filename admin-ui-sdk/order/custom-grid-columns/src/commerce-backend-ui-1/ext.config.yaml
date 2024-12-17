@@ -16,7 +16,7 @@ runtimeManifest:
           inputs:
             LOG_LEVEL: debug
           annotations:
-            require-adobe-auth: false
+            require-adobe-auth: true
             final: true
     order-custom-grid-columns:
       license: Apache-2.0
@@ -28,5 +28,5 @@ runtimeManifest:
           inputs:
             LOG_LEVEL: debug
           annotations:
-            require-adobe-auth: false
+            require-adobe-auth: true
             final: true

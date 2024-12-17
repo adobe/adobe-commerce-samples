@@ -18,8 +18,7 @@ async function main() {
                 order: {
                     gridColumns: {
                         data: {
-                            meshId: '',
-                            apiKey: ''
+                            meshId: ''
                         },
                         properties:[
                             {
