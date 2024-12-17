@@ -6,11 +6,15 @@
         "handler": {
           "JsonSchema": {
             "baseUrl": "",
+            "operationHeaders": {
+              "Authorization": "Bearer {context.headers['x-ims-token']}",
+              "x-gw-ims-org-id": "{context.headers['x-gw-ims-org-id']}"
+            },
             "operations": [
               {
                 "type": "Query",
                 "field": "customers",
-                "path": "/get-customer-grid-columns",
+                "path": "/get-customer-grid-columns?ids={args.ids}",
                 "method": "GET",
                 "responseSchema": "./schema_customers.json"
               }

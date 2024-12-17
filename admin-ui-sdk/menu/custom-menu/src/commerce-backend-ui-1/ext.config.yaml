@@ -16,7 +16,7 @@ runtimeManifest:
           inputs:
             LOG_LEVEL: debug
           annotations:
-            require-adobe-auth: false
+            require-adobe-auth: true
             final: true
     CustomMenu:
       license: Apache-2.0
@@ -24,7 +24,7 @@ runtimeManifest:
         commerce-rest-get:
           function: actions/commerce/index.js
           web: 'yes'
-          runtime: 'nodejs:16'
+          runtime: 'nodejs:18'
           inputs:
             LOG_LEVEL: debug
             COMMERCE_BASE_URL: $COMMERCE_BASE_URL

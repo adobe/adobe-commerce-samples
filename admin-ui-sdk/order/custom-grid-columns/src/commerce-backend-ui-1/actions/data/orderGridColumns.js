@@ -10,7 +10,9 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-export async function main() {
+export async function main(params) {
+
+    const selectedIds = params.ids ? params.ids.split(',') : [];
 
     const orderGridColumns = {
         "orderGridColumns": {
@@ -33,12 +35,33 @@ export async function main() {
                 "first_column": "value_1",
                 "second_column": 1,
                 "third_column": "2011-10-02T23:25:42+0000"
+            },
+            "*": {
+                "first_column": "Default value first column",
+                "second_column": 0
             }
         }
     }
 
+    if (selectedIds.length === 0) {
+        return {
+            statusCode: 200,
+            body: orderGridColumns,
+        }
+    }
+
+    const filteredColumns = {
+        "orderGridColumns": {}
+    }
+    selectedIds.forEach(id => {
+        if (orderGridColumns.orderGridColumns[id]) {
+            filteredColumns.orderGridColumns[id] = orderGridColumns.orderGridColumns[id]
+        }
+    })
+    filteredColumns.orderGridColumns['*'] = orderGridColumns.orderGridColumns['*']
+
     return {
         statusCode: 200,
-        body: orderGridColumns,
+        body: filteredColumns
     }
 }
