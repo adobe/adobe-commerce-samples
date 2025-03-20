@@ -1,0 +1,38 @@
+{
+	"meshConfig": {
+		"sources": [
+			{
+				"name": "AdobeCommerceAPI",
+				"handler": {
+					"graphql": {
+						"endpoint": "{{env.COMMERCE_ENDPOINT}}"
+					}
+				}
+			},
+			{
+				"name": "EventsAPI",
+				"handler": {
+					"JsonSchema": {
+						"baseUrl": "https://eventsingress.adobe.io",
+						"operationHeaders": {
+							"x-api-key": "{{env.API_KEY}}",
+							"Authorization": "Bearer {{env.BEARER_TOKEN}}",
+							"Content-Type": "application/cloudevents+json",
+							"x-event-phidata": "{{env.IS_PHI_DATA}}"	
+						},
+						"operations": [
+							{
+								"type": "Mutation",
+								"field": "sendEvent",
+								"method": "POST",
+								"path": "/",
+								"requestSchema": "./request-schema.json",
+								"responseTypeName": "GetDataResponse"
+							}
+						]
+					}
+				}
+			}
+		]
+	}
+}
