@@ -1,0 +1,17 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}"
+          }
+        }
+      }
+    ],
+    "responseConfig": {
+      "cache": true
+    }
+  }
+}
