@@ -5,7 +5,23 @@
         "name": "Commerce",
         "handler": {
           "graphql": {
-            "endpoint": "{{env.COMMERCE_ENDPOINT}}"
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}",
+            "useGETForQueries": true,
+            "operationHeaders": {
+              "Content-Type": "application/json",
+              "Magento-Environment-Id": "{context.headers['magento-environment-id']}",
+              "Magento-Website-Code": "{context.headers['magento-website-code']}",
+              "Magento-Store-View-Code": "{context.headers['magento-store-view-code']}",
+              "Magento-Store-Code": "{context.headers['magento-store-code']}",
+              "Magento-Customer-Group": "{context.headers['magento-customer-group']}",
+              "x-api-key": "{context.headers['x-api-key']}",
+              "Authorization": "context.headers['Authorization']"
+            }
+          }
+        },
+        "responseConfig": {
+          "cache": {
+            "cacheControl": "public, max-age=120"
           }
         }
       }
