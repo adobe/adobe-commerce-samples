@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "datacontenttype": { "type": "string", "default": "application/json" },
+        "specversion": { "type": "string", "default": "1.0" },
+        "source": { "type": "string", "description": "urn:uuid:{provider_id}" },
+        "type": { "type": "string", "description": "{event_code} is the Custom Events Provider's Event Metadata's event_code as persisted using Adobe I/O Events Provider API" },
+        "id": { "type": "string", "description": "{event_id} is any id of your choice (examples: UUID, event counter) guaranteeing that source + id is unique for each distinct event" },
+        "data": { "type": "string" },
+        "customattribute": { "type": "string", "default": "cloud events custom extension" }
+    },
+    "required": ["type", "id", "data", "source"]
+}
