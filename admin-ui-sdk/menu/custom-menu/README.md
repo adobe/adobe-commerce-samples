@@ -18,13 +18,14 @@ These Admin customizations were traditionally defined in a PHP module, but the p
 - Adobe Commerce Admin UI SDK installed and enabled.
 - Developer console access to the organization on App Builder.
 - App Builder project created.
+- **Create an Adobe Commerce Integration for `.env` Credentials:** Follow the steps outlined in the [Adobe Commerce integration guide](https://developer.adobe.com/commerce/extensibility/starter-kit/integration/create-integration/#paas-or-saas)  
 
 ## Installation
 
 - Run `npm install` to install the dependencies
 - Run `aio auth:login` to login to your Adobe I/O account
 - Run `aio app use` (select the correct project and workspace)
-- Append .env file with the following values:
+- Append `.env` file with the following values:
   - `COMMERCE_BASE_URL=`
   - `COMMERCE_CONSUMER_KEY=`
   - `COMMERCE_CONSUMER_SECRET=`
