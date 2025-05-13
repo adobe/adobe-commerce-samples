@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-async function main() {
+async function main(params) {
     return {
         statusCode: 200,
         body: {
@@ -18,7 +18,7 @@ async function main() {
                 product: {
                     gridColumns: {
                         data: {
-                            meshId: ''
+                            meshId: params.MESH_ID,
                         },
                         properties:[
                             {

@@ -27,16 +27,19 @@ export const MainPage = props => {
         setSelectedTab(selectedTabKey)
     }
 
+    const imsToken = props?.guestConnection?.sharedContext?.get('imsToken')
+    const imsOrgId = props?.guestConnection?.sharedContext?.get('imsOrgId')
+
     const tabs = [
         {
             id: 1,
             name: 'Orders',
-            children: <Orders runtime={props.runtime} ims={props.ims} />
+            children: <Orders imsToken={imsToken} imsOrgId={imsOrgId} />
         },
         {
             id: 2,
             name: 'Products',
-            children: <Products runtime={props.runtime} ims={props.ims} />
+            children: <Products imsToken={imsToken} imsOrgId={imsOrgId} />
         }
     ]
 

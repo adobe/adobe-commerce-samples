@@ -12,11 +12,11 @@ runtimeManifest:
         registration:
           function: actions/registration/index.js
           web: 'yes'
-          runtime: 'nodejs:18'
+          runtime: 'nodejs:20'
           inputs:
             LOG_LEVEL: debug
           annotations:
-            require-adobe-auth: true
+            require-adobe-auth: false
             final: true
     CustomMenu:
       license: Apache-2.0
@@ -24,7 +24,7 @@ runtimeManifest:
         commerce-rest-get:
           function: actions/commerce/index.js
           web: 'yes'
-          runtime: 'nodejs:18'
+          runtime: 'nodejs:20'
           inputs:
             LOG_LEVEL: debug
             COMMERCE_BASE_URL: $COMMERCE_BASE_URL
@@ -33,5 +33,5 @@ runtimeManifest:
             COMMERCE_ACCESS_TOKEN: $COMMERCE_ACCESS_TOKEN
             COMMERCE_ACCESS_TOKEN_SECRET: $COMMERCE_ACCESS_TOKEN_SECRET
           annotations:
-            require-adobe-auth: false
+            require-adobe-auth: true
             final: true

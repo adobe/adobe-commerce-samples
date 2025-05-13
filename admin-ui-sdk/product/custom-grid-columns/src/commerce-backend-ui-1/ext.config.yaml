@@ -15,6 +15,7 @@ runtimeManifest:
           runtime: 'nodejs:18'
           inputs:
             LOG_LEVEL: debug
+            MESH_ID: $MESH_ID
           annotations:
             require-adobe-auth: true
             final: true
