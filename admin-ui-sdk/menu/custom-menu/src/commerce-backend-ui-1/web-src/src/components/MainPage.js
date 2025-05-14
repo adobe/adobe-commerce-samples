@@ -50,8 +50,8 @@ export const MainPage = props => {
             onSelectionChange={onSelectionTabChange}
             margin={10}
         >
-            <TabList>{item => <Item key={item.id}>{item.name}</Item>}</TabList>
-            <TabPanels>{item => <Item key={item.id}>{item.children}</Item>}</TabPanels>
+            <TabList>{item => <Item>{item.name}</Item>}</TabList>
+            <TabPanels>{item => <Item>{item.children}</Item>}</TabPanels>
         </Tabs>
     )
 }
