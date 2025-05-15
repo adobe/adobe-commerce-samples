@@ -11,30 +11,22 @@ governing permissions and limitations under the License.
 */
 import { register } from '@adobe/uix-guest'
 import { MainPage } from './MainPage'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export default function ExtensionRegistration(props) {
-
-  const [guestConnection, setGuestConnection] = useState(null)
 
   useEffect(() => {
     (async () => {
       const extensionId = 'CustomMenu'
 
-      const guestConnection = await register({
+      await register({
         id: extensionId,
         methods: {
         }
       })
 
-      setGuestConnection(guestConnection)
-
     })()
   }, [])
 
-  if(!guestConnection) {
-    return
-  }
-
-  return <MainPage runtime={props.runtime} ims={props.ims} guestConnection={guestConnection} />
+  return <MainPage runtime={props.runtime} />
 }
