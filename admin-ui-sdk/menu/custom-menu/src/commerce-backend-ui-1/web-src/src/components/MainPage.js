@@ -11,47 +11,74 @@ governing permissions and limitations under the License.
 */
 import {
     Item,
+    Flex,
+    ProgressCircle,
     TabList,
     TabPanels,
-    Tabs
+    Tabs,
+    View
 } from '@adobe/react-spectrum'
+import { attach } from '@adobe/uix-guest'
 import { Orders } from './Orders'
 import { Products } from './Products'
 import { useState } from 'react'
 
-export const MainPage = props => {
+export const MainPage = () => {
 
+    const [isLoading, setIsLoading] = useState(true)
     const [selectedTab, setSelectedTab] = useState(1)
+    const [imsToken, setImsToken] = useState(null)
+    const [imsOrgId, setImsOrgId] = useState(null)
 
     const onSelectionTabChange = selectedTabKey => {
         setSelectedTab(selectedTabKey)
     }
 
+    const getGuestConnection = async () => {
+        return await attach({
+            id: 'CustomMenu'
+        })
+    }
+
+    getGuestConnection().then((guestConnection) => {
+        setImsToken(guestConnection?.sharedContext?.get('imsToken'))
+        setImsOrgId(guestConnection?.sharedContext?.get('imsOrgId'))
+        setIsLoading(false)
+    })
+
     const tabs = [
         {
             id: 1,
             name: 'Orders',
-            children: <Orders runtime={props.runtime} ims={props.ims} />
+            children: <Orders imsToken={imsToken} imsOrgId={imsOrgId} />
         },
         {
             id: 2,
             name: 'Products',
-            children: <Products runtime={props.runtime} ims={props.ims} />
+            children: <Products imsToken={imsToken} imsOrgId={imsOrgId} />
         }
     ]
 
     return (
-        <Tabs
-            aria-label="Commerce data"
-            items={tabs}
-            orientation="horizontal"
-            isEmphasized={true}
-            selectedKey={selectedTab}
-            onSelectionChange={onSelectionTabChange}
-            margin={10}
-        >
-            <TabList>{item => <Item key={item.id}>{item.name}</Item>}</TabList>
-            <TabPanels>{item => <Item key={item.id}>{item.children}</Item>}</TabPanels>
-        </Tabs>
+        <View>
+            {isLoading ? (
+                <Flex alignItems="center" justifyContent="center" height="100vh">
+                    <ProgressCircle size="L" aria-label="Loading…" isIndeterminate />
+                </Flex>
+            ) : (
+                <Tabs
+                    aria-label="Commerce data"
+                    items={tabs}
+                    orientation="horizontal"
+                    isEmphasized={true}
+                    selectedKey={selectedTab}
+                    onSelectionChange={onSelectionTabChange}
+                    margin={10}
+                >
+                    <TabList>{item => <Item key={item.id}>{item.name}</Item>}</TabList>
+                    <TabPanels>{item => <Item key={item.id}>{item.children}</Item>}</TabPanels>
+                </Tabs>
+            )}
+        </View>
     )
 }

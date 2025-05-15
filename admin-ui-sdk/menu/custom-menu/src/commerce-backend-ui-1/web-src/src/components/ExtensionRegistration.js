@@ -11,19 +11,22 @@ governing permissions and limitations under the License.
 */
 import { register } from '@adobe/uix-guest'
 import { MainPage } from './MainPage'
+import { useEffect } from 'react'
 
 export default function ExtensionRegistration(props) {
-  init().catch(console.error)
-  return <MainPage runtime={props.runtime} ims={props.ims} />
-}
 
-const init = async () => {
+  useEffect(() => {
+    (async () => {
+      const extensionId = 'CustomMenu'
 
-  const extensionId = 'custom-menu'
+      await register({
+        id: extensionId,
+        methods: {
+        }
+      })
 
-  await register({
-    id: extensionId,
-    methods: {
-    }
-  })
+    })()
+  }, [])
+
+  return <MainPage runtime={props.runtime} />
 }
