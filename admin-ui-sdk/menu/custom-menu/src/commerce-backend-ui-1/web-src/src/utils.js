@@ -15,8 +15,8 @@ export async function callAction(props, action, operation, body = {}) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-gw-ims-org-id': props.imsOrgId,
-      'authorization': `Bearer ${props.imsToken}`
+      'x-gw-ims-org-id': props.ims.org,
+      'authorization': `Bearer ${props.ims.token}`
     },
     body: JSON.stringify({
       operation,

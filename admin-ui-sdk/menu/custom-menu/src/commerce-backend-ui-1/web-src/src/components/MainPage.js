@@ -24,7 +24,7 @@ import { Products } from './Products'
 import { useState } from 'react'
 import { extensionId } from './Constants'
 
-export const MainPage = (props) => {
+export const MainPage = props => {
 
     const [isLoading, setIsLoading] = useState(false)
     const [selectedTab, setSelectedTab] = useState(1)
@@ -50,12 +50,12 @@ export const MainPage = (props) => {
         {
             id: 1,
             name: 'Orders',
-            children: <Orders imsToken={imsToken} imsOrgId={imsOrgId} />
+            children: <Orders runtime={props.runtime} ims={props.ims} />
         },
         {
             id: 2,
             name: 'Products',
-            children: <Products imsToken={imsToken} imsOrgId={imsOrgId} />
+            children: <Products runtime={props.runtime} ims={props.ims} />
         }
     ]
 
