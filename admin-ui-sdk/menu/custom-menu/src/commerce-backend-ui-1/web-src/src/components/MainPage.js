@@ -22,29 +22,29 @@ import { attach } from '@adobe/uix-guest'
 import { Orders } from './Orders'
 import { Products } from './Products'
 import { useState } from 'react'
+import { extensionId } from './Constants'
 
-export const MainPage = () => {
+export const MainPage = (props) => {
 
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [selectedTab, setSelectedTab] = useState(1)
-    const [imsToken, setImsToken] = useState(null)
-    const [imsOrgId, setImsOrgId] = useState(null)
 
     const onSelectionTabChange = selectedTabKey => {
         setSelectedTab(selectedTabKey)
     }
 
-    const getGuestConnection = async () => {
-        return await attach({
-            id: 'CustomMenu'
-        })
-    }
+    useEffect(() => {
+        const fetchCredentials = async () => {
+            if (!props.ims.token) {
+                const guestConnection = await attach({ id: extensionId });
+                props.ims.token = guestConnection?.sharedContext?.get('imsToken');
+                props.ims.org = guestConnection?.sharedContext?.get('imsOrgId');
+            }
+            setIsLoading(false);
+        };
 
-    getGuestConnection().then((guestConnection) => {
-        setImsToken(guestConnection?.sharedContext?.get('imsToken'))
-        setImsOrgId(guestConnection?.sharedContext?.get('imsOrgId'))
-        setIsLoading(false)
-    })
+        fetchCredentials();
+    }, []);
 
     const tabs = [
         {
