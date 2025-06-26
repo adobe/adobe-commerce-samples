@@ -33,6 +33,12 @@ async function main() {
                             actionId: `${extensionId}::mass-action-with-redirect`,
                             label: 'Mass Action With Redirect',
                             path: '#/mass-action-with-redirect'
+                        },
+                        {
+                            actionId: `${extensionId}::mass-action-no-iFrame`,
+                            label: 'Mass Action No iFrame',
+                            path: 'api/v1/web/mass-actions/massAction',
+                            displayIframe: false
                         }
                     ]
                 }
