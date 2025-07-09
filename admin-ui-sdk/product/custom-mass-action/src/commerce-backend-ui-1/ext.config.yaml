@@ -17,3 +17,15 @@ runtimeManifest:
           annotations:
             require-adobe-auth: true
             final: true
+    mass-actions:
+      license: Apache-2.0
+      actions:
+        massAction:
+          function: actions/massAction/index.js
+          web: 'yes'
+          runtime: 'nodejs:18'
+          inputs:
+            LOG_LEVEL: debug
+          annotations:
+            require-adobe-auth: true
+            final: true

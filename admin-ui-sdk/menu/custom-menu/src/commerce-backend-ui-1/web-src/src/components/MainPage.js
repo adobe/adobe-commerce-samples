@@ -11,21 +11,40 @@ governing permissions and limitations under the License.
 */
 import {
     Item,
+    Flex,
+    ProgressCircle,
     TabList,
     TabPanels,
-    Tabs
+    Tabs,
+    View
 } from '@adobe/react-spectrum'
+import { attach } from '@adobe/uix-guest'
 import { Orders } from './Orders'
 import { Products } from './Products'
 import { useState } from 'react'
+import { extensionId } from './Constants'
 
 export const MainPage = props => {
 
+    const [isLoading, setIsLoading] = useState(false)
     const [selectedTab, setSelectedTab] = useState(1)
 
     const onSelectionTabChange = selectedTabKey => {
         setSelectedTab(selectedTabKey)
     }
+
+    useEffect(() => {
+        const fetchCredentials = async () => {
+            if (!props.ims.token) {
+                const guestConnection = await attach({ id: extensionId });
+                props.ims.token = guestConnection?.sharedContext?.get('imsToken');
+                props.ims.org = guestConnection?.sharedContext?.get('imsOrgId');
+            }
+            setIsLoading(false);
+        };
+
+        fetchCredentials();
+    }, []);
 
     const tabs = [
         {
@@ -41,17 +60,25 @@ export const MainPage = props => {
     ]
 
     return (
-        <Tabs
-            aria-label="Commerce data"
-            items={tabs}
-            orientation="horizontal"
-            isEmphasized={true}
-            selectedKey={selectedTab}
-            onSelectionChange={onSelectionTabChange}
-            margin={10}
-        >
-            <TabList>{item => <Item>{item.name}</Item>}</TabList>
-            <TabPanels>{item => <Item>{item.children}</Item>}</TabPanels>
-        </Tabs>
+        <View>
+            {isLoading ? (
+                <Flex alignItems="center" justifyContent="center" height="100vh">
+                    <ProgressCircle size="L" aria-label="Loading…" isIndeterminate />
+                </Flex>
+            ) : (
+                <Tabs
+                    aria-label="Commerce data"
+                    items={tabs}
+                    orientation="horizontal"
+                    isEmphasized={true}
+                    selectedKey={selectedTab}
+                    onSelectionChange={onSelectionTabChange}
+                    margin={10}
+                >
+                    <TabList>{item => <Item>{item.name}</Item>}</TabList>
+                    <TabPanels>{item => <Item>{item.children}</Item>}</TabPanels>
+                </Tabs>
+            )}
+        </View>
     )
 }
