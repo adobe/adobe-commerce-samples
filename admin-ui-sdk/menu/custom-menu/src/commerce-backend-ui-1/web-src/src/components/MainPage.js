@@ -21,9 +21,8 @@ import {
 import { attach } from '@adobe/uix-guest'
 import { Orders } from './Orders'
 import { Products } from './Products'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { extensionId } from './Constants'
-import { useEffect } from 'react'
 
 export const MainPage = props => {
 
