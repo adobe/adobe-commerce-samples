@@ -1,13 +1,2 @@
 .idea
 .vscode
-/api-mesh/esbuild-programatic-resolver/node_modules
-/api-mesh/esbuild-programatic-resolver/dist
-/api-mesh/esbuild-programatic-resolver/.env
-/api-mesh/esbuild-programatic-resolver/.mesh/.meshrc.json
-/api-mesh/esbuild-programatic-resolver/.wrangler/
-/api-mesh/esbuild-programatic-resolver/resolvers/node_modules/
-/api-mesh/esbuild-programatic-resolver/.mesh/
-/api-mesh/esbuild-programatic-resolver/wrangler.toml
-/api-mesh/esbuild-programatic-resolver/testMesh.txt
-/api-mesh/esbuild-programatic-resolver/package.json
-/api-mesh/esbuild-programatic-resolver/package-lock.json
