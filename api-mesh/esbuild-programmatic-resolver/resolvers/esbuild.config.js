@@ -13,7 +13,7 @@ const buildOptions = {
     outExtension: { '.js': '.js' },
     external: [], // Add any modules you don't want bundled
     sourcemap: false,
-    minify: false, // Keep readable for debugging in mesh
+    minify: true, // Keep readable for debugging in mesh
     keepNames: true, // Preserve function names for better error messages
     logLevel: 'info'
 };

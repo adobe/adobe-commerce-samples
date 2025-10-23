@@ -368,14 +368,17 @@ aio api-mesh:logs --follow
 |-----------|---------|
 | Cache hit (typical) | +1-10ms |
 | Cache miss (first request) | +200-500ms |
+| Per-request cache hit | <0.1ms |
 | Calculation overhead | <1ms |
 
 ### Optimization Techniques
 
-1. **Long TTL**: 7-day cache reduces API calls to ~1 per week
-2. **Distributed cache**: `context.state` is shared across all mesh nodes
-3. **Efficient lookup**: Object key access is O(1)
-4. **Minimal processing**: Simple multiplication, no complex logic
+1. **In-flight request deduplication**: When multiple products resolve concurrently (e.g., product list query), all resolvers share the same fetch promise using `context._inFlightRequests`. Only 1 API call is made even for 100 products.
+2. **Per-request caching**: VAT rate is cached on `context._vatRate` to avoid multiple fetches when both `value_with_vat` and `vat_rate` are requested in the same query
+3. **Long TTL**: 7-day cache reduces API calls to ~1 per week
+4. **Distributed cache**: `context.state` is shared across all mesh nodes
+5. **Efficient lookup**: Object key access is O(1)
+6. **Minimal processing**: Simple multiplication, no complex logic
 
 ## Security Considerations
 

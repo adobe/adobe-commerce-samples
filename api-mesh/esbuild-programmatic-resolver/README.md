@@ -244,11 +244,14 @@ The main resolver configuration. Exports resolvers for:
 - `value_with_vat`: Calculates the price including VAT
 - `vat_rate`: Returns the VAT rate as a decimal
 
-Both field resolvers:
-1. Fetch VAT rates (cached)
-2. Extract country from headers
-3. Look up appropriate VAT rate
-4. Return calculated value
+Both field resolvers use a shared helper function `getVatRateForRequest()` that:
+1. Caches the VAT rate on `context._vatRate` (per-request cache)
+2. Fetches VAT rates from `context.state` (7-day cache) on first call
+3. Extracts country from headers
+4. Looks up appropriate VAT rate
+5. Returns the rate
+
+**Performance optimization:** When both fields are requested in the same query, the VAT rate is only fetched once per request.
 
 **Mutation:**
 - `clearCache(key: String): Boolean`: Clears cached data from `context.state`
@@ -266,11 +269,15 @@ Fetches VAT rates from the mock API endpoint:
 
 #### [src/data-fetchers/cache.js](resolvers/src/data-fetchers/cache.js)
 
-Generic caching wrapper using `context.state`:
+Generic caching wrapper using `context.state` with in-flight request deduplication:
 - Checks cache first
-- Fetches fresh data on cache miss
+- If cache miss, checks if a fetch is already in progress
+- Multiple concurrent requests wait for the same fetch (prevents duplicate API calls)
+- Fetches fresh data only once per request, even for product lists
 - Stores in cache with TTL
 - Returns empty object on error (graceful degradation)
+
+**Performance:** When querying 20 products after cache clear, makes **1 API call** instead of 20!
 
 #### [src/pricing/vat-calculator.js](resolvers/src/pricing/vat-calculator.js)
 

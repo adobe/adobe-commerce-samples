@@ -22,11 +22,20 @@ const { policyMarketHeader } = require('./constants');
  * Get the VAT rate for the current request
  * Shared logic for both value_with_vat and vat_rate resolvers
  *
+ * This function caches the VAT rate lookup per request using context._vatRate
+ * to avoid fetching VAT rates multiple times when both fields are requested
+ * in the same GraphQL query.
+ *
  * @param {Object} context - API Mesh resolver context
  * @returns {Promise<number>} - VAT rate as decimal (e.g., 0.19 for 19%)
  */
 async function getVatRateForRequest(context) {
-  // Get VAT rates from cache or fetch
+  // Check if we've already looked up the VAT rate for this request
+  if (context._vatRate !== undefined) {
+    return context._vatRate;
+  }
+
+  // Get VAT rates from cache or fetch (only once per request)
   const vatRates = await fetchVatRates(context);
 
   // Get the policy market from headers (country code)
@@ -34,7 +43,12 @@ async function getVatRateForRequest(context) {
   const countryCode = getVatCountryCode(policyMarket);
 
   // Look up VAT rate for this country
-  return countryCode && vatRates[countryCode] ? vatRates[countryCode] : 0;
+  const vatRate = countryCode && vatRates[countryCode] ? vatRates[countryCode] : 0;
+
+  // Cache the result on the context for this request
+  context._vatRate = vatRate;
+
+  return vatRate;
 }
 
 module.exports = {
