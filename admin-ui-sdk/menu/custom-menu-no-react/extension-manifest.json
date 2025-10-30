@@ -1,0 +1,8 @@
+{
+  "name": "CustomMenuNoReact",
+  "displayName": "Adobe Commerce custom menu no react",
+  "description": "Adobe Commerce custom menu no react example in admin panel",
+  "platform": "web",
+  "id": "CustomMenuNoReact",
+  "version": "1.0.0"
+}

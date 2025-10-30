@@ -1,0 +1,39 @@
+{
+    "name": "custom-menu-no-react",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+      "@adobe/aio-sdk": "^3.0.0",
+      "@adobe/exc-app": "^1.4.20",
+      "@adobe/uix-core": "^1.0.3",
+      "@adobe/uix-guest": "^1.0.3",
+      "@spectrum-icons/workflow": "^4.2.25",
+      "cloudevents": "^6.0.3",
+      "core-js": "^3.46.0",
+      "crypto": "^1.0.1",
+      "crypto-browserify": "^3.12.1",
+      "got": "^11.8.5",
+      "https-browserify": "^1.0.0",
+      "node-fetch": "^3.3.0",
+      "oauth-1.0a": "^2.2.6",
+      "os-browserify": "^0.3.0",
+      "regenerator-runtime": "^0.13.11",
+      "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.28.5",
+      "@babel/plugin-transform-react-jsx": "^7.27.1",
+      "@babel/polyfill": "^7.12.1",
+      "@babel/preset-env": "^7.28.5",
+      "@openwhisk/wskdebug": "^1.4.0",
+      "jest": "^29.4.2"
+    },
+    "scripts": {
+      "test": "jest --passWithNoTests ./test",
+      "e2e": "jest --collectCoverage=false --testRegex ./e2e"
+    },
+    "engines": {
+      "node": "^16.13 || >=18"
+    }
+  }
+  
