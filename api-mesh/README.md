@@ -15,6 +15,7 @@ This repository includes the following examples:
 ### Authentication & Security
 - **[auth0-integration](./auth0-integration/)** - Complete Auth0 authentication integration with API Mesh featuring JWT validation, user profile management, and seamless Commerce data integration (orders, wishlist, addresses)
 - **[okta-integration](./okta-integration/)** - Comprehensive Okta authentication integration using OAuth 2.0/OIDC, demonstrating JWT validation, user profile sync, and Commerce customer data access
+- **[azure-ad-integration](./azure-ad-integration/)** - Microsoft Azure AD (Entra ID) authentication integration with OAuth 2.0/OIDC, Microsoft Graph API, and Commerce data integration
 
 ### API Integration
 - **[commerce-rest-and-graphql](./commerce-rest-and-graphql/)** - Combine Adobe Commerce REST and GraphQL APIs

@@ -1,0 +1,113 @@
+# Get the complete customer profile with all data
+# This demonstrates fetching Azure AD user data combined with full Commerce customer information
+# Requires: Authorization header with valid Azure AD JWT access token
+
+query GetFullCustomerProfile {
+  currentUser {
+    # Azure AD user data
+    id
+    userPrincipalName
+    mail
+    displayName
+    givenName
+    surname
+    jobTitle
+    officeLocation
+    mobilePhone
+    
+    # Commerce customer data
+    customer {
+      id
+      email
+      firstname
+      lastname
+      date_of_birth
+      created_at
+      gender
+      default_billing
+      default_shipping
+    }
+    
+    # Customer addresses
+    addresses {
+      id
+      firstname
+      lastname
+      street
+      city
+      region {
+        region_code
+        region
+      }
+      postcode
+      country_code
+      telephone
+      default_shipping
+      default_billing
+    }
+    
+    # Customer orders with pagination
+    orders(currentPage: 1, pageSize: 10) {
+      items {
+        id
+        number
+        order_date
+        status
+        carrier
+        email
+        total {
+          grand_total {
+            value
+            currency
+          }
+          subtotal {
+            value
+            currency
+          }
+        }
+        items {
+          product_name
+          product_sku
+          quantity_ordered
+          product_sale_price {
+            value
+            currency
+          }
+        }
+      }
+      page_info {
+        current_page
+        page_size
+        total_pages
+      }
+      total_count
+    }
+    
+    # Customer wishlist
+    wishlist {
+      id
+      items_count
+      items {
+        id
+        product {
+          uid
+          name
+          sku
+          price_range {
+            minimum_price {
+              regular_price {
+                value
+                currency
+              }
+              final_price {
+                value
+                currency
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
