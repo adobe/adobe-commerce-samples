@@ -1,0 +1,43 @@
+# Get customer addresses
+# Requires: Authorization header with valid Auth0 JWT token
+
+query GetCustomerAddresses {
+  currentUser {
+    email
+    name
+    
+    addresses {
+      id
+      firstname
+      lastname
+      company
+      street
+      city
+      region {
+        region_code
+        region
+        region_id
+      }
+      postcode
+      country_code
+      telephone
+      fax
+      default_shipping
+      default_billing
+      vat_id
+      
+      # Custom attributes (if any)
+      custom_attributes {
+        attribute_code
+        value
+      }
+    }
+    
+    # Also show default IDs from customer object
+    customer {
+      default_billing
+      default_shipping
+    }
+  }
+}
+
