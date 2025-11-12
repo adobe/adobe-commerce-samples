@@ -22,7 +22,6 @@ export const useCommerceProducts = props => {
             'CustomMenu/commerce-rest-get',
             `products?searchCriteria[pageSize]=${props.pageSize}&searchCriteria[currentPage]=${props.currentPage}`
         )
-        console.log(commerceProductsResponse)
         setCommerceProducts(commerceProductsResponse.error ? [] : commerceProductsResponse.items)
     }
 

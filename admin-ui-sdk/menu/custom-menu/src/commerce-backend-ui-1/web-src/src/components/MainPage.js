@@ -14,7 +14,6 @@ import {
     Flex,
     ProgressCircle,
     TabList,
-    TabPanels,
     Tabs,
     View
 } from '@adobe/react-spectrum'
@@ -26,7 +25,7 @@ import { extensionId } from './Constants'
 
 export const MainPage = props => {
 
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [selectedTab, setSelectedTab] = useState(1)
 
     const onSelectionTabChange = selectedTabKey => {
@@ -50,14 +49,23 @@ export const MainPage = props => {
         {
             id: 1,
             name: 'Orders',
-            children: <Orders runtime={props.runtime} ims={props.ims} />
+            component: Orders
         },
         {
             id: 2,
             name: 'Products',
-            children: <Products runtime={props.runtime} ims={props.ims} />
+            component: Products
         }
     ]
+
+    const renderSelectedTab = () => {
+        const selectedTabData = tabs.find(tab => tab.id == selectedTab);
+        if (selectedTabData) {
+            const Component = selectedTabData.component;
+            return <Component runtime={props.runtime} ims={props.ims} />;
+        }
+        return null;
+    }
 
     return (
         <View>
@@ -66,18 +74,20 @@ export const MainPage = props => {
                     <ProgressCircle size="L" aria-label="Loading…" isIndeterminate />
                 </Flex>
             ) : (
-                <Tabs
-                    aria-label="Commerce data"
-                    items={tabs}
-                    orientation="horizontal"
-                    isEmphasized={true}
-                    selectedKey={selectedTab}
-                    onSelectionChange={onSelectionTabChange}
-                    margin={10}
-                >
-                    <TabList>{item => <Item key={item.id}>{item.name}</Item>}</TabList>
-                    <TabPanels>{item => <Item key={item.id}>{item.children}</Item>}</TabPanels>
-                </Tabs>
+                <>
+                    <Tabs
+                        aria-label="Commerce data"
+                        items={tabs}
+                        orientation="horizontal"
+                        isEmphasized={true}
+                        selectedKey={selectedTab}
+                        onSelectionChange={onSelectionTabChange}
+                        margin={10}
+                    >
+                        <TabList>{item => <Item key={item.id}>{item.name}</Item>}</TabList>
+                    </Tabs>
+                    {renderSelectedTab()}
+                </>
             )}
         </View>
     )
