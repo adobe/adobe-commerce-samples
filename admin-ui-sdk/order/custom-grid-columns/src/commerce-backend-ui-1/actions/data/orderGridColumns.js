@@ -19,22 +19,22 @@ export async function main(params) {
             "000000001": {
                 "first_column": "value_1",
                 "second_column": 1,
-                "third_column": "2030-12-01T23:25:42+1100"
+                "third_column": "2030-12-01T23:25:42+11:00"
             },
             "000000002": {
                 "first_column": 1,
                 "second_column": "test",
-                "third_column": "2011-10-02T23:25:42+0000"
+                "third_column": "2011-10-02T23:25:42+00:00"
             },
             "000000003": {
                 "first_column": "value_3",
                 "second_column": 3,
-                "third_column": "2030-14-01T23:25:42+1100"
+                "third_column": "2033-14-01T23:25:42+11:00"
             },
             "000000004": {
                 "first_column": "value_1",
                 "second_column": 1,
-                "third_column": "2011-10-02T23:25:42+0000"
+                "third_column": "2111-10-02T23:25:42+00:00"
             },
             "*": {
                 "first_column": "Default value first column",
