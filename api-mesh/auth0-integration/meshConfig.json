@@ -1,0 +1,43 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "CommerceAPI",
+        "handler": {
+          "graphql": {
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}",
+            "operationHeaders": {
+              "Content-Type": "application/json",
+              "Store": "{context.headers['store'] || 'default'}",
+              "Authorization": "{context.headers['authorization']}"
+            }
+          }
+        }
+      },
+      {
+        "name": "Auth0Management",
+        "handler": {
+          "openapi": {
+            "source": "https://{{env.AUTH0_DOMAIN}}/api/v2/openapi.json",
+            "operationHeaders": {
+              "Authorization": "Bearer {{env.AUTH0_MANAGEMENT_TOKEN}}"
+            }
+          }
+        }
+      }
+    ],
+    "additionalTypeDefs": "extend type Query { currentUser: Auth0User } type Auth0User { sub: String! email: String name: String nickname: String picture: String email_verified: Boolean updated_at: String customer: Customer wishlist: Wishlist orders: CustomerOrders addresses: [CustomerAddress] }",
+    "additionalResolvers": [
+      "./resolvers.js"
+    ],
+    "responseConfig": {
+      "headers": [
+        {
+          "name": "X-Auth0-User-Id",
+          "value": "{context.auth0UserId}"
+        }
+      ]
+    }
+  }
+}
+

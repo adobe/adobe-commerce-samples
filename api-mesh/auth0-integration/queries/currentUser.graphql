@@ -1,0 +1,15 @@
+# Get the currently authenticated user's profile from Auth0
+# Requires: Authorization header with valid Auth0 JWT token
+
+query GetCurrentUser {
+  currentUser {
+    sub
+    email
+    name
+    nickname
+    picture
+    email_verified
+    updated_at
+  }
+}
+

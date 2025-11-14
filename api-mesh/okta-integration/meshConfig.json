@@ -1,0 +1,44 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "CommerceAPI",
+        "handler": {
+          "graphql": {
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}",
+            "operationHeaders": {
+              "Content-Type": "application/json",
+              "Store": "{context.headers['store'] || 'default'}",
+              "Authorization": "{context.headers['authorization']}"
+            }
+          }
+        }
+      },
+      {
+        "name": "OktaUsers",
+        "handler": {
+          "openapi": {
+            "source": "https://{{env.OKTA_DOMAIN}}/api/v1/openapi.json",
+            "operationHeaders": {
+              "Authorization": "SSWS {{env.OKTA_API_TOKEN}}",
+              "Accept": "application/json"
+            }
+          }
+        }
+      }
+    ],
+    "additionalTypeDefs": "extend type Query { currentUser: OktaUser } type OktaUser { id: String! email: String! login: String! firstName: String lastName: String status: String created: String activated: String lastLogin: String customer: Customer orders: CustomerOrders wishlist: Wishlist addresses: [CustomerAddress] }",
+    "additionalResolvers": [
+      "./resolvers.js"
+    ],
+    "responseConfig": {
+      "headers": [
+        {
+          "name": "X-Okta-User-Id",
+          "value": "{context.oktaUserId}"
+        }
+      ]
+    }
+  }
+}
+

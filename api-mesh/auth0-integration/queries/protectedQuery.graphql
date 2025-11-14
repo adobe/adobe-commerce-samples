@@ -1,0 +1,90 @@
+# Example of a protected query that requires authentication
+# This combines user data from Auth0 with customer data from Commerce
+# Requires: Authorization header with valid Auth0 JWT token
+
+query ProtectedCommerceQuery {
+  # Get authenticated user from Auth0 with all Commerce data
+  currentUser {
+    # Auth0 data
+    sub
+    email
+    name
+    picture
+    
+    # Commerce customer data
+    customer {
+      id
+      firstname
+      lastname
+      email
+      created_at
+      date_of_birth
+      gender
+    }
+    
+    # Customer addresses
+    addresses {
+      id
+      firstname
+      lastname
+      street
+      city
+      region {
+        region_code
+        region
+      }
+      postcode
+      country_code
+      telephone
+      default_shipping
+      default_billing
+    }
+    
+    # Customer wishlist
+    wishlist {
+      id
+      items_count
+      items {
+        id
+        product {
+          uid
+          name
+          sku
+          price_range {
+            minimum_price {
+              regular_price {
+                value
+                currency
+              }
+              final_price {
+                value
+                currency
+              }
+            }
+          }
+          small_image {
+            url
+          }
+        }
+      }
+    }
+    
+    # Recent orders
+    orders(currentPage: 1, pageSize: 5) {
+      items {
+        id
+        number
+        order_date
+        status
+        total {
+          grand_total {
+            value
+            currency
+          }
+        }
+      }
+      total_count
+    }
+  }
+}
+

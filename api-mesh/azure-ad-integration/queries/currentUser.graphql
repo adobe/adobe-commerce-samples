@@ -1,0 +1,17 @@
+# Get the currently authenticated user's profile from Azure AD
+# Requires: Authorization header with valid Azure AD JWT access token
+
+query GetCurrentUser {
+  currentUser {
+    id
+    userPrincipalName
+    mail
+    displayName
+    givenName
+    surname
+    jobTitle
+    officeLocation
+    mobilePhone
+  }
+}
+

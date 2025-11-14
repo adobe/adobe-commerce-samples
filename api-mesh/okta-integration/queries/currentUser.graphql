@@ -1,0 +1,17 @@
+# Get the currently authenticated user's profile from Okta
+# Requires: Authorization header with valid Okta JWT access token
+
+query GetCurrentUser {
+  currentUser {
+    id
+    email
+    login
+    firstName
+    lastName
+    status
+    created
+    activated
+    lastLogin
+  }
+}
+

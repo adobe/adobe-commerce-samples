@@ -1,0 +1,43 @@
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "CommerceAPI",
+        "handler": {
+          "graphql": {
+            "endpoint": "{{env.COMMERCE_ENDPOINT}}",
+            "operationHeaders": {
+              "Content-Type": "application/json",
+              "Store": "{context.headers['store'] || 'default'}",
+              "Authorization": "{context.headers['authorization']}"
+            }
+          }
+        }
+      },
+      {
+        "name": "MicrosoftGraph",
+        "handler": {
+          "openapi": {
+            "source": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
+            "operationHeaders": {
+              "Authorization": "{context.headers['authorization']}"
+            }
+          }
+        }
+      }
+    ],
+    "additionalTypeDefs": "extend type Query { currentUser: AzureADUser } type AzureADUser { id: String! userPrincipalName: String! mail: String displayName: String givenName: String surname: String jobTitle: String officeLocation: String mobilePhone: String customer: Customer orders: CustomerOrders wishlist: Wishlist addresses: [CustomerAddress] }",
+    "additionalResolvers": [
+      "./resolvers.js"
+    ],
+    "responseConfig": {
+      "headers": [
+        {
+          "name": "X-Azure-User-Id",
+          "value": "{context.azureUserId}"
+        }
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,25 @@
+{
+  "name": "api-mesh-azure-ad-integration",
+  "version": "1.0.0",
+  "description": "API Mesh example with Azure AD (Microsoft Entra ID) authentication integration",
+  "main": "resolvers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api-mesh",
+    "azure-ad",
+    "microsoft-entra-id",
+    "adobe-commerce",
+    "authentication",
+    "graphql"
+  ],
+  "author": "Adobe",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.1.0",
+    "node-fetch": "^2.7.0"
+  }
+}
+

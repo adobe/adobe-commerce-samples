@@ -1,0 +1,69 @@
+# Get customer wishlist with product details
+# Requires: Authorization header with valid Auth0 JWT token
+
+query GetCustomerWishlist {
+  currentUser {
+    email
+    name
+    
+    wishlist {
+      id
+      items_count
+      
+      items {
+        id
+        description
+        quantity
+        added_at
+        
+        product {
+          uid
+          name
+          sku
+          
+          # Product pricing
+          price_range {
+            minimum_price {
+              regular_price {
+                value
+                currency
+              }
+              final_price {
+                value
+                currency
+              }
+              discount {
+                amount_off
+                percent_off
+              }
+            }
+            maximum_price {
+              regular_price {
+                value
+                currency
+              }
+              final_price {
+                value
+                currency
+              }
+            }
+          }
+          
+          # Product images
+          small_image {
+            url
+            label
+          }
+          
+          # Stock status
+          stock_status
+          
+          # Product URL
+          url_key
+          canonical_url
+        }
+      }
+    }
+  }
+}
+

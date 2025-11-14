@@ -1,0 +1,48 @@
+# Get the authenticated user's profile along with their Commerce orders
+# This demonstrates linking Azure AD identity with Commerce customer data
+# Requires: Authorization header with valid Azure AD JWT access token
+
+query GetUserWithOrders {
+  currentUser {
+    id
+    mail
+    displayName
+    givenName
+    surname
+    
+    orders(currentPage: 1, pageSize: 20) {
+      items {
+        id
+        number
+        order_date
+        status
+        carrier
+        total {
+          grand_total {
+            value
+            currency
+          }
+          subtotal {
+            value
+            currency
+          }
+        }
+        items {
+          product_name
+          product_sku
+          quantity_ordered
+          product_sale_price {
+            value
+            currency
+          }
+        }
+      }
+      page_info {
+        current_page
+        total_pages
+      }
+      total_count
+    }
+  }
+}
+

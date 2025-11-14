@@ -1,0 +1,22 @@
+# Get basic user profile information
+# Minimal query for quick authentication verification
+# Requires: Authorization header with valid Auth0 JWT token
+
+query GetSimpleUserProfile {
+  currentUser {
+    # Auth0 identity
+    sub
+    email
+    name
+    picture
+    
+    # Basic Commerce info
+    customer {
+      id
+      firstname
+      lastname
+      email
+    }
+  }
+}
+
