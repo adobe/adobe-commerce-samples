@@ -1,0 +1,23 @@
+# Get basic user profile information
+# Minimal query for quick authentication verification
+# Requires: Authorization header with valid Azure AD JWT access token
+
+query GetSimpleUserProfile {
+  currentUser {
+    # Azure AD identity
+    id
+    mail
+    displayName
+    givenName
+    surname
+    
+    # Basic Commerce info
+    customer {
+      id
+      firstname
+      lastname
+      email
+    }
+  }
+}
+

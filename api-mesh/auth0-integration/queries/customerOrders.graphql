@@ -1,0 +1,90 @@
+# Get customer orders with detailed information
+# Demonstrates pagination and detailed order data fetching
+# Requires: Authorization header with valid Auth0 JWT token
+
+query GetCustomerOrders($currentPage: Int = 1, $pageSize: Int = 20) {
+  currentUser {
+    email
+    name
+    
+    orders(currentPage: $currentPage, pageSize: $pageSize) {
+      items {
+        id
+        number
+        order_date
+        status
+        carrier
+        email
+        
+        # Order totals
+        total {
+          grand_total {
+            value
+            currency
+          }
+          subtotal {
+            value
+            currency
+          }
+          total_shipping {
+            value
+            currency
+          }
+          total_tax {
+            value
+            currency
+          }
+        }
+        
+        # Order items
+        items {
+          id
+          product_name
+          product_sku
+          quantity_ordered
+          quantity_shipped
+          quantity_canceled
+          quantity_refunded
+          product_sale_price {
+            value
+            currency
+          }
+          product_url_key
+        }
+        
+        # Shipping address
+        shipping_address {
+          firstname
+          lastname
+          street
+          city
+          region
+          postcode
+          country_code
+          telephone
+        }
+        
+        # Billing address
+        billing_address {
+          firstname
+          lastname
+          street
+          city
+          region
+          postcode
+          country_code
+          telephone
+        }
+      }
+      
+      # Pagination info
+      page_info {
+        current_page
+        page_size
+        total_pages
+      }
+      total_count
+    }
+  }
+}
+

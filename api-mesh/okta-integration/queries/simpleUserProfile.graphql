@@ -1,0 +1,22 @@
+# Get basic user profile information
+# Minimal query for quick authentication verification
+# Requires: Authorization header with valid Okta JWT access token
+
+query GetSimpleUserProfile {
+  currentUser {
+    # Okta identity
+    id
+    email
+    firstName
+    lastName
+    
+    # Basic Commerce info
+    customer {
+      id
+      firstname
+      lastname
+      email
+    }
+  }
+}
+
