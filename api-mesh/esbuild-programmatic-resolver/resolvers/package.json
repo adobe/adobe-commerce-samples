@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "esbuild": "0.25.11"
+  },
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "build:watch": "node esbuild.config.js --watch"
+  }
+}
