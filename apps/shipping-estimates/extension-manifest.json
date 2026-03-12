@@ -1,0 +1,8 @@
+{
+  "id": "oope_tax_management",
+  "name": "oope_tax_management",
+  "displayName": "Tax management",
+  "description": "Out of process Commerce tax management on App Builder",
+  "platform": "web",
+  "version": "1.0.0"
+}

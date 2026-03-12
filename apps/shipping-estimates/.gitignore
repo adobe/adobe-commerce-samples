@@ -1,0 +1,45 @@
+# package directories
+node_modules
+jspm_packages
+
+# logging
+logs
+*.log
+
+# build
+build
+dist
+.manifest-dist.yml
+
+# Config
+.env*
+.aio
+
+# Adobe I/O console config
+console.json
+ws.json
+
+# IDE & Temp
+.cache
+.idea
+.nyc_output
+.vscode
+coverage
+.aws.tmp.creds.json
+.wskdebug.props.tmp
+
+# Parcel
+.parcel-cache
+
+# OSX
+.DS_Store
+
+# yeoman
+.yo-repository
+
+# App builder config
+commerce-backend-ui-1/web-src/src/config.json
+
+# skills
+.cursor
+AGENTS.md

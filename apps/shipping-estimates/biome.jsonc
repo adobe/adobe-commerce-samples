@@ -1,0 +1,84 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["ultracite/core", "ultracite/react"],
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**",
+      "!!**/.github/CONTRIBUTING.md",
+      "!!**/.github/ISSUE_TEMPLATE.md",
+      "!!**/.github/PULL_REQUEST_TEMPLATE.md",
+      "!!**/.github/SECURITY.md",
+      "!!**/COPYRIGHT",
+      "!!**/CODE_OF_CONDUCT.md",
+      "!!**/commerce-backend-ui-1/web-src/src/exc-runtime.js"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "bracketSameLine": true,
+      "jsxQuoteStyle": "double",
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "all"
+    }
+  },
+  "overrides": [
+    {
+      // Allow both PascalCase and camelCase for react app
+      "includes": ["commerce-backend-ui-1/web-src/**/*.js"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": {
+              "level": "error",
+              "options": {
+                "filenameCases": ["PascalCase", "camelCase"]
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              { "type": false, "source": [":BUN:", ":NODE:"] },
+              ":BLANK_LINE:",
+              {
+                "type": false,
+                "source": [":PACKAGE:", ":PACKAGE_WITH_PROTOCOL:"]
+              },
+              ":BLANK_LINE:",
+              { "type": false, "source": [":ALIAS:"] },
+              ":BLANK_LINE:",
+              { "type": false, "source": [":PATH:"] },
+              ":BLANK_LINE:",
+
+              { "type": true, "source": [":BUN:", ":NODE:"] },
+              {
+                "type": true,
+                "source": [":PACKAGE:", ":PACKAGE_WITH_PROTOCOL:"]
+              },
+              { "type": true, "source": [":ALIAS:"] },
+              { "type": true, "source": [":PATH:"] }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

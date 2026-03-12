@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "commerce-extensibility": {
+      "command": "node",
+      "args": [
+        "node_modules/@adobe-commerce/commerce-extensibility-tools/index.js"
+      ],
+      "env": {}
+    }
+  }
+}

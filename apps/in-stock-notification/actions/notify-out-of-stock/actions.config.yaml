@@ -1,0 +1,49 @@
+api:
+  function: api/index.js
+  web: 'yes'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+    STATE_REGION: $STATE_REGION
+  annotations:
+    final: true
+back-in-stock:
+  function: commerce/back-in-stock/index.js
+  web: 'no'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+    STATE_REGION: $STATE_REGION
+    COMMERCE_BASE_URL: $COMMERCE_BASE_URL
+    COMMERCE_STORE_CODE: $COMMERCE_STORE_CODE
+    # Auth: use IMS OAuth (SaaS) or Commerce OAuth1 (PaaS)
+    COMMERCE_CONSUMER_KEY: $COMMERCE_CONSUMER_KEY
+    COMMERCE_CONSUMER_SECRET: $COMMERCE_CONSUMER_SECRET
+    COMMERCE_ACCESS_TOKEN: $COMMERCE_ACCESS_TOKEN
+    COMMERCE_ACCESS_TOKEN_SECRET: $COMMERCE_ACCESS_TOKEN_SECRET
+    OAUTH_CLIENT_ID: $OAUTH_CLIENT_ID
+    OAUTH_CLIENT_SECRET: $OAUTH_CLIENT_SECRET
+    OAUTH_SCOPES: $OAUTH_SCOPES
+  annotations:
+    require-adobe-auth: true
+    final: true
+check-stock:
+  function: scheduled/check-stock/index.js
+  web: 'no'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+    STATE_REGION: $STATE_REGION
+    COMMERCE_BASE_URL: $COMMERCE_BASE_URL
+    COMMERCE_STORE_CODE: $COMMERCE_STORE_CODE
+    # Auth: use IMS OAuth (SaaS) or Commerce OAuth1 (PaaS)
+    COMMERCE_CONSUMER_KEY: $COMMERCE_CONSUMER_KEY
+    COMMERCE_CONSUMER_SECRET: $COMMERCE_CONSUMER_SECRET
+    COMMERCE_ACCESS_TOKEN: $COMMERCE_ACCESS_TOKEN
+    COMMERCE_ACCESS_TOKEN_SECRET: $COMMERCE_ACCESS_TOKEN_SECRET
+    OAUTH_CLIENT_ID: $OAUTH_CLIENT_ID
+    OAUTH_CLIENT_SECRET: $OAUTH_CLIENT_SECRET
+    OAUTH_SCOPES: $OAUTH_SCOPES
+  annotations:
+    require-adobe-auth: true
+    final: true

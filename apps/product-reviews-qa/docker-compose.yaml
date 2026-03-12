@@ -1,0 +1,31 @@
+services:
+  otel-lgtm:
+    image: grafana/otel-lgtm:latest
+    container_name: otel-lgtm
+    restart: unless-stopped
+    ports:
+      - "3000:3000" # Grafana UI
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP
+    volumes:
+      - "lgtm-data:/data" # Persist data across restarts
+    networks: [telemetry]
+
+  # Cloudflare Tunnel - Exposes collector for deployed actions
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    networks: [telemetry]
+    depends_on: [otel-lgtm]
+    command:
+      - "tunnel"
+      - "--url"
+      - "http://otel-lgtm:4318"
+
+networks:
+  telemetry:
+    driver: bridge
+
+volumes:
+  lgtm-data:

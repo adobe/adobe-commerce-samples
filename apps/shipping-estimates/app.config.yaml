@@ -1,0 +1,63 @@
+application:
+  hooks:
+    pre-app-build: ./hooks/pre-app-build.js
+  actions: actions
+  runtimeManifest:
+    packages:
+      # Do not change the action `commerce-checkout-starter-kit/info` as it is used by tracking purposes
+      commerce-checkout-starter-kit:
+        license: Apache-2.0
+        actions:
+          info:
+            function: actions/commerce-checkout-starter-kit-info/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            annotations:
+              require-adobe-auth: true
+              final: true
+          # https://developer.adobe.com/commerce/extensibility/starter-kit/checkout/shipping-use-cases/
+          shipping-methods:
+            function: actions/shipping-methods/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              COMMERCE_WEBHOOKS_PUBLIC_KEY: $COMMERCE_WEBHOOKS_PUBLIC_KEY
+              ENABLE_TELEMETRY: true
+            annotations:
+              require-adobe-auth: false
+              raw-http: true
+              final: true
+          delivery-estimates:
+            function: actions/delivery-estimates/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+            annotations:
+              require-adobe-auth: false
+              final: true
+
+      mock-delivery-api:
+        license: Apache-2.0
+        actions:
+          delivery-estimate:
+            function: actions/mock-delivery-api/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              MOCK_API_KEY: $MOCK_API_KEY
+            annotations:
+              require-adobe-auth: false
+              raw-http: true
+              final: true
+
+extensions:
+  commerce/backend-ui/1:
+    $include: commerce-backend-ui-1/ext.config.yaml
+
+productDependencies:
+  - code: COMMC
+    minVersion: 2.4.5
+    maxVersion: 2.4.99

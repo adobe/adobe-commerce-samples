@@ -1,0 +1,19 @@
+consumer:
+  function: consumer/index.js
+  web: 'no'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+    EVENT_PREFIX: $EVENT_PREFIX
+  annotations:
+    require-adobe-auth: true
+    final: true
+updated:
+  function: updated/index.js
+  web: 'no'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: true
+    final: true

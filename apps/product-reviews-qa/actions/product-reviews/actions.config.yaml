@@ -1,0 +1,32 @@
+reviews-get:
+  function: ./reviews-get/index.js
+  web: "yes"
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    final: true
+reviews-post:
+  function: ./reviews-post/index.js
+  web: "yes"
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    final: true
+qa-get:
+  function: ./qa-get/index.js
+  web: "yes"
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    final: true
+qa-post:
+  function: ./qa-post/index.js
+  web: "yes"
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    final: true
