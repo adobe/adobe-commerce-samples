@@ -16,8 +16,8 @@ Located in `v1/`. These samples use the previous scaffolding approach and the `c
 
 | V1 sample | V2 sample | Notes |
 |---|---|---|
-| `banner-notification/custom-mass-actions` | — | Not a standalone extension point in V2. Banner notifications are now declared inline on each mass action as `notifications.success` / `notifications.error`. |
-| `banner-notification/custom-order-view-button` | — | Same as above — notifications are part of the view button config in V2. |
+| `banner-notification/custom-mass-actions` | — | Removed as a standalone sample — the notification config is embedded directly in `order/custom-mass-action` and `product/custom-mass-action`. In V2, notifications are declared inline on each mass action as `notifications.success` / `notifications.error`. |
+| `banner-notification/custom-order-view-button` | — | Removed as a standalone sample — the notification config is embedded directly in `order/custom-view-button`. In V2, notifications are part of the view button config. |
 | `customer/custom-grid-columns` | `customer/custom-grid-columns` | V1 fetches column data via API Mesh (`data.meshId`). V2 calls a `runtimeAction` instead. |
 | `customer/custom-mass-action` | `customer/custom-mass-action` | `displayIframe` boolean replaced by explicit `type: "view" \| "worker"`. `actionId` renamed to `id`. `sandbox` string replaced by `sandboxPermissions` array. |
 | `menu/custom-menu` | `menu/custom-menu` | V1 registers an array of items (including section items). V2 declares a single `menu` object; section is auto-generated. `title` renamed to `label`. `sortOrder` dropped. New required `description` field. |
