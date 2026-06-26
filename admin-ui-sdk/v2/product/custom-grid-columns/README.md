@@ -1,41 +1,65 @@
-# Adobe Commerce Product Grid Columns Extension Point
+# Product Custom Grid Columns — Admin UI SDK V2
 
-This application demonstrates how to customize the product grid columns in the Adobe Commerce Admin using the Admin UI SDK.
+Adds custom columns to the product grid in the Adobe Commerce Admin panel.
 
-## Overview
+When a merchant opens **Catalog → Products**, Commerce calls your App Builder runtime action with the IDs of the visible products. Your action returns the column values; Commerce renders them inline alongside the built-in columns.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+## What you get
 
-## Features
+One sample column:
 
-- **App Grid Columns**: Add a custom column to the product grid in the Commerce Admin panel.
+| Column ID | Label | Type |
+|---|---|---|
+| `first_column` | App Column | `string` |
+
+The column definitions live in `app.commerce.config.ts`. The data logic lives in `src/commerce-backend-ui-2/actions/get-product-grid-columns/index.js`.
+
+## How it works
+
+1. Merchant opens the product grid in the Commerce Admin
+2. Commerce sends a POST request to your `get-product-grid-columns` runtime action with `{ requestId, gridType: "product", ids: ["test-product-26", "LUCKY-CAT-BLUE", ...] }`
+3. Your action looks up the column values for each product ID (SKU) and returns them
+4. Commerce renders the values in the corresponding columns
+
+For IDs not returned by your action, Commerce falls back to the default values declared in the action.
 
 ## Prerequisites
 
-- Adobe Commerce instance with IMS module installed and enabled.
-- Adobe Commerce Admin UI SDK installed and enabled.
-- Developer console access to the organization on App Builder.
-- App Builder project created.
+- [Node.js](https://nodejs.org/) >= 24
+- [Adobe I/O CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/) (`npm install -g @adobe/aio-cli`)
+- An App Builder project on [Adobe Developer Console](https://developer.adobe.com/console/) with a workspace configured for your Commerce instance
+- Adobe Commerce >= 2.4.7 with the [Admin UI SDK module](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/) installed and enabled
 
-## Installation
+## Setup
 
-- Run `npm install` to install the dependencies
-- Run `aio auth:login` to login to your Adobe I/O account
-- Run `aio app use` (select the correct project and workspace)
-- Update the `mesh.json` file with the correct base URL for the application
-- Run `aio api-mesh:create mesh.json` to create the API mesh
-- Update the ExtensionRegistration with the correct meshId and apiKey from the API mesh
-- Run `aio app deploy` to deploy the application
+**1. Install dependencies**
 
-## Local testing
+```bash
+npm install
+```
 
-- Run `aio app run` to start the local development server.
-- Create and run a server to redirect to your local application. Refer to the following documentation for more information: [Local Testing](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/configuration/).
+**2. Connect to your App Builder workspace**
 
-## Usage
+```bash
+aio console org select
+aio console project select
+aio console workspace select
+aio app use -g --no-input --overwrite
+```
 
-After installation and configuration, you can access the custom menus and pages from the Commerce Admin panel.
+**3. Deploy**
 
-## More Information
+```bash
+aio app deploy
+```
 
-To learn more about the Admin UI SDK product grid columns extension point visit the [Developer docs](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/extension-points/product/grid-columns/).
+**4. Associate and install on Commerce**
+
+Associate and install the app with your Commerce instance through the App Management UI in the Commerce Admin. See [App Management](https://developer.adobe.com/commerce/extensibility/app-management/) for the full walkthrough.
+
+To verify the installation, navigate to **Stores → Configuration → Adobe Services → Admin UI SDK → Configure Extensions** and check the **Installed Extensions** tab — the app should appear there once successfully installed.
+
+## More information
+
+- [Admin UI SDK — Custom Grid Columns](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/extension-points/product/grid-columns/)
+- [App Management](https://developer.adobe.com/commerce/extensibility/app-management/)
