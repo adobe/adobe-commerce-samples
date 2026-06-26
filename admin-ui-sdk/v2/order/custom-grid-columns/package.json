@@ -15,7 +15,7 @@
     "postinstall": "npx aio-commerce-lib-app hooks postinstall"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "description": "Adobe Commerce order grid custom columns in admin panel"
 }

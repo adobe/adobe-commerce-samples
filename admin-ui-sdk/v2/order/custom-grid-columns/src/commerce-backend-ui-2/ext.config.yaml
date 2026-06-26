@@ -16,7 +16,7 @@ runtimeManifest:
         get-order-grid-columns:
           function: actions/orderGridColumns.js
           web: 'yes'
-          runtime: 'nodejs:22'
+          runtime: 'nodejs:24'
           inputs:
             LOG_LEVEL: debug
           annotations:
