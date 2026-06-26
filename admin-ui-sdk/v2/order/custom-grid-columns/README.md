@@ -14,7 +14,7 @@ Three sample columns:
 | `second_column` | Second App Column | `integer` |
 | `third_column` | Third App Column | `date` |
 
-The column definitions live in `app.commerce.config.ts`. The data logic lives in `src/commerce-backend-ui-2/actions/orderGridColumns.js`.
+The column definitions live in `app.commerce.config.ts`. The data logic lives in `src/commerce-backend-ui-2/actions/get-order-grid-columns/index.js`.
 
 ## How it works
 
