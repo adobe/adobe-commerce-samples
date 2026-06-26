@@ -14,7 +14,7 @@ runtimeManifest:
       license: Apache-2.0
       actions:
         get-order-grid-columns:
-          function: actions/orderGridColumns.js
+          function: actions/get-order-grid-columns/index.js
           web: 'yes'
           runtime: 'nodejs:24'
           inputs:
