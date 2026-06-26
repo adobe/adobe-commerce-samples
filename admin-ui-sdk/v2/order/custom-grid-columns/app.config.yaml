@@ -1,0 +1,5 @@
+extensions:
+  commerce/backend-ui/2:
+    $include: src/commerce-backend-ui-2/ext.config.yaml
+  commerce/extensibility/1:
+    $include: src/commerce-extensibility-1/ext.config.yaml

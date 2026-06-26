@@ -1,0 +1,37 @@
+{
+  "adminUi": {
+    "order": {
+      "gridColumns": {
+        "columns": [
+          {
+            "align": "left",
+            "id": "first_column",
+            "label": "First App Column",
+            "type": "string"
+          },
+          {
+            "align": "left",
+            "id": "second_column",
+            "label": "Second App Column",
+            "type": "integer"
+          },
+          {
+            "align": "left",
+            "id": "third_column",
+            "label": "Third App Column",
+            "type": "date"
+          }
+        ],
+        "description": "Adds custom columns to the order grid",
+        "label": "Order grid columns",
+        "runtimeAction": "order-custom-grid-columns/get-order-grid-columns"
+      }
+    }
+  },
+  "metadata": {
+    "description": "Adobe Commerce order grid custom columns in admin panel",
+    "displayName": "Adobe Commerce order grid custom columns",
+    "id": "order-custom-grid-columns",
+    "version": "1.0.0"
+  }
+}
