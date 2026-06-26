@@ -13,17 +13,18 @@
 import { parseGridRequest, okGridResponse, errorGridResponse }
   from '@adobe/aio-commerce-sdk/admin-ui/grid-columns'
 
-const productGridColumns = {
+const PRODUCT_DATA = {
   'Test Product 1':  { first_column: 'value_1' },
-  'Test Product 2':  { first_column: 1 },
+  'Test Product 2':  { first_column: 'value_2' },
   'Test Product':    { first_column: 'Test value' },
   'test-product-26': { first_column: 'Test product value 26' },
   'test-product-30': { first_column: 'Test product value 30' },
   'test-product-82': { first_column: 'Test product value 82' },
   'LUCKY-CAT-BLUE':  { first_column: 'Lucky Cat' },
   'APOLLO-CSM-KIT':  { first_column: 'Apollo' },
-  '*':               { first_column: 'Default value first column' },
 }
+
+const DEFAULTS = { first_column: 'Default value first column' }
 
 export async function main (params) {
   let request
@@ -34,7 +35,7 @@ export async function main (params) {
   }
   const data = {}
   for (const id of request.ids) {
-    data[id] = productGridColumns[id] ?? productGridColumns['*']
+    if (PRODUCT_DATA[id]) data[id] = PRODUCT_DATA[id]
   }
-  return okGridResponse(data)
+  return okGridResponse(data, DEFAULTS)
 }

@@ -17,7 +17,7 @@ runtimeManifest:
         get-product-grid-columns:
           function: actions/get-product-grid-columns/index.js
           web: 'yes'
-          runtime: 'nodejs:18'
+          runtime: 'nodejs:24'
           inputs:
             LOG_LEVEL: debug
           annotations:
