@@ -14,7 +14,7 @@ Three sample columns:
 | `second_column` | Second App Column | `integer` |
 | `third_column` | Third App Column | `date` |
 
-The column definitions live in `app.commerce.config.ts`. The data logic lives in `src/commerce-backend-ui-2/actions/data/customerGridColumns.js`.
+The column definitions live in `app.commerce.config.ts`. The data logic lives in `src/commerce-backend-ui-2/actions/get-customer-grid-columns/index.js`.
 
 ## How it works
 
@@ -27,7 +27,7 @@ For IDs not returned by your action, Commerce falls back to the default values d
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) >= 22
+- [Node.js](https://nodejs.org/) >= 24
 - [Adobe I/O CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/) (`npm install -g @adobe/aio-cli`)
 - An App Builder project on [Adobe Developer Console](https://developer.adobe.com/console/) with a workspace configured for your Commerce instance
 - Adobe Commerce >= 2.4.7 with the [Admin UI SDK module](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/) installed and enabled
