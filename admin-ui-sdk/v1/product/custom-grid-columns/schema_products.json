@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "productGridColumns": {
+      "type": "object",
+      "patternProperties": {
+        "^0": {
+          "type": "object",
+          "properties": {
+            "first_column": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "productGridColumns"
+  ]
+}
