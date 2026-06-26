@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { errorGridResponse, okGridResponse, parseGridRequest } from '@adobe/aio-commerce-lib-admin-ui/grid-columns'
+import { errorGridResponse, okGridResponse, parseGridRequest } from '@adobe/aio-commerce-sdk/admin-ui/grid-columns'
 
 const CUSTOMER_DATA = {
   '1': { first_column: 'value_1', second_column: 1, third_column: '2030-12-01T23:25:42+11:00' },
