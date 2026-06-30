@@ -23,21 +23,21 @@ window.React = require('react')
 /* Here you can bootstrap your application and configure the integration with the Adobe Experience Cloud Shell */
 try {
   // attempt to load the Experience Cloud Runtime
-    require('./exc-runtime')
+  require('./exc-runtime')
   // if there are no errors, bootstrap the app in the Experience Cloud Shell
-    init(bootstrapInExcShell)
+  init(bootstrapInExcShell)
 } catch (e) {
-    console.log('application not running in Adobe Experience Cloud Shell')
+  console.log('application not running in Adobe Experience Cloud Shell')
   // fallback mode, run the application without the Experience Cloud Runtime
-    bootstrapRaw()
+  bootstrapRaw()
 }
 
 function renderApp(runtime, ims) {
-    const client = createRoot(document.getElementById('root'))
+  const client = createRoot(document.getElementById('root'))
 
-    client.render(
-        <App runtime={runtime} ims={ims} />
-    )
+  client.render(
+      <App runtime={runtime} ims={ims} />
+  )
 }
 
 function bootstrapRaw() {
@@ -59,23 +59,23 @@ function bootstrapInExcShell() {
   // runtime.heroClick = () => window.alert('Did I ever tell you you\'re my hero?')
 
   // ready event brings in authentication/user info
-    runtime.on('ready', ({ imsOrg, imsToken, imsProfile, locale }) => {
+  runtime.on('ready', ({ imsOrg, imsToken, imsProfile, locale }) => {
     // tell the exc-runtime object we are done
     runtime.done()
     console.log('Ready! received imsProfile:', imsProfile)
     const ims = {
-        profile: imsProfile,
-        org: imsOrg,
-        token: imsToken
+      profile: imsProfile,
+      org: imsOrg,
+      token: imsToken
     }
     renderApp(runtime, ims)
-    })
+  })
 
   // set solution info, shortTitle is used when window is too small to display full title
-    runtime.solution = {
+  runtime.solution = {
     icon: 'AdobeExperienceCloud',
     title: 'SampleExtension',
     shortTitle: 'JGR'
-    }
-    runtime.title = 'SampleExtension'
+  }
+  runtime.title = 'SampleExtension'
 }

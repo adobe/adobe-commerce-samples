@@ -1,6 +1,6 @@
-# Adobe Commerce Custom Order View Button Banner Notification Extension Point
+# Adobe Commerce Order View Button Extension Point
 
-This application demonstrates how to customize Banner Notifications for order view buttons in the Adobe Commerce Admin using the Admin UI SDK.
+This application demonstrates how to customize the order view button in the Adobe Commerce Admin using the Admin UI SDK.
 
 ## Overview
 
@@ -8,12 +8,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Features
 
-- **Custom Banner Notifications**: Add a custom Banner Notification for an order's 'Create Return' and 'Delete Order' buttons in the Commerce Admin panel to display a success or error message.
+- **Custom view button**: Add a custom view button to the order view in the Commerce Admin panel to redirect to the app.
 
 ## Prerequisites
- 
--  Admin UI SDK 1.4.0+
-- Order custom view button extension point registered.
+
 - Adobe Commerce instance with IMS module installed and enabled.
 - Adobe Commerce Admin UI SDK installed and enabled.
 - Developer console access to the organization on App Builder.
@@ -34,3 +32,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Usage
 
 After installation and configuration, you can access the custom menus and pages from the Commerce Admin panel.
+
+## More Information
+
+To learn more about the Admin UI SDK order view button extension point visit the [Developer docs](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/extension-points/order/view-button/).
