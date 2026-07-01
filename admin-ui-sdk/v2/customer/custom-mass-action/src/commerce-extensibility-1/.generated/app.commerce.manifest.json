@@ -1,0 +1,38 @@
+{
+  "adminUi": {
+    "customer": {
+      "massActions": [
+        {
+          "confirm": {
+            "message": "Are you sure your want to proceed with Mass Action on selected customers?",
+            "title": "Mass Action"
+          },
+          "id": "customer-custom-mass-action::customer-mass-action",
+          "label": "Customer Mass Action",
+          "path": "#/customer-mass-action",
+          "selectionLimit": 1,
+          "type": "view"
+        },
+        {
+          "id": "customer-custom-mass-action::mass-action-with-redirect",
+          "label": "Mass Action With Redirect",
+          "path": "#/mass-action-with-redirect",
+          "title": "Customer Mass Action With Redirect",
+          "type": "view"
+        },
+        {
+          "id": "customer-custom-mass-action::mass-action-no-iFrame",
+          "label": "Mass Action No iFrame",
+          "runtimeAction": "mass-actions/massAction",
+          "type": "worker"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "description": "Adobe Commerce customer grid custom mass action in admin panel",
+    "displayName": "Adobe Commerce customer grid custom mass action",
+    "id": "customer-custom-mass-action",
+    "version": "1.0.0"
+  }
+}
