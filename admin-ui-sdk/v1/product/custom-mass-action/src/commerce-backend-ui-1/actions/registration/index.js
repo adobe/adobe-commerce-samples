@@ -41,6 +41,17 @@ async function main() {
                             displayIframe: false
                         }
                     ]
+                },
+                bannerNotification: {
+                    massActions: {
+                        product: [
+                            {
+                                actionId: `${extensionId}::mass-action-with-redirect`,
+                                successMessage: 'Product custom success message',
+                                errorMessage: 'Product custom error message'
+                            }
+                        ]
+                    }
                 }
             }
         }
