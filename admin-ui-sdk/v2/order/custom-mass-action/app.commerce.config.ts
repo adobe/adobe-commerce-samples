@@ -39,6 +39,10 @@ export default defineConfig({
           title: 'Order Mass Action With Redirect',
           type: 'view',
           path: '#/mass-action-with-redirect',
+          notifications: {
+            success: 'Order custom success message',
+            error: 'Order custom error message',
+          },
         },
         {
           id: 'order-custom-mass-action::mass-action-no-iFrame',

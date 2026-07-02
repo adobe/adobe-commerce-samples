@@ -16,6 +16,10 @@
         {
           "id": "order-custom-mass-action::mass-action-with-redirect",
           "label": "Mass Action With Redirect",
+          "notifications": {
+            "error": "Order custom error message",
+            "success": "Order custom success message"
+          },
           "path": "#/mass-action-with-redirect",
           "title": "Order Mass Action With Redirect",
           "type": "view"
