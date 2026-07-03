@@ -1,10 +1,3 @@
-$schema: http://json-schema.org/draft-07/schema
-$id: https://adobe.io/schemas/app-builder-templates/1
-
-categories:
-  - action
-  - ui
-
 extensions:
   # This extension is required for Admin UI. Do not remove.
   - extensionPointId: commerce/backend-ui/2
