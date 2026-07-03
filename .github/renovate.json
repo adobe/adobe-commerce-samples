@@ -1,0 +1,65 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    "config:recommended",
+    "customManagers:biomeVersions",
+    "group:recommended",
+    "group:monorepos",
+    "group:definitelyTyped",
+    "helpers:disableTypesNodeMajor",
+    "helpers:pinGitHubActionDigestsToSemver",
+    "security:minimumReleaseAgeNpm",
+    ":automergeDisabled",
+    ":ignoreUnstable",
+    ":prConcurrentLimitNone",
+    ":preserveSemverRanges",
+    ":rebaseStalePrs",
+    ":renovatePrefix",
+    ":updateNotScheduled",
+    ":separateMultipleMajorReleases"
+  ],
+  "includePaths": ["admin-ui-sdk/v2/**"],
+  "automerge": false,
+  "vulnerabilityAlerts": {
+    "automerge": true
+  },
+  "osvVulnerabilityAlerts": true,
+  "branchPrefix": "renovate/",
+  "commitMessagePrefix": "RENOVATE: ",
+  "labels": ["dependencies"],
+  "postUpdateOptions": ["npmDedupe"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/\\.config\\.yaml$/"],
+      "matchStrings": ["runtime: ['\"]?nodejs:(?<currentValue>\\d+)['\"]?"],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
+    }
+  ],
+  "packageRules": [
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-non-major",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "schedule": ["on Monday"]
+    },
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "automerge": true,
+      "schedule": ["on Monday"]
+    },
+    {
+      "groupName": "aio-commerce-sdk",
+      "matchPackageNames": [
+        "@adobe/aio-commerce-lib-*",
+        "@adobe/aio-commerce-sdk*"
+      ],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ]
+}
