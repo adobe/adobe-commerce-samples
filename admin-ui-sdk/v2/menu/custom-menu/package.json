@@ -1,0 +1,27 @@
+{
+  "name": "custom-menu",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@adobe/aio-commerce-lib-app": "1.8.0-beta-20260702145741",
+    "@adobe/aio-commerce-sdk": "1.4.0-beta-20260702145741",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "jest": "^29.4.2"
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests ./test",
+    "e2e": "jest --collectCoverage=false --testRegex ./e2e",
+    "postinstall": "npx aio-commerce-lib-app hooks postinstall"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "description": "Adobe Commerce custom menu example in admin panel",
+  "imports": {
+    "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js",
+    "#web/*": "./src/commerce-backend-ui-2/web-src/src/*"
+  }
+}
