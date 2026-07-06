@@ -21,7 +21,7 @@ runtimeManifest:
         massAction:
           function: actions/massAction/index.js
           web: 'yes'
-          runtime: 'nodejs:18'
+          runtime: 'nodejs:24'
           inputs:
             LOG_LEVEL: debug
           annotations:
