@@ -1,17 +1,3 @@
-runtimeManifest:
-  packages:
-    mass-actions:
-      license: Apache-2.0
-      actions:
-        massAction:
-          function: actions/massAction/index.js
-          web: 'yes'
-          runtime: 'nodejs:18'
-          inputs:
-            LOG_LEVEL: debug
-          annotations:
-            require-adobe-auth: true
-            final: true
 web: web-src
 
 # The [pre-app-build] hooks are auto-generated. Do not remove or manually edit.
@@ -26,3 +12,18 @@ operations:
   view:
     - type: web
       impl: index.html
+
+runtimeManifest:
+  packages:
+    mass-actions:
+      license: Apache-2.0
+      actions:
+        massAction:
+          function: actions/massAction/index.js
+          web: 'yes'
+          runtime: 'nodejs:18'
+          inputs:
+            LOG_LEVEL: debug
+          annotations:
+            require-adobe-auth: true
+            final: true

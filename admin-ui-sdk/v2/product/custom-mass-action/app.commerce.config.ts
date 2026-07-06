@@ -9,6 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+
 import { defineConfig } from '@adobe/aio-commerce-lib-app/config'
 
 export default defineConfig({
@@ -26,11 +27,11 @@ export default defineConfig({
           label: 'Product Mass Action',
           type: 'view',
           path: '#/mass-action',
-          selectionLimit: 1,
           confirm: {
             title: 'Mass Action',
             message: 'Are you sure your want to proceed with Mass Action on selected products?',
           },
+          selectionLimit: 1,
         },
         {
           id: 'product-custom-mass-action::mass-action-with-redirect',
