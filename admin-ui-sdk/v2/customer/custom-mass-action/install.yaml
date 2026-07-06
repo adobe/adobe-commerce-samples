@@ -6,5 +6,8 @@ categories:
   - ui
 
 extensions:
+  # This extension is required for Admin UI. Do not remove.
   - extensionPointId: commerce/backend-ui/2
+
+  # This extension is required for app management. Do not remove.
   - extensionPointId: commerce/extensibility/1
