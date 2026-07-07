@@ -29,7 +29,7 @@ export default defineConfig({
           path: '#/customer-mass-action',
           confirm: {
             title: 'Mass Action',
-            message: 'Are you sure your want to proceed with Mass Action on selected customers?',
+            message: 'Are you sure you want to proceed with Mass Action on selected customers?',
           },
           selectionLimit: 1,
         },

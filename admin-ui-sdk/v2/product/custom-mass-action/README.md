@@ -19,7 +19,7 @@ The mass action definitions live in `app.commerce.config.ts`. The iframe UI live
 ## How it works
 
 1. Merchant selects one or more products in the product grid and picks a mass action from the dropdown
-2. For `view` actions, Commerce Admin opens the configured `path` inside an iframe backed by your App Builder web app; the app reads the selected IDs via the Admin UI SDK guest connection (`sharedContext.get('selectedIds')`)
+2. For `view` actions, Commerce Admin opens the configured `path` inside an iframe backed by your App Builder web app; the app reads the selected IDs via the Admin UI SDK (`useMassActionContext()`)
 3. For `worker` actions, Commerce Admin calls the configured `runtimeAction` directly with the selected IDs — no iframe is shown
 
 ## Prerequisites

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@adobe/aio-commerce-lib-app": "^1.8.0-beta-20260626093939",
-    "@adobe/aio-commerce-sdk": "^1.4.0-beta-20260626093939"
+    "@adobe/aio-commerce-lib-app": "1.8.0-beta-20260702145741",
+    "@adobe/aio-commerce-sdk": "1.4.0-beta-20260702145741"
   },
   "devDependencies": {
     "jest": "^29.4.2"

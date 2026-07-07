@@ -13,7 +13,7 @@ createExtensionApp({
 
   routes: [
     { index: true, element: <MainPage /> },
-    { path: "#/mass-action", element: <ProductMassAction /> },
+    { path: "#/product-mass-action", element: <ProductMassAction /> },
     { path: "#/mass-action-with-redirect", element: <MassActionWithRedirect /> },
   ],
 });

@@ -4,12 +4,12 @@
       "massActions": [
         {
           "confirm": {
-            "message": "Are you sure your want to proceed with Mass Action on selected products?",
+            "message": "Are you sure you want to proceed with Mass Action on selected products?",
             "title": "Mass Action"
           },
           "id": "product-mass-action",
           "label": "Product Mass Action",
-          "path": "#/mass-action",
+          "path": "#/product-mass-action",
           "selectionLimit": 1,
           "type": "view"
         },
