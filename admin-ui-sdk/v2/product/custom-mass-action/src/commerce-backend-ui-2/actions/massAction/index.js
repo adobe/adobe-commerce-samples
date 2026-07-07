@@ -3,7 +3,7 @@ import {
   okMassActionResponse,
   massActionErrorResponse,
 } from "@adobe/aio-commerce-sdk/admin-ui/mass-actions";
-import { CommerceSdkValidationError } from "@adobe/aio-commerce-lib-core/error";
+import { CommerceSdkValidationError } from "@adobe/aio-commerce-sdk/core/error";
 
 export async function main(params) {
   try {

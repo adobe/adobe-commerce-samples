@@ -5,7 +5,6 @@
   "dependencies": {
     "@adobe/aio-commerce-lib-admin-ui": "0.2.0-beta-20260702145741",
     "@adobe/aio-commerce-lib-app": "1.8.0-beta-20260702145741",
-    "@adobe/aio-commerce-lib-core": "1.2.0-beta-20260702145741",
     "@adobe/aio-commerce-sdk": "1.4.0-beta-20260702145741",
     "@react-spectrum/s2": "^1.5.1",
     "react": "^19.2.7",
