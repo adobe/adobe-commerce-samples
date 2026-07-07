@@ -23,7 +23,7 @@ export default defineConfig({
     order: {
       massActions: [
         {
-          id: 'order-custom-mass-action::order-mass-action',
+          id: 'order-mass-action',
           label: 'Order Mass Action',
           type: 'view',
           path: '#/order-mass-action',
@@ -34,7 +34,7 @@ export default defineConfig({
           selectionLimit: 1,
         },
         {
-          id: 'order-custom-mass-action::mass-action-with-redirect',
+          id: 'mass-action-with-redirect',
           label: 'Mass Action With Redirect',
           title: 'Order Mass Action With Redirect',
           type: 'view',
@@ -45,7 +45,7 @@ export default defineConfig({
           },
         },
         {
-          id: 'order-custom-mass-action::mass-action-no-iFrame',
+          id: 'mass-action-no-iFrame',
           label: 'Mass Action No iFrame',
           type: 'worker',
           runtimeAction: 'mass-actions/massAction',

@@ -7,14 +7,14 @@
             "message": "Are you sure your want to proceed with Mass Action on selected orders?",
             "title": "Mass Action"
           },
-          "id": "order-custom-mass-action::order-mass-action",
+          "id": "order-mass-action",
           "label": "Order Mass Action",
           "path": "#/order-mass-action",
           "selectionLimit": 1,
           "type": "view"
         },
         {
-          "id": "order-custom-mass-action::mass-action-with-redirect",
+          "id": "mass-action-with-redirect",
           "label": "Mass Action With Redirect",
           "notifications": {
             "error": "Order custom error message",
@@ -25,7 +25,7 @@
           "type": "view"
         },
         {
-          "id": "order-custom-mass-action::mass-action-no-iFrame",
+          "id": "mass-action-no-iFrame",
           "label": "Mass Action No iFrame",
           "runtimeAction": "mass-actions/massAction",
           "type": "worker"
