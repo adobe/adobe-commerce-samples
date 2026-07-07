@@ -14,7 +14,7 @@
           "type": "view"
         },
         {
-          "id": "mass-action-with-redirect",
+          "id": "order-mass-action-with-redirect",
           "label": "Mass Action With Redirect",
           "notifications": {
             "error": "Order custom error message",
@@ -25,7 +25,7 @@
           "type": "view"
         },
         {
-          "id": "mass-action-no-iFrame",
+          "id": "order-mass-action-no-iFrame",
           "label": "Mass Action No iFrame",
           "runtimeAction": "mass-actions/massAction",
           "type": "worker"
