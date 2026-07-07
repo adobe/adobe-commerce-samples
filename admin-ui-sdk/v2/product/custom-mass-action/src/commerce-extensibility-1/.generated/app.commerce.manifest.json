@@ -7,14 +7,14 @@
             "message": "Are you sure your want to proceed with Mass Action on selected products?",
             "title": "Mass Action"
           },
-          "id": "product-custom-mass-action::product-mass-action",
+          "id": "product-mass-action",
           "label": "Product Mass Action",
           "path": "#/mass-action",
           "selectionLimit": 1,
           "type": "view"
         },
         {
-          "id": "product-custom-mass-action::mass-action-with-redirect",
+          "id": "mass-action-with-redirect",
           "label": "Mass Action With Redirect",
           "notifications": {
             "error": "Product custom error message",
@@ -24,7 +24,7 @@
           "type": "view"
         },
         {
-          "id": "product-custom-mass-action::mass-action-no-iFrame",
+          "id": "mass-action-no-iFrame",
           "label": "Mass Action No iFrame",
           "runtimeAction": "mass-actions/massAction",
           "type": "worker"
