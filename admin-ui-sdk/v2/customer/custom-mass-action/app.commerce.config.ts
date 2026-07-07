@@ -34,14 +34,14 @@ export default defineConfig({
           selectionLimit: 1,
         },
         {
-          id: 'mass-action-with-redirect',
+          id: 'customer-mass-action-with-redirect',
           label: 'Mass Action With Redirect',
           title: 'Customer Mass Action With Redirect',
           type: 'view',
           path: '#/mass-action-with-redirect',
         },
         {
-          id: 'mass-action-no-iFrame',
+          id: 'customer-mass-action-no-iFrame',
           label: 'Mass Action No iFrame',
           type: 'worker',
           runtimeAction: 'mass-actions/massAction',

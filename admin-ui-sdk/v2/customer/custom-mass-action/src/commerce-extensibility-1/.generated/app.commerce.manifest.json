@@ -14,14 +14,14 @@
           "type": "view"
         },
         {
-          "id": "mass-action-with-redirect",
+          "id": "customer-mass-action-with-redirect",
           "label": "Mass Action With Redirect",
           "path": "#/mass-action-with-redirect",
           "title": "Customer Mass Action With Redirect",
           "type": "view"
         },
         {
-          "id": "mass-action-no-iFrame",
+          "id": "customer-mass-action-no-iFrame",
           "label": "Mass Action No iFrame",
           "runtimeAction": "mass-actions/massAction",
           "type": "worker"
