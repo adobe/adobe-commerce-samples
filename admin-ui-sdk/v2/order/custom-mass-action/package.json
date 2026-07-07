@@ -1,0 +1,50 @@
+{
+  "name": "order-custom-mass-action",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@adobe/aio-commerce-lib-admin-ui": "0.2.0-beta-20260702145741",
+    "@adobe/aio-commerce-lib-app": "1.8.0-beta-20260702145741",
+    "@adobe/aio-commerce-sdk": "1.4.0-beta-20260702145741",
+    "@react-spectrum/s2": "^1.5.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@tsconfig/bases": "latest",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "jest": "^29.4.2",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests ./test",
+    "e2e": "jest --collectCoverage=false --testRegex ./e2e",
+    "postinstall": "npx aio-commerce-lib-app hooks postinstall"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "description": "Adobe Commerce order grid custom mass action in admin panel",
+  "imports": {
+    "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js",
+    "#web/*": "./src/commerce-backend-ui-2/web-src/src/*"
+  },
+  "@parcel/bundler-default": {
+    "manualSharedBundles": [
+      {
+        "assets": [
+          "**/@react-spectrum/s2/**",
+          "src/commerce-backend-ui-2/web-src/*.{js,jsx,ts,tsx}"
+        ],
+        "name": "s2-styles",
+        "types": [
+          "css"
+        ]
+      }
+    ]
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
+}

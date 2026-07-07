@@ -42,6 +42,17 @@ async function main() {
                             displayIframe: false
                         }
                     ]
+                },
+                bannerNotification: {
+                    massActions: {
+                        order: [
+                            {
+                                actionId: `${extensionId}::mass-action-with-redirect`,
+                                successMessage: 'Order custom success message',
+                                errorMessage: 'Order custom error message'
+                            }
+                        ]
+                    }
                 }
             }
         }
