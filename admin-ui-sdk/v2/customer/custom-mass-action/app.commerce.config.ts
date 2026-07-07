@@ -1,0 +1,52 @@
+/*
+ * Copyright 2026 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+import { defineConfig } from '@adobe/aio-commerce-lib-app/config'
+
+export default defineConfig({
+  metadata: {
+    id: 'customer-custom-mass-action',
+    displayName: 'Adobe Commerce customer grid custom mass action',
+    version: '1.0.0',
+    description: 'Adobe Commerce customer grid custom mass action in admin panel',
+  },
+  adminUi: {
+    customer: {
+      massActions: [
+        {
+          id: 'customer-mass-action',
+          label: 'Customer Mass Action',
+          type: 'view',
+          path: '#/customer-mass-action',
+          confirm: {
+            title: 'Mass Action',
+            message: 'Are you sure your want to proceed with Mass Action on selected customers?',
+          },
+          selectionLimit: 1,
+        },
+        {
+          id: 'customer-mass-action-with-redirect',
+          label: 'Mass Action With Redirect',
+          title: 'Customer Mass Action With Redirect',
+          type: 'view',
+          path: '#/mass-action-with-redirect',
+        },
+        {
+          id: 'customer-mass-action-no-iFrame',
+          label: 'Mass Action No iFrame',
+          type: 'worker',
+          runtimeAction: 'mass-actions/massAction',
+        },
+      ],
+    },
+  },
+})
