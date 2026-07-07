@@ -34,7 +34,7 @@ export default defineConfig({
           selectionLimit: 1,
         },
         {
-          id: 'mass-action-with-redirect',
+          id: 'product-mass-action-with-redirect',
           label: 'Mass Action With Redirect',
           type: 'view',
           path: '#/mass-action-with-redirect',
@@ -44,7 +44,7 @@ export default defineConfig({
           },
         },
         {
-          id: 'mass-action-no-iFrame',
+          id: 'product-mass-action-no-iFrame',
           label: 'Mass Action No iFrame',
           type: 'worker',
           runtimeAction: 'mass-actions/massAction',
