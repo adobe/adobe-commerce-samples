@@ -23,7 +23,7 @@
     "postinstall": "npx aio-commerce-lib-app hooks postinstall"
   },
   "engines": {
-    "node": "^16.13 || >=18"
+    "node": ">=24"
   },
   "description": "Adobe Commerce customer grid custom mass action in admin panel",
   "imports": {
