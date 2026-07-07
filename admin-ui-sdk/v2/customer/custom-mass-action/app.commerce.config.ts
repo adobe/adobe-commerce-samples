@@ -23,7 +23,7 @@ export default defineConfig({
     customer: {
       massActions: [
         {
-          id: 'customer-custom-mass-action::customer-mass-action',
+          id: 'customer-mass-action',
           label: 'Customer Mass Action',
           type: 'view',
           path: '#/customer-mass-action',
@@ -34,14 +34,14 @@ export default defineConfig({
           selectionLimit: 1,
         },
         {
-          id: 'customer-custom-mass-action::mass-action-with-redirect',
+          id: 'mass-action-with-redirect',
           label: 'Mass Action With Redirect',
           title: 'Customer Mass Action With Redirect',
           type: 'view',
           path: '#/mass-action-with-redirect',
         },
         {
-          id: 'customer-custom-mass-action::mass-action-no-iFrame',
+          id: 'mass-action-no-iFrame',
           label: 'Mass Action No iFrame',
           type: 'worker',
           runtimeAction: 'mass-actions/massAction',
