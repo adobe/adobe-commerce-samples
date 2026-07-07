@@ -37,7 +37,7 @@ export default defineConfig({
           id: 'product-mass-action-with-redirect',
           label: 'Mass Action With Redirect',
           type: 'view',
-          path: '#/mass-action-with-redirect',
+          path: '#/product-mass-action-with-redirect',
           notifications: {
             success: 'Product custom success message',
             error: 'Product custom error message',

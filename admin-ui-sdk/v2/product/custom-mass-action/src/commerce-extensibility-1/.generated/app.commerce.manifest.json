@@ -20,7 +20,7 @@
             "error": "Product custom error message",
             "success": "Product custom success message"
           },
-          "path": "#/mass-action-with-redirect",
+          "path": "#/product-mass-action-with-redirect",
           "type": "view"
         },
         {
