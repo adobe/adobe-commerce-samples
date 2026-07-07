@@ -26,10 +26,10 @@ export default defineConfig({
           id: 'product-mass-action',
           label: 'Product Mass Action',
           type: 'view',
-          path: '#/mass-action',
+          path: '#/product-mass-action',
           confirm: {
             title: 'Mass Action',
-            message: 'Are you sure your want to proceed with Mass Action on selected products?',
+            message: 'Are you sure you want to proceed with Mass Action on selected products?',
           },
           selectionLimit: 1,
         },
@@ -37,7 +37,7 @@ export default defineConfig({
           id: 'product-mass-action-with-redirect',
           label: 'Mass Action With Redirect',
           type: 'view',
-          path: '#/mass-action-with-redirect',
+          path: '#/product-mass-action-with-redirect',
           notifications: {
             success: 'Product custom success message',
             error: 'Product custom error message',

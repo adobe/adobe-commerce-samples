@@ -4,7 +4,7 @@
       "massActions": [
         {
           "confirm": {
-            "message": "Are you sure your want to proceed with Mass Action on selected orders?",
+            "message": "Are you sure you want to proceed with Mass Action on selected orders?",
             "title": "Mass Action"
           },
           "id": "order-mass-action",

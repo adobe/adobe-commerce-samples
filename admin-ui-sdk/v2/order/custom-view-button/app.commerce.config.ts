@@ -27,7 +27,7 @@ export default defineConfig({
           type: "view",
           path: "#/delete-order",
           confirm: {
-            message: "Are you sure your want to proceed to delete order?",
+            message: "Are you sure you want to proceed to delete order?",
           },
           level: 0,
           sortOrder: 80,
