@@ -20,7 +20,7 @@ const { Core } = require('@adobe/aio-sdk')
 const mockLoggerInstance = { info: jest.fn(), debug: jest.fn(), error: jest.fn() }
 Core.Logger.mockReturnValue(mockLoggerInstance)
 
-const action = require('../actions/commerce/product-validate-stock.js')
+const action = require('../src/commerce-extensibility-1/add-to-cart-stock-validation/actions/product-validate-stock/index.js')
 
 beforeEach(() => {
     Core.Logger.mockClear()

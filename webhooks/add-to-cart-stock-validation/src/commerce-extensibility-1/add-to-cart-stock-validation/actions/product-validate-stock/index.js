@@ -16,14 +16,13 @@ governing permissions and limitations under the License.
  * Note:
  * You might want to disable authentication and authorization checks against Adobe Identity Management System for a generic action. In that case:
  *   - Remove the require-adobe-auth annotation for this action in the manifest.yml of your application
- *   - Remove the Authorization header from the array passed in checkMissingRequestInputs
+ *   - Remove the Authorization header check below
  *   - The two steps above imply that every client knowing the URL to this deployed action will be able to invoke it without any authentication and authorization checks against Adobe Identity Management System
  *   - Make sure to validate these changes against your security requirements before deploying the action
  */
 
 
 const { Core } = require('@adobe/aio-sdk')
-const { errorResponse, stringParameters, checkMissingRequestInputs } = require('../utils')
 
 // main function that will be executed by Adobe I/O Runtime
 async function main(params) {
@@ -35,15 +34,27 @@ async function main(params) {
         logger.info('Calling action product-validate-stock')
 
         // log parameters, only if params.LOG_LEVEL === 'debug'
-        logger.debug(stringParameters(params))
+        // hide authorization token without overriding params
+        let headers = params.__ow_headers || {}
+        if (headers.authorization) {
+            headers = { ...headers, authorization: '<hidden>' }
+        }
+        logger.debug(JSON.stringify({ ...params, __ow_headers: headers }))
 
         // check for missing request input parameters and headers
-        const requiredParams = ['product', 'info']
-        const requiredHeaders = ['Authorization']
-        const errorMessage = checkMissingRequestInputs(params, requiredParams, requiredHeaders)
+        const missingHeaders = ['authorization'].filter(h => !(params.__ow_headers || {})[h])
+        const missingParams = ['product', 'info'].filter(p => params[p] === undefined || params[p] === '')
+        let errorMessage = null
+        if (missingHeaders.length > 0) {
+            errorMessage = `missing header(s) '${missingHeaders}'`
+        }
+        if (missingParams.length > 0) {
+            errorMessage = errorMessage ? `${errorMessage} and missing parameter(s) '${missingParams}'` : `missing parameter(s) '${missingParams}'`
+        }
         if (errorMessage) {
             // return and log client errors
-            return errorResponse(400, errorMessage, logger)
+            logger.info(`400: ${errorMessage}`)
+            return { error: { statusCode: 400, body: { error: errorMessage } } }
         }
 
         const info = params.info;
@@ -70,7 +81,7 @@ async function main(params) {
         // log any server errors
         logger.error(error)
         // return with 500
-        return errorResponse(500, 'server error', logger)
+        return { error: { statusCode: 500, body: { error: 'server error' } } }
     }
 }
 
