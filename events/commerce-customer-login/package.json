@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@adobe/aio-commerce-lib-app": "^1.7.0",
+    "@adobe/aio-commerce-sdk": "^1",
     "@adobe/aio-sdk": "^5",
     "@adobe/generator-add-events-generic": "^2.0.1",
     "@adobe/generator-app-events-generic": "^2.0.1"
@@ -16,11 +18,12 @@
   "scripts": {
     "test": "jest --passWithNoTests ./test",
     "e2e": "jest --collectCoverage=false --testRegex ./e2e",
-    "lint": "eslint --ignore-pattern web-src --no-error-on-unmatched-pattern test src actions",
-    "lint:fix": "npm run lint -- --fix"
+    "lint": "eslint --ignore-pattern web-src --no-error-on-unmatched-pattern test src",
+    "lint:fix": "npm run lint -- --fix",
+    "postinstall": "npx aio-commerce-lib-app hooks postinstall"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22 <=24"
   },
   "aio-app-builder-templates": [
     "@adobe/generator-app-events-generic",

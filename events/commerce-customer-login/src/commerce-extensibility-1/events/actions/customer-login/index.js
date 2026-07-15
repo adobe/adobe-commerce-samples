@@ -11,19 +11,11 @@ governing permissions and limitations under the License.
 
 /**
  * This is a sample action showcasing how to access an external API
- *
- * Note:
- * You might want to disable authentication and authorization checks against Adobe Identity Management System for a generic action. In that case:
- *   - Remove the require-adobe-auth annotation for this action in the manifest.yml of your application
- *   - Remove the Authorization header from the array passed in checkMissingRequestInputs
- *   - The two steps above imply that every client knowing the URL to this deployed action will be able to invoke it without any authentication and authorization checks against Adobe Identity Management System
- *   - Make sure to validate these changes against your security requirements before deploying the action
  */
 
 
 const fetch = require('node-fetch')
 const { Core } = require('@adobe/aio-sdk')
-const { errorResponse, stringParameters, checkMissingRequestInputs } = require('../utils')
 
 // main function that will be executed by Adobe I/O Runtime
 const main = async params => {
@@ -35,15 +27,12 @@ const main = async params => {
      logger.info('Calling the main action of customer-login')
 
      // log parameters, only if params.LOG_LEVEL === 'debug'
-     logger.debug(stringParameters(params))
-
-     // check for missing request input parameters and headers
-     const requiredHeaders = []
-     const errorMessage = checkMissingRequestInputs(params, requiredHeaders)
-     if (errorMessage) {
-       // return and log client errors
-       return errorResponse(400, errorMessage, logger)
+     // hide authorization token without overriding params
+     let headers = params.__ow_headers || {}
+     if (headers.authorization) {
+       headers = { ...headers, authorization: '<hidden>' }
      }
+     logger.debug(JSON.stringify({ ...params, __ow_headers: headers }))
 
      // post the message to external api endpoint
      var slackText = "Customer Login - " + JSON.stringify(params)
@@ -60,7 +49,8 @@ const main = async params => {
        body: JSON.stringify(payload)
      })
      if (!res.ok) {
-       return errorResponse(res.status, 'Something is wrong with your Slack webhook URL.', logger)
+       logger.info(`${res.status}: Something is wrong with your Slack webhook URL.`)
+       return { error: { statusCode: res.status, body: { error: 'Something is wrong with your Slack webhook URL.' } } }
      }
 
      const response = {
@@ -77,7 +67,7 @@ const main = async params => {
      // log any server errors
      logger.error(error)
      // return with 500
-     return errorResponse(500, 'server error', logger)
+     return { error: { statusCode: 500, body: { error: 'server error' } } }
    }
 };
 

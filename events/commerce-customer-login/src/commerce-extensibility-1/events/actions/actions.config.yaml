@@ -1,0 +1,11 @@
+customer-login:
+  function: ./customer-login/index.js
+  web: 'no'
+  runtime: nodejs:18
+  inputs:
+    LOG_LEVEL: debug
+    SLACK_WEBHOOK: $SLACK_WEBHOOK
+    SLACK_CHANNEL: $SLACK_CHANNEL
+  annotations:
+    require-adobe-auth: false
+    final: true
