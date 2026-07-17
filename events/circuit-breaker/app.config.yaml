@@ -1,0 +1,5 @@
+
+extensions:
+  # This extension is required for app management. Do not remove.
+  commerce/extensibility/1:
+    $include: src/commerce-extensibility-1/ext.config.yaml
