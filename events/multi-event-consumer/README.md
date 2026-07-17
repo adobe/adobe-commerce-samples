@@ -1,18 +1,10 @@
 # Multi Event Consumer sample
 
-A minimal Adobe Commerce app (App Management) that shows how several event
-subscriptions can share a single runtime action, and how that action tells
-the events apart and dispatches each to its own handler.
+A minimal Adobe Commerce app (App Management) that shows how several event subscriptions can share a single runtime action, and how that action tells the events apart and dispatches each to its own handler.
 
 ## Why route through one action
 
-App Management lets multiple events point at the same `runtimeActions` entry.
-When several events share an action, the action receives every one of them
-and has to know which is which before it can act. This sample declares three
-Commerce events — order placed, customer saved, product saved — that all
-route to a single `consumer` action. The consumer matches the incoming event
-against the ones it knows about and forwards it, via an OpenWhisk invoke, to
-the action that actually handles it.
+App Management lets multiple events point at the same `runtimeActions` entry. When several events share an action, the action receives every one of them and has to know which is which before it can act. This sample declares three Commerce events — order placed, customer saved, product saved — that all route to a single `consumer` action. The consumer matches the incoming event against the ones it knows about and forwards it, via an OpenWhisk invoke, to the action that actually handles it.
 
 ```mermaid
 sequenceDiagram
@@ -39,29 +31,17 @@ sequenceDiagram
 
 ## How matching works
 
-`resolveIoEventCode` computes the same I/O event code Commerce assigns an
-event at installation time, from the app id and the event `name` declared in
-`app.commerce.config` — so the consumer action can resolve routes at
-cold-start without waiting on installation data. The consumer action resolves
-a code for each event it knows about, then hands `{ code, action }` routes to
-`withEventRouter`, which builds the event-code → action map once and looks up
-the incoming CloudEvent `type` (`params.type`) on every invocation to find the
-target action.
+`resolveIoEventCode` computes the same I/O event code Commerce assigns an event at installation time, from the app id and the event `name` declared in `app.commerce.config` — so the consumer action can resolve routes at cold-start without waiting on installation data. The consumer action resolves a code for each event it knows about, then hands `{ code, action }` routes to `withEventRouter`, which builds the event-code → action map once and looks up the incoming CloudEvent `type` (`params.type`) on every invocation to find the target action.
 
 ## Adding another event to the consumer
 
-1. Declare the event in `app.commerce.config.ts` with
-   `runtimeActions: [CONSUMER_ACTION]`.
-2. Add its handler action under `src/commerce-extensibility-1/actions/` and
-   register it in `ext.config.yaml`.
-3. In `actions/consumer/index.js`, resolve its event code with
-   `resolveEventCode` and add a `{ code, action }` entry to the
-   `withEventRouter` call.
+1. Declare the event in `app.commerce.config.ts` with `runtimeActions: [CONSUMER_ACTION]`.
+2. Add its handler action under `src/commerce-extensibility-1/actions/` and register it in `ext.config.yaml`.
+3. In `actions/consumer/index.js`, resolve its event code with `resolveEventCode` and add a `{ code, action }` entry to the `withEventRouter` call.
 
 ## Prerequisites
 
-- An App Builder project with the `CloudIntegrationSDK` (I/O Events) and
-  `commerceeventing` services subscribed.
+- An App Builder project with the `CloudIntegrationSDK` (I/O Events) and `commerceeventing` services subscribed.
 
 ## Build & deploy
 
