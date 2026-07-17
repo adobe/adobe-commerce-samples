@@ -19,13 +19,12 @@
  * echo it back into Commerce — wrapping `main` with the breaker stops that loop.
  */
 
-import { publishEvent } from "@adobe/aio-commerce-lib-app";
+import { publishEvent, resolveIoEventCode } from "@adobe/aio-commerce-lib-app";
 import { resolveImsAuthParams } from "@adobe/aio-commerce-sdk/auth";
 import { ok } from "@adobe/aio-commerce-sdk/core/responses";
 import { createAdobeIoEventsApiClient } from "@adobe/aio-commerce-sdk/events/io-events";
 import AioLogger from "@adobe/aio-lib-core-logging";
 
-import { BACKOFFICE_PROVIDER_KEY } from "#config";
 import { withCircuitBreaker } from "#lib/circuit-breaker";
 import {
   extractProduct,
@@ -34,6 +33,7 @@ import {
 } from "#product/change";
 import {
   BACK_OFFICE_PRODUCT_UPDATE_EVENT,
+  BACKOFFICE_PROVIDER_KEY,
   COMMERCE_PRODUCT_UPDATE_EVENT,
 } from "#product/constants";
 
@@ -68,7 +68,7 @@ async function syncToBackoffice(params) {
 export const main = withCircuitBreaker(syncToBackoffice, {
   // eventTypes: the event(s) this action guards; other types pass through.
   // identify: key + fingerprint of the change, so its echo is recognized later.
-  eventTypes: [COMMERCE_PRODUCT_UPDATE_EVENT],
+  eventTypes: [resolveIoEventCode(COMMERCE_PRODUCT_UPDATE_EVENT)],
   identify: (params) => {
     const product = extractProduct(params);
     return {

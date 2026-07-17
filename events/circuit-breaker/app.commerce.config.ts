@@ -14,9 +14,6 @@
 
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
-export const BACKOFFICE_PROVIDER_KEY = "backoffice";
-export const COMMERCE_PROVIDER_KEY = "commerce";
-
 export default defineConfig({
   metadata: {
     id: "circuit-breaker-sample",
@@ -33,7 +30,7 @@ export default defineConfig({
         provider: {
           description: "Emits Commerce catalog events.",
           label: "Commerce Events Circuit Breaker Sample Provider",
-          key: COMMERCE_PROVIDER_KEY,
+          key: "commerce",
         },
 
         events: [
@@ -62,7 +59,7 @@ export default defineConfig({
         provider: {
           description: "Product updates coming from the external back office.",
           label: "Back Office Event Provider (Circuit Breaker)",
-          key: BACKOFFICE_PROVIDER_KEY,
+          key: "backoffice",
         },
 
         events: [

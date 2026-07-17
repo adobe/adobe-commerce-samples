@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+import appConfig from "#app.commerce.config";
+
 /** The back-office product update event */
 export const BACK_OFFICE_PRODUCT_UPDATE_EVENT =
   "be-observer.catalog_product_update";
@@ -17,3 +19,7 @@ export const BACK_OFFICE_PRODUCT_UPDATE_EVENT =
 /** The Commerce product-save event. */
 export const COMMERCE_PRODUCT_UPDATE_EVENT =
   "observer.catalog_product_save_commit_after";
+
+/** The back-office provider key */
+export const BACKOFFICE_PROVIDER_KEY =
+  appConfig.eventing.external[0].provider.key;
