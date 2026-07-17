@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/commerce-samples/eventing/circuit-breaker-sample",
+  "name": "@adobe/commerce-sample-events-circuit-breaker",
   "description": "Bidirectional Commerce <-> back-office product sync guarded by an infinite-loop breaker.",
   "private": true,
   "version": "1.0.0",
