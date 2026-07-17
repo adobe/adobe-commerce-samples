@@ -42,6 +42,7 @@ sequenceDiagram
 ## Prerequisites
 
 - An App Builder project with the `CloudIntegrationSDK` (I/O Events) and `commerceeventing` services subscribed.
+- IMS credentials available to the actions as `AIO_COMMERCE_AUTH_IMS_*` inputs (already wired in `ext.config.yaml`).
 
 ## Build & deploy
 
