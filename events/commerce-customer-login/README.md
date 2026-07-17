@@ -17,7 +17,7 @@ With Adobe I/O Events, developers can create event-driven applications that take
 Before you begin, ensure you have the following:
 
 - An Adobe Developer account
-- Node.js >=22 <=24 and npm installed on your local machine
+- Node.js >=24 and npm installed on your local machine
 - App Builder project created and configured to work with I/O Events
 - App Management enabled and associated with your Adobe Commerce instance. See [App Management](https://developer.adobe.com/commerce/extensibility/app-management/)
 - A Slack App configured to receive incoming webhooks. See link: [Slack API](https://api.slack.com/messaging/webhooks)
@@ -26,9 +26,9 @@ Before you begin, ensure you have the following:
 
 The runtime action ```events/customer-login``` will receive the Commerce event payload and send to the configured Slack channel.
 
-Event registration is declared in `app.commerce.config.js` using the [`@adobe/aio-commerce-lib-app`](https://github.com/adobe/aio-commerce-sdk/blob/main/packages/aio-commerce-lib-app/docs/usage.md) eventing configuration, instead of manually configuring an `io_events.xml` file in a Commerce module. App Management creates the I/O Events provider and subscribes `observer.customer_login` automatically when the app is installed:
+Event registration is declared in `app.commerce.config.ts` using the [`@adobe/aio-commerce-lib-app`](https://github.com/adobe/aio-commerce-sdk/blob/main/packages/aio-commerce-lib-app/docs/usage.md) eventing configuration, instead of manually configuring an `io_events.xml` file in a Commerce module. App Management creates the I/O Events provider and subscribes `observer.customer_login` automatically when the app is installed:
 
-```javascript
+```typescript
 eventing: {
   commerce: [
     {

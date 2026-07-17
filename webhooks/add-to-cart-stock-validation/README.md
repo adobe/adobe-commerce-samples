@@ -19,7 +19,7 @@ Before you begin, ensure you have the following:
 
 - An Adobe Developer account
 - Adobe Commerce configured with the Webhooks module. See link for [Adobe Webhooks](https://developer.adobe.com/commerce/extensibility/webhooks/installation/)
-- Node.js >=22 <=24 and npm installed on your local machine
+- Node.js >=24 and npm installed on your local machine
 - App Management enabled and associated with your Adobe Commerce instance. See [App Management](https://developer.adobe.com/commerce/extensibility/app-management/)
 
 ## Explanation
@@ -29,9 +29,9 @@ When a shopper adds a product to the cart, the app will check whether the item i
 ### Adobe Commerce Configured Webhook Event:
 ```observer.checkout_cart_product_add_before```
 
-Webhook registration is declared in `app.commerce.config.js` using the [`@adobe/aio-commerce-lib-app`](https://github.com/adobe/aio-commerce-sdk/blob/main/packages/aio-commerce-lib-app/docs/usage.md) webhooks configuration, instead of manually configuring a `webhook.xml` file in a Commerce module. App Management subscribes the webhook and resolves the runtime action URL automatically at install time — no `APP_BUILDER_URL` env var needed. Authentication is also handled automatically (via `requireAdobeAuth`), so no manually issued bearer token or org ID headers are required:
+Webhook registration is declared in `app.commerce.config.ts` using the [`@adobe/aio-commerce-lib-app`](https://github.com/adobe/aio-commerce-sdk/blob/main/packages/aio-commerce-lib-app/docs/usage.md) webhooks configuration, instead of manually configuring a `webhook.xml` file in a Commerce module. App Management subscribes the webhook and resolves the runtime action URL automatically at install time — no `APP_BUILDER_URL` env var needed. Authentication is also handled automatically (via `requireAdobeAuth`), so no manually issued bearer token or org ID headers are required:
 
-```javascript
+```typescript
 webhooks: [
   {
     label: "Validate stock",

@@ -16,6 +16,7 @@ governing permissions and limitations under the License.
 
 const fetch = require('node-fetch')
 const { Core } = require('@adobe/aio-sdk')
+const { ok, buildErrorResponse, internalServerError } = require('@adobe/aio-commerce-sdk/core/responses')
 
 // main function that will be executed by Adobe I/O Runtime
 const main = async params => {
@@ -50,24 +51,15 @@ const main = async params => {
      })
      if (!res.ok) {
        logger.info(`${res.status}: Something is wrong with your Slack webhook URL.`)
-       return { error: { statusCode: res.status, body: { error: 'Something is wrong with your Slack webhook URL.' } } }
+       return buildErrorResponse(res.status, { body: { message: 'Something is wrong with your Slack webhook URL.' } })
      }
 
-     const response = {
-       statusCode: 200,
-       body: {
-         message: "Commerce event information sent successfully."
-       }
-     }
-
-     // log the response status code
-     logger.info(`${response.statusCode}: successful request`)
-     return response
+     logger.info('200: successful request')
+     return ok({ body: { message: "Commerce event information sent successfully." } })
    } catch (error) {
      // log any server errors
      logger.error(error)
-     // return with 500
-     return { error: { statusCode: 500, body: { error: 'server error' } } }
+     return internalServerError('server error')
    }
 };
 

@@ -41,9 +41,10 @@ describe('product-validate-stock', () => {
     test('missing input request parameters, should return 400', async () => {
         const response = await action.main({})
         expect(response).toEqual({
+            type: 'error',
             error: {
                 statusCode: 400,
-                body: { error: 'missing header(s) \'authorization\' and missing parameter(s) \'product,info\'' }
+                body: { message: 'missing parameter(s) \'product,info\'' }
             }
         })
     })
@@ -62,10 +63,11 @@ describe('product-validate-stock', () => {
         })
 
         expect(response).toEqual({
+            type: 'success',
             statusCode: 200,
-            body: JSON.stringify({
+            body: {
                 op: 'success'
-            })
+            }
         })
     })
     test('product not in stock', async () => {
@@ -83,11 +85,12 @@ describe('product-validate-stock', () => {
         })
 
         expect(response).toEqual({
+            type: 'success',
             statusCode: 200,
-            body: JSON.stringify({
+            body: {
                 op: 'exception',
                 message: 'The product is out of stock.'
-            })
+            }
         })
     })
 })
