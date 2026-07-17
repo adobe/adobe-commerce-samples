@@ -41,8 +41,7 @@ sequenceDiagram
 
 ## Prerequisites
 
-- An App Builder project with the `CloudIntegrationSDK` (I/O Events) and `commerceeventing` services subscribed.
-- IMS credentials available to the actions as `AIO_COMMERCE_AUTH_IMS_*` inputs (already wired in `ext.config.yaml`).
+- An App Builder project with the `CloudIntegrationSDK` (I/O Events), `commerceeventing`, and `AdobeIOManagementAPISDK` services subscribed (see `install.yaml`) — the last one is what lets the consumer action invoke the handler actions via `openwhisk`.
 
 ## Build & deploy
 
