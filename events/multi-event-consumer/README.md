@@ -41,7 +41,7 @@ sequenceDiagram
 
 ## Prerequisites
 
-- An App Builder project with the `CloudIntegrationSDK` (I/O Events), `commerceeventing`, and `AdobeIOManagementAPISDK` services subscribed (see `install.yaml`) — the last one is what lets the consumer action invoke the handler actions via `openwhisk`.
+- An App Builder project with the `CloudIntegrationSDK`, `commerceeventing`, and `AdobeIOManagementAPISDK` services subscribed (see `install.yaml`).
 
 ## Build & deploy
 
