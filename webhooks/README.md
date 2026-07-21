@@ -21,7 +21,7 @@ To get started with these applications, simply navigate to the directory of the 
 
 ## Webhook Registration
 
-Webhook registration is managed through [App Management](https://developer.adobe.com/commerce/extensibility/app-management/), using the webhooks configuration from [`@adobe/aio-commerce-lib-app`](https://github.com/adobe/aio-commerce-sdk/blob/main/packages/aio-commerce-lib-app/docs/usage.md). The webhook is subscribed automatically when the app is installed, replacing manual `webhook.xml` module configuration and manually issued auth tokens.
+Webhook registration is managed through [App Management](https://developer.adobe.com/commerce/extensibility/app-management/), using the webhooks configuration from `@adobe/aio-commerce-lib-app`. The webhook is subscribed and authenticated automatically when the app is installed.
 
 ## Note
 

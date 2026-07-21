@@ -26,29 +26,7 @@ Before you begin, ensure you have the following:
 
 The runtime action ```events/customer-login``` will receive the Commerce event payload and send to the configured Slack channel.
 
-Event registration is declared in `app.commerce.config.ts` using the [`@adobe/aio-commerce-lib-app`](https://github.com/adobe/aio-commerce-sdk/blob/main/packages/aio-commerce-lib-app/docs/usage.md) eventing configuration, instead of manually configuring an `io_events.xml` file in a Commerce module. App Management creates the I/O Events provider and subscribes `observer.customer_login` automatically when the app is installed:
-
-```typescript
-eventing: {
-  commerce: [
-    {
-      provider: {
-        label: "Customer Login Events",
-        description: "Events emitted when a customer logs in to Adobe Commerce",
-      },
-      events: [
-        {
-          name: "observer.customer_login",
-          label: "Customer Login",
-          description: "Triggered when a customer logs in",
-          fields: [{ name: "customer.firstname" }, { name: "customer.lastname" }],
-          runtimeActions: ["events/customer-login"],
-        },
-      ],
-    },
-  ],
-}
-```
+Event registration is declared in `app.commerce.config.ts` using the [`@adobe/aio-commerce-lib-app`](https://developer.adobe.com/commerce/extensibility/app-management/) eventing configuration.
 
 To generate the runtime actions and extension manifest that power App Management, run:
 

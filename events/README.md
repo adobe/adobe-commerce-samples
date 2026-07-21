@@ -18,7 +18,7 @@ To get started with these applications, simply navigate to the directory of the 
 
 ## Event Registration
 
-Event registration is managed through [App Management](https://developer.adobe.com/commerce/extensibility/app-management/), using the eventing configuration from [`@adobe/aio-commerce-lib-app`](https://github.com/adobe/aio-commerce-sdk/blob/main/packages/aio-commerce-lib-app/docs/usage.md). Providers and event subscriptions are created automatically when the app is installed, replacing manual `io_events.xml` module configuration.
+Event registration is managed through [App Management](https://developer.adobe.com/commerce/extensibility/app-management/), using the eventing configuration from `@adobe/aio-commerce-lib-app`. Providers and event subscriptions are created automatically when the app is installed.
 
 ## More information
 
