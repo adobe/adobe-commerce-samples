@@ -1,0 +1,9 @@
+customer-login:
+  function: ./customer-login/index.js
+  web: 'no'
+  runtime: nodejs:24
+  inputs:
+    LOG_LEVEL: debug
+    SLACK_WEBHOOK: $SLACK_WEBHOOK
+  annotations:
+    final: true

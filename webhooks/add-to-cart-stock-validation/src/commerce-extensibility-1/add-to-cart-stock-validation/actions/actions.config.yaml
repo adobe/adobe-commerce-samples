@@ -1,0 +1,9 @@
+product-validate-stock:
+  function: ./product-validate-stock/index.js
+  web: 'yes'
+  runtime: nodejs:24
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: true
+    final: true
