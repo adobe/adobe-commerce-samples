@@ -22,38 +22,52 @@
  * security requirements before deploying the action.
  */
 
+const AioLogger = require("@adobe/aio-lib-core-logging");
+const {
+  ok,
+  successOperation,
+  exceptionOperation,
+} = require("@adobe/aio-commerce-sdk/webhooks/responses");
+const {
+  badRequest,
+  internalServerError,
+} = require("@adobe/aio-commerce-sdk/core/responses");
+const { nonEmpty } = require("@adobe/aio-commerce-sdk/core/params");
 
-const AioLogger = require('@adobe/aio-lib-core-logging')
-const { ok, successOperation, exceptionOperation } = require('@adobe/aio-commerce-sdk/webhooks/responses')
-const { badRequest, internalServerError } = require('@adobe/aio-commerce-sdk/core/responses')
+function main(params) {
+  const logger = AioLogger("main", { level: params.LOG_LEVEL || "info" });
 
-async function main(params) {
-    const logger = AioLogger('main', { level: params.LOG_LEVEL || 'info' })
+  try {
+    logger.info("Calling action product-validate-stock");
 
-    try {
-        logger.info('Calling action product-validate-stock')
-
-        const missingParams = ['product', 'info'].filter(p => params[p] === undefined || params[p] === '')
-        const errorMessage = missingParams.length > 0 ? `missing parameter(s) '${missingParams}'` : null
-        if (errorMessage) {
-            logger.info(`400: ${errorMessage}`)
-            return badRequest(errorMessage)
-        }
-
-        const info = params.info;
-        const product = params.product;
-
-        if (!product.quantity_and_stock_status.is_in_stock || product.quantity_and_stock_status.qty < info.qty) {
-            logger.info('200: exception - product out of stock')
-            return ok(exceptionOperation('The product is out of stock.'))
-        }
-
-        logger.info('200: successful request')
-        return ok(successOperation())
-    } catch (error) {
-        logger.error(error)
-        return internalServerError('server error')
+    const missingParams = ["product", "info"].filter(
+      (p) => !nonEmpty(p, params[p]),
+    );
+    const errorMessage =
+      missingParams.length > 0
+        ? `missing parameter(s) '${missingParams}'`
+        : null;
+    if (errorMessage) {
+      logger.info(`400: ${errorMessage}`);
+      return badRequest(errorMessage);
     }
+
+    const { info, product } = params;
+
+    if (
+      !product.quantity_and_stock_status.is_in_stock ||
+      product.quantity_and_stock_status.qty < info.qty
+    ) {
+      logger.info("200: exception - product out of stock");
+      return ok(exceptionOperation("The product is out of stock."));
+    }
+
+    logger.info("200: successful request");
+    return ok(successOperation());
+  } catch (error) {
+    logger.error(error);
+    return internalServerError("server error");
+  }
 }
 
-exports.main = main
+exports.main = main;

@@ -8,16 +8,16 @@
     "@adobe/aio-lib-core-logging": "^3"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-plugin-jest": "^27.2.3",
+    "@biomejs/biome": "^2.5.5",
     "jest": "^29.7.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "ultracite": "^7.9.4"
   },
   "scripts": {
     "test": "jest --passWithNoTests ./test",
     "e2e": "jest --collectCoverage=false --testRegex ./e2e",
-    "lint": "eslint --ignore-pattern web-src --no-error-on-unmatched-pattern test src",
-    "lint:fix": "npm run lint -- --fix",
+    "code:check": "ultracite check",
+    "code:fix": "ultracite fix",
     "postinstall": "npx aio-commerce-lib-app hooks postinstall"
   },
   "engines": {

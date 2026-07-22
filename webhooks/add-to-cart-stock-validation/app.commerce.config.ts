@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+/** biome-ignore-all assist/source/useSortedKeys: Makes config more difficult to read */
+
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({

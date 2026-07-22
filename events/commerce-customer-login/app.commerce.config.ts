@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+/** biome-ignore-all assist/source/useSortedKeys: Makes config more difficult to read */
+
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
@@ -26,14 +28,19 @@ export default defineConfig({
       {
         provider: {
           label: "Customer Login Events",
-          description: "Events emitted when a customer logs in to Adobe Commerce",
+          description:
+            "Events emitted when a customer logs in to Adobe Commerce",
         },
         events: [
           {
             name: "observer.customer_login",
             label: "Customer Login",
-            description: "Commerce event containing the first and last name of the logged-in customer.",
-            fields: [{ name: "customer.firstname" }, { name: "customer.lastname" }],
+            description:
+              "Commerce event containing the first and last name of the logged-in customer.",
+            fields: [
+              { name: "customer.firstname" },
+              { name: "customer.lastname" },
+            ],
             runtimeActions: ["events/customer-login"],
           },
         ],
