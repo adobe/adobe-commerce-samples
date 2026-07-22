@@ -3,6 +3,6 @@ extensions:
   - extensionPointId: commerce/extensibility/1
 
 apis:
-  - commerceeventing
-  - CloudIntegrationSDK
-  - AdobeIOManagementAPISDK
+  - code: commerceeventing
+  - code: CloudIntegrationSDK
+  - code: AdobeIOManagementAPISDK

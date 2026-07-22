@@ -27,13 +27,15 @@ import { resolveImsAuthParams } from "@adobe/aio-commerce-sdk/auth";
 import { ok } from "@adobe/aio-commerce-sdk/core/responses";
 import AioLogger from "@adobe/aio-lib-core-logging";
 
+import appConfig, {
+  BACK_OFFICE_PRODUCT_UPDATE_EVENT,
+} from "#app.commerce.config";
 import { withCircuitBreaker } from "#lib/circuit-breaker";
 import {
   extractProduct,
   productFingerprint,
   productKey,
 } from "#product/change";
-import { BACK_OFFICE_PRODUCT_UPDATE_EVENT } from "#product/constants";
 
 /**
  * Applies a back-office product update to Commerce.
@@ -69,7 +71,13 @@ async function syncToCommerce(params) {
 export const main = withCircuitBreaker(syncToCommerce, {
   // eventTypes: the event(s) this action guards; other types pass through.
   // identify: key + fingerprint of the change, so its echo is recognized later.
-  eventTypes: [resolveIoEventCode(BACK_OFFICE_PRODUCT_UPDATE_EVENT)],
+  eventTypes: [
+    resolveIoEventCode(
+      appConfig.metadata.id,
+      BACK_OFFICE_PRODUCT_UPDATE_EVENT,
+      "external",
+    ),
+  ],
   identify: (params) => {
     const product = extractProduct(params);
     return {

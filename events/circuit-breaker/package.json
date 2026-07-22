@@ -4,8 +4,8 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "@adobe/aio-commerce-lib-app": "1.8.0-alpha-20260717142750",
-    "@adobe/aio-commerce-sdk": "1.4.0-alpha-20260717142750",
+    "@adobe/aio-commerce-lib-app": "1.8.0-alpha-20260722091448",
+    "@adobe/aio-commerce-sdk": "1.4.0-alpha-20260722091448",
     "@adobe/aio-lib-core-logging": "^3.0.2",
     "@adobe/aio-lib-state": "^5.3.1"
   },
