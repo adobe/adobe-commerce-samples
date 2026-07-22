@@ -18,7 +18,7 @@ export const COMMERCE_PROVIDER_KEY = "commerce";
 export const BACKOFFICE_PROVIDER_KEY = "backoffice";
 
 export const BACK_OFFICE_PRODUCT_UPDATE_EVENT =
-"be-observer.catalog_product_update";
+  "be-observer.catalog_product_update";
 
 export const COMMERCE_PRODUCT_UPDATE_EVENT =
   "observer.catalog_product_save_commit_after";
