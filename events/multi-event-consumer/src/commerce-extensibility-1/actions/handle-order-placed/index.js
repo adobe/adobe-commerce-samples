@@ -22,12 +22,12 @@ import AioLogger from "@adobe/aio-lib-core-logging";
  * @returns {object} The action response.
  */
 export function main(params) {
-	const logger = AioLogger("handle-order-placed", {
-		level: params.LOG_LEVEL || "info",
-	});
+  const logger = AioLogger("handle-order-placed", {
+    level: params.LOG_LEVEL || "info",
+  });
 
-	const order = params?.data?.value ?? params?.data ?? {};
-	logger.info(`Order ${order.increment_id} placed.`);
+  const order = params?.data?.value ?? params?.data ?? {};
+  logger.info(`Order ${order.increment_id} placed.`);
 
-	return ok({ body: { handled: true, incrementId: order.increment_id } });
+  return ok({ body: { handled: true, incrementId: order.increment_id } });
 }

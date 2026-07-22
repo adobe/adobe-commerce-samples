@@ -24,53 +24,53 @@ export const PRODUCT_SAVED_EVENT = "observer.catalog_product_save_commit_after";
 export const CONSUMER_ACTION = "multi-event-consumer/consumer";
 
 export default defineConfig({
-	metadata: {
-		description:
-			"Routes several Commerce events to one runtime action, which dispatches each event to its own handler action via an OpenWhisk invoke.",
-		displayName: "Multi Event Consumer Sample",
-		id: "multi-event-consumer-sample",
-		version: "1.0.0",
-	},
-	eventing: {
-		commerce: [
-			{
-				provider: {
-					description: "Emits Commerce events consumed by the Consumer sample.",
-					label: "Commerce Events Provider",
-				},
-				events: [
-					{
-						description: "Triggered when a customer places an order.",
-						fields: [
-							{ name: "increment_id" },
-							{ name: "customer_email" },
-							{ name: "grand_total" },
-						],
-						label: "Order Placed",
-						name: ORDER_PLACED_EVENT,
-						runtimeActions: [CONSUMER_ACTION],
-					},
-					{
-						description: "Triggered when a customer record is saved.",
-						fields: [
-							{ name: "entity_id" },
-							{ name: "email" },
-							{ name: "firstname" },
-							{ name: "lastname" },
-						],
-						label: "Customer Saved",
-						name: CUSTOMER_SAVED_EVENT,
-						runtimeActions: [CONSUMER_ACTION],
-					},
-					{
-						description: "Triggered when a product is saved.",
-						fields: [{ name: "sku" }, { name: "name" }, { name: "price" }],
-						label: "Product Saved",
-						name: PRODUCT_SAVED_EVENT,
-						runtimeActions: [CONSUMER_ACTION],
-					},
-				],
-			},
-		],
-	},
+  metadata: {
+    description:
+      "Routes several Commerce events to one runtime action, which dispatches each event to its own handler action via an OpenWhisk invoke.",
+    displayName: "Multi Event Consumer Sample",
+    id: "multi-event-consumer-sample",
+    version: "1.0.0",
+  },
+  eventing: {
+    commerce: [
+      {
+        provider: {
+          description: "Emits Commerce events consumed by the Consumer sample.",
+          label: "Commerce Events Provider",
+        },
+        events: [
+          {
+            description: "Triggered when a customer places an order.",
+            fields: [
+              { name: "increment_id" },
+              { name: "customer_email" },
+              { name: "grand_total" },
+            ],
+            label: "Order Placed",
+            name: ORDER_PLACED_EVENT,
+            runtimeActions: [CONSUMER_ACTION],
+          },
+          {
+            description: "Triggered when a customer record is saved.",
+            fields: [
+              { name: "entity_id" },
+              { name: "email" },
+              { name: "firstname" },
+              { name: "lastname" },
+            ],
+            label: "Customer Saved",
+            name: CUSTOMER_SAVED_EVENT,
+            runtimeActions: [CONSUMER_ACTION],
+          },
+          {
+            description: "Triggered when a product is saved.",
+            fields: [{ name: "sku" }, { name: "name" }, { name: "price" }],
+            label: "Product Saved",
+            name: PRODUCT_SAVED_EVENT,
+            runtimeActions: [CONSUMER_ACTION],
+          },
+        ],
+      },
+    ],
+  },
 });

@@ -23,15 +23,15 @@
 
 import { resolveIoEventCode } from "@adobe/aio-commerce-lib-app";
 
-import config, {
+import appConfig, {
   CUSTOMER_SAVED_EVENT,
   ORDER_PLACED_EVENT,
   PRODUCT_SAVED_EVENT,
-} from "#config";
+} from "#app.commerce.config";
 import { withEventRouter } from "#lib/router";
 
 const resolveEventCode = (event) =>
-  resolveIoEventCode(config.metadata.id, event, "commerce");
+  resolveIoEventCode(appConfig.metadata.id, event, "commerce");
 
 export const main = withEventRouter([
   {
