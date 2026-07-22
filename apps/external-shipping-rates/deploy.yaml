@@ -1,0 +1,16 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://adobe.io/schemas/app-builder-templates/1
+application:
+  id: commerce-checkout-starter-kit
+  version: 0.0.1
+extensions:
+  - extensionPointId: application
+  - extensionPointId: commerce/backend-ui/1
+workspaces:
+  - ExtShippingRates
+apis:
+  - code: ACCS-REST-API
+  - code: AdobeIOManagementAPISDK
+  - code: CloudIntegrationSDK
+  - code: commerceeventing
+runtime: true
