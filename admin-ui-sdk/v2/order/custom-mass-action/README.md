@@ -12,9 +12,9 @@ Three sample mass actions:
 |---|---|---|
 | Order Mass Action | `view` | Opens an iframe listing the selected order IDs |
 | Mass Action With Redirect | `view` | Opens an iframe showing the selected order IDs in a combobox; on "Done" it closes and shows a success/error banner notification |
-| Mass Action No iFrame | `worker` | Runs `mass-actions/massAction` as a backend runtime action — no UI is shown |
+| Mass Action No iFrame | `worker` | Runs `mass-actions/mass-action` as a backend runtime action — no UI is shown |
 
-The mass action definitions live in `app.commerce.config.ts`. The iframe UI lives in `src/commerce-backend-ui-2/web-src/`. The worker action logic lives in `src/commerce-backend-ui-2/actions/massAction/index.js`.
+The mass action definitions live in `app.commerce.config.ts`. The iframe UI lives in `src/commerce-backend-ui-2/web-src/`. The worker action logic lives in `src/commerce-backend-ui-2/actions/mass-action/index.js`.
 
 ## How it works
 
