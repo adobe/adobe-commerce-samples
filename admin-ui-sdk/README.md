@@ -1,12 +1,12 @@
 # Admin UI SDK Samples
 
-This directory contains samples for different extension points of the Adobe Commerce Admin UI SDK, organised into two versioned folders.
+This directory contains samples for different extension points of the Adobe Commerce Admin UI SDK, organized into two versioned folders.
 
 ## Versions
 
 ### V2 (recommended)
 
-Located in `v2/`. These samples are built on [App Management](https://developer.adobe.com/commerce/extensibility/app-management/), the new foundation for Admin UI SDK extensions. **Start here for all new development.**
+Located in `v2/`. These samples are built on [App Management](https://developer.adobe.com/commerce/extensibility/app-management/), the new foundation for Admin UI SDK extensions. All these examples require the Admin UI SDK version `>= 4.2.0`, since it's the first to support V2. All new apps should prefer adopting V2 over V1 since it's the new standard.
 
 ### V1 (deprecated)
 
