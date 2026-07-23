@@ -1,0 +1,67 @@
+{
+  "name": "@adobe/purchase-approval-reference-app",
+  "version": "1.0.6",
+  "author": "Adobe Inc.",
+  "private": true,
+  "dependencies": {
+    "@adobe/aio-commerce-lib-admin-ui": "^0.2.0",
+    "@adobe/aio-commerce-lib-app": "^1.8.0",
+    "@adobe/aio-commerce-lib-auth": "^1.1.2",
+    "@adobe/aio-commerce-lib-config": "^1.6.0",
+    "@adobe/aio-commerce-sdk": "^1.4.0",
+    "@adobe/aio-lib-core-auth": "^1.1.0",
+    "@adobe/aio-lib-core-logging": "^3.0.2",
+    "@adobe/aio-lib-db": "^1.0.3",
+    "@adobe/aio-lib-files": "^4.1.4",
+    "@adobe/aio-sdk": "^6.0.0",
+    "@react-spectrum/s2": "^1.5.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "uuid": "^9"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.3",
+    "@tsconfig/bases": "^1.0.26",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "jest": "^29",
+    "typescript": "^5",
+    "ultracite": "^7.9.3"
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests ./test",
+    "e2e": "jest --collectCoverage=false --testRegex ./e2e",
+    "lint": "biome lint --no-errors-on-unmatched",
+    "lint:fix": "biome lint --write --no-errors-on-unmatched",
+    "format": "biome format --write --no-errors-on-unmatched",
+    "format:check": "biome format --no-errors-on-unmatched",
+    "typecheck": "tsc --noEmit -p src/commerce-backend-ui-2/web-src/tsconfig.json",
+    "manifest": "npx aio-commerce-lib-app generate all",
+    "deploy": "AIO_CLI_ENV=prod aio app build --web-optimize && aio app deploy --no-build"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "imports": {
+    "#web/*": "./src/commerce-backend-ui-2/web-src/src/*",
+    "#lib/*": "./src/common/lib/*",
+    "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js"
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  },
+  "@parcel/bundler-default": {
+    "manualSharedBundles": [
+      {
+        "name": "s2-styles",
+        "assets": [
+          "**/@react-spectrum/s2/**",
+          "src/commerce-backend-ui-2/web-src/*.{js,jsx,ts,tsx}"
+        ],
+        "types": [
+          "css"
+        ]
+      }
+    ]
+  }
+}
