@@ -10,21 +10,21 @@
  * governing permissions and limitations under the License.
  */
 
-import { defineConfig } from '@adobe/aio-commerce-lib-app/config'
+import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
-  metadata: {
-    id: "custommenu",
-    displayName: "Adobe Commerce custom menu",
-    version: "1.0.0",
-    description: "Adobe Commerce custom menu example in admin panel",
-  },
   adminUi: {
     menu: {
+      description: "First App on App Builder",
       id: "CustomMenu::first",
       label: "First App on App Builder",
       pageTitle: "Adobe Commerce First App on App Builder",
-      description: "First App on App Builder",
     },
   },
-})
+  metadata: {
+    description: "Adobe Commerce custom menu example in admin panel",
+    displayName: "Adobe Commerce custom menu",
+    id: "custommenu",
+    version: "1.0.0",
+  },
+});

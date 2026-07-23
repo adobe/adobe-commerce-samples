@@ -11,13 +11,18 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.3",
     "@tsconfig/bases": "latest",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "typescript": "latest"
+    "typescript": "latest",
+    "ultracite": "^7.9.4"
   },
   "scripts": {
-    "postinstall": "npx aio-commerce-lib-app hooks postinstall"
+    "postinstall": "npx aio-commerce-lib-app hooks postinstall",
+    "code:check": "ultracite check",
+    "code:fix": "ultracite fix",
+    "typecheck": "tsc --noEmit -p src/commerce-backend-ui-2/web-src/tsconfig.json"
   },
   "engines": {
     "node": ">=24"

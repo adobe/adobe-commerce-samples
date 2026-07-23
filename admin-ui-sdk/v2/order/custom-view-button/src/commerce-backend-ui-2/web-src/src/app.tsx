@@ -19,13 +19,12 @@ import { DeleteOrderPage } from "#web/pages/delete-order.tsx";
 import { MainPage } from "#web/pages/main-page.tsx";
 
 createExtensionApp({
+  menu: <MainPage />,
   metadata: {
     extensionId: config.metadata.id,
   },
-
-  menu: <MainPage />,
   routes: [
-    { path: "#/delete-order", element: <DeleteOrderPage /> },
-    { path: "#/create-return", element: <CreateReturnPage /> },
+    { element: <DeleteOrderPage />, path: "#/delete-order" },
+    { element: <CreateReturnPage />, path: "#/create-return" },
   ],
 });

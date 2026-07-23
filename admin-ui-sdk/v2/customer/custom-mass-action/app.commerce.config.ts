@@ -10,43 +10,45 @@
  * governing permissions and limitations under the License.
  */
 
-import { defineConfig } from '@adobe/aio-commerce-lib-app/config'
+import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
-  metadata: {
-    id: 'customer-custom-mass-action',
-    displayName: 'Adobe Commerce customer grid custom mass action',
-    version: '1.0.0',
-    description: 'Adobe Commerce customer grid custom mass action in admin panel',
-  },
   adminUi: {
     customer: {
       massActions: [
         {
-          id: 'customer-mass-action',
-          label: 'Customer Mass Action',
-          type: 'view',
-          path: '#/customer-mass-action',
           confirm: {
-            title: 'Mass Action',
-            message: 'Are you sure you want to proceed with Mass Action on selected customers?',
+            message:
+              "Are you sure you want to proceed with Mass Action on selected customers?",
+            title: "Mass Action",
           },
+          id: "customer-mass-action",
+          label: "Customer Mass Action",
+          path: "#/customer-mass-action",
           selectionLimit: 1,
+          type: "view",
         },
         {
-          id: 'customer-mass-action-with-redirect',
-          label: 'Mass Action With Redirect',
-          title: 'Customer Mass Action With Redirect',
-          type: 'view',
-          path: '#/mass-action-with-redirect',
+          id: "customer-mass-action-with-redirect",
+          label: "Mass Action With Redirect",
+          path: "#/mass-action-with-redirect",
+          title: "Customer Mass Action With Redirect",
+          type: "view",
         },
         {
-          id: 'customer-mass-action-no-iFrame',
-          label: 'Mass Action No iFrame',
-          type: 'worker',
-          runtimeAction: 'mass-actions/massAction',
+          id: "customer-mass-action-no-iFrame",
+          label: "Mass Action No iFrame",
+          runtimeAction: "mass-actions/mass-action",
+          type: "worker",
         },
       ],
     },
   },
-})
+  metadata: {
+    description:
+      "Adobe Commerce customer grid custom mass action in admin panel",
+    displayName: "Adobe Commerce customer grid custom mass action",
+    id: "customer-custom-mass-action",
+    version: "1.0.0",
+  },
+});

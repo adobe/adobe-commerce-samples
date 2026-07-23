@@ -26,7 +26,7 @@
         {
           "id": "product-mass-action-no-iFrame",
           "label": "Mass Action No iFrame",
-          "runtimeAction": "mass-actions/massAction",
+          "runtimeAction": "mass-actions/mass-action",
           "type": "worker"
         }
       ]

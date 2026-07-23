@@ -12,24 +12,39 @@
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
-  metadata: {
-    id: "order-custom-grid-columns",
-    displayName: "Adobe Commerce order grid custom columns",
-    version: "1.0.0",
-    description: "Adobe Commerce order grid custom columns in admin panel",
-  },
   adminUi: {
     order: {
       gridColumns: {
-        label: "Order grid columns",
-        description: "Adds custom columns to the order grid",
-        runtimeAction: "order-custom-grid-columns/get-order-grid-columns",
         columns: [
-          { id: "first_column", label: "First App Column", type: "string", align: "left" },
-          { id: "second_column", label: "Second App Column", type: "integer", align: "left" },
-          { id: "third_column", label: "Third App Column", type: "date", align: "left" },
+          {
+            align: "left",
+            id: "first_column",
+            label: "First App Column",
+            type: "string",
+          },
+          {
+            align: "left",
+            id: "second_column",
+            label: "Second App Column",
+            type: "integer",
+          },
+          {
+            align: "left",
+            id: "third_column",
+            label: "Third App Column",
+            type: "date",
+          },
         ],
+        description: "Adds custom columns to the order grid",
+        label: "Order grid columns",
+        runtimeAction: "order-custom-grid-columns/get-order-grid-columns",
       },
     },
+  },
+  metadata: {
+    description: "Adobe Commerce order grid custom columns in admin panel",
+    displayName: "Adobe Commerce order grid custom columns",
+    id: "order-custom-grid-columns",
+    version: "1.0.0",
   },
 });

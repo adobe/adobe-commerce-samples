@@ -10,20 +10,23 @@
  * governing permissions and limitations under the License.
  */
 
-import { useIms } from "@adobe/aio-commerce-lib-admin-ui/web";
+import {
+  massActionErrorResponse,
+  okMassActionResponse,
+  parseMassActionRequest,
+} from "@adobe/aio-commerce-sdk/admin-ui/mass-actions";
+import { CommerceSdkValidationError } from "@adobe/aio-commerce-sdk/core/error";
 
-/** A simple welcome component that displays the IMS token and org ID. */
-export function Welcome() {
-  const { data, error } = useIms();
-  if (error) {
-    // Rethrowing sends the error to the error boundary set up by lib-admin-ui; you could also render fallback UI instead.
-    throw error;
+export function main(params) {
+  try {
+    parseMassActionRequest(params);
+
+    return okMassActionResponse();
+  } catch (error) {
+    if (error instanceof CommerceSdkValidationError) {
+      return massActionErrorResponse(400, error.display(false));
+    }
+
+    return massActionErrorResponse(500, error.message);
   }
-
-  return (
-    <>
-      <h1>Welcome to your Adobe Commerce App</h1>
-      <p>Your IMS Org ID is {data.imsOrgId}</p>
-    </>
-  );
 }

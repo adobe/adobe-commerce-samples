@@ -19,7 +19,9 @@ function assertNoError<T extends { error: unknown }>(
 }
 
 /** Throws a hook result's `error` if present, narrowing the result to its error-free shape. */
-export function throwIfError<T extends { error: unknown }>(result: T): Extract<T, { error: null }> {
+export function throwIfError<T extends { error: unknown }>(
+  result: T,
+): Extract<T, { error: null }> {
   assertNoError(result);
   return result;
 }

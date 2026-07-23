@@ -30,7 +30,10 @@ export function MassActionWithRedirect() {
       <ComboBox defaultItems={data.selectedIds.map((id) => ({ id }))}>
         {(item) => <ComboBoxItem id={item.id}>{item.id}</ComboBoxItem>}
       </ComboBox>
-      <Button variant="primary" styles={style({ marginTop: 8 })} onPress={actions.close}>
+      <Button
+        onPress={actions.close}
+        styles={style({ marginTop: 8 })}
+        variant="primary">
         Done
       </Button>
     </div>

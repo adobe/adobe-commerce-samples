@@ -10,28 +10,51 @@
  * governing permissions and limitations under the License.
  */
 
-import { errorGridResponse, okGridResponse, parseGridRequest } from "@adobe/aio-commerce-sdk/admin-ui/grid-columns";
+import {
+  errorGridResponse,
+  okGridResponse,
+  parseGridRequest,
+} from "@adobe/aio-commerce-sdk/admin-ui/grid-columns";
 
 const ORDER_COLUMNS = {
-    "000000001": { first_column: "value_1", second_column: 1, third_column: "2030-12-01T23:25:42+11:00" },
-    "000000002": { first_column: 1,         second_column: "test", third_column: "2011-10-02T23:25:42+00:00" },
-    "000000003": { first_column: "value_3", second_column: 3, third_column: "2030-14-01T23:25:42+11:00" },
-    "000000004": { first_column: "value_1", second_column: 1, third_column: "2011-10-02T23:25:42+00:00" },
+  "000000001": {
+    first_column: "value_1",
+    second_column: 1,
+    third_column: "2030-12-01T23:25:42+11:00",
+  },
+  "000000002": {
+    first_column: 1,
+    second_column: "test",
+    third_column: "2011-10-02T23:25:42+00:00",
+  },
+  "000000003": {
+    first_column: "value_3",
+    second_column: 3,
+    third_column: "2030-14-01T23:25:42+11:00",
+  },
+  "000000004": {
+    first_column: "value_1",
+    second_column: 1,
+    third_column: "2011-10-02T23:25:42+00:00",
+  },
 };
 
-const DEFAULTS = { first_column: "Default value first column", second_column: 0 };
+const DEFAULTS = {
+  first_column: "Default value first column",
+  second_column: 0,
+};
 
-export async function main(params) {
-    try {
-        const { ids } = parseGridRequest(params);
-        const data = {};
-        for (const id of ids) {
-            if (ORDER_COLUMNS[id]) {
-                data[id] = ORDER_COLUMNS[id];
-            }
-        }
-        return okGridResponse(data, DEFAULTS);
-    } catch (e) {
-        return errorGridResponse(400, e.message);
+export function main(params) {
+  try {
+    const { ids } = parseGridRequest(params);
+    const data = {};
+    for (const id of ids) {
+      if (ORDER_COLUMNS[id]) {
+        data[id] = ORDER_COLUMNS[id];
+      }
     }
+    return okGridResponse(data, DEFAULTS);
+  } catch (e) {
+    return errorGridResponse(400, e.message);
+  }
 }

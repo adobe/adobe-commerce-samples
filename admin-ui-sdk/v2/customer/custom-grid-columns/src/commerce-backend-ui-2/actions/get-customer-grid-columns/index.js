@@ -10,27 +10,44 @@
  * governing permissions and limitations under the License.
  */
 
-import { errorGridResponse, okGridResponse, parseGridRequest } from '@adobe/aio-commerce-sdk/admin-ui/grid-columns'
+import {
+  errorGridResponse,
+  okGridResponse,
+  parseGridRequest,
+} from "@adobe/aio-commerce-sdk/admin-ui/grid-columns";
 
 const CUSTOMER_DATA = {
-  '1': { first_column: 'value_1', second_column: 1, third_column: '2030-12-01T23:25:42+11:00' },
-  '2': { first_column: 'value_2', second_column: 2, third_column: '2011-10-02T23:25:42+00:00' },
-}
+  1: {
+    first_column: "value_1",
+    second_column: 1,
+    third_column: "2030-12-01T23:25:42+11:00",
+  },
+  2: {
+    first_column: "value_2",
+    second_column: 2,
+    third_column: "2011-10-02T23:25:42+00:00",
+  },
+};
 
-const DEFAULTS = { first_column: 'Default value first column', second_column: 0 }
+const DEFAULTS = {
+  first_column: "Default value first column",
+  second_column: 0,
+};
 
-export async function main (params) {
-  let request
+export function main(params) {
+  let request;
   try {
-    request = parseGridRequest(params)
+    request = parseGridRequest(params);
   } catch (e) {
-    return errorGridResponse(400, e.message)
+    return errorGridResponse(400, e.message);
   }
 
-  const data = {}
+  const data = {};
   for (const id of request.ids) {
-    if (CUSTOMER_DATA[id]) data[id] = CUSTOMER_DATA[id]
+    if (CUSTOMER_DATA[id]) {
+      data[id] = CUSTOMER_DATA[id];
+    }
   }
 
-  return okGridResponse(data, DEFAULTS)
+  return okGridResponse(data, DEFAULTS);
 }

@@ -10,47 +10,48 @@
  * governing permissions and limitations under the License.
  */
 
-import { defineConfig } from '@adobe/aio-commerce-lib-app/config'
+import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
-  metadata: {
-    id: 'order-custom-mass-action',
-    displayName: 'Adobe Commerce order grid custom mass action',
-    version: '1.0.0',
-    description: 'Adobe Commerce order grid custom mass action in admin panel',
-  },
   adminUi: {
     order: {
       massActions: [
         {
-          id: 'order-mass-action',
-          label: 'Order Mass Action',
-          type: 'view',
-          path: '#/order-mass-action',
           confirm: {
-            title: 'Mass Action',
-            message: 'Are you sure you want to proceed with Mass Action on selected orders?',
+            message:
+              "Are you sure you want to proceed with Mass Action on selected orders?",
+            title: "Mass Action",
           },
+          id: "order-mass-action",
+          label: "Order Mass Action",
+          path: "#/order-mass-action",
           selectionLimit: 1,
+          type: "view",
         },
         {
-          id: 'order-mass-action-with-redirect',
-          label: 'Mass Action With Redirect',
-          title: 'Order Mass Action With Redirect',
-          type: 'view',
-          path: '#/mass-action-with-redirect',
+          id: "order-mass-action-with-redirect",
+          label: "Mass Action With Redirect",
           notifications: {
-            success: 'Order custom success message',
-            error: 'Order custom error message',
+            error: "Order custom error message",
+            success: "Order custom success message",
           },
+          path: "#/mass-action-with-redirect",
+          title: "Order Mass Action With Redirect",
+          type: "view",
         },
         {
-          id: 'order-mass-action-no-iFrame',
-          label: 'Mass Action No iFrame',
-          type: 'worker',
-          runtimeAction: 'mass-actions/massAction',
+          id: "order-mass-action-no-iFrame",
+          label: "Mass Action No iFrame",
+          runtimeAction: "mass-actions/mass-action",
+          type: "worker",
         },
       ],
     },
   },
-})
+  metadata: {
+    description: "Adobe Commerce order grid custom mass action in admin panel",
+    displayName: "Adobe Commerce order grid custom mass action",
+    id: "order-custom-mass-action",
+    version: "1.0.0",
+  },
+});

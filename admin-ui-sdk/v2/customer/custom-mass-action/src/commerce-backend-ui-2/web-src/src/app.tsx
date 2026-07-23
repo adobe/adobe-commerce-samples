@@ -19,13 +19,15 @@ import { MainPage } from "#web/pages/main-page.tsx";
 import { MassActionWithRedirect } from "#web/pages/mass-action-with-redirect.tsx";
 
 createExtensionApp({
+  menu: <MainPage />,
   metadata: {
     extensionId: config.metadata.id,
   },
-
-  menu: <MainPage />,
   routes: [
-    { path: "#/customer-mass-action", element: <CustomerMassAction /> },
-    { path: "#/mass-action-with-redirect", element: <MassActionWithRedirect /> },
+    { element: <CustomerMassAction />, path: "#/customer-mass-action" },
+    {
+      element: <MassActionWithRedirect />,
+      path: "#/mass-action-with-redirect",
+    },
   ],
 });

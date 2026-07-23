@@ -16,7 +16,9 @@ import { useIms } from "@adobe/aio-commerce-lib-admin-ui/web";
 export function Welcome() {
   const { data, error } = useIms();
   // Custom handling: render fallback UI instead of rethrowing to the lib-admin-ui error boundary.
-  if (error) return <p>{error.message}</p>;
+  if (error) {
+    return <p>{error.message}</p>;
+  }
 
   return (
     <>

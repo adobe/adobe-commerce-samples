@@ -17,9 +17,8 @@ import config from "#app.commerce.config";
 import { MainPage } from "#web/pages/main-page.tsx";
 
 createExtensionApp({
+  menu: <MainPage />,
   metadata: {
     extensionId: config.metadata.id,
   },
-
-  menu: <MainPage />,
 });

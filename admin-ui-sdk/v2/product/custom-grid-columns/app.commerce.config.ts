@@ -12,27 +12,27 @@
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
-  metadata: {
-    id: "product-custom-grid-columns",
-    displayName: "Adobe Commerce product grid custom columns",
-    version: "1.0.0",
-    description: "Adobe Commerce product grid custom columns in admin panel",
-  },
   adminUi: {
     product: {
       gridColumns: {
-        label: "Product grid columns",
-        description: "Adds custom columns to the product grid",
-        runtimeAction: "product-custom-grid-columns/get-product-grid-columns",
         columns: [
           {
+            align: "left",
             id: "first_column",
             label: "App Column",
             type: "string",
-            align: "left",
           },
         ],
+        description: "Adds custom columns to the product grid",
+        label: "Product grid columns",
+        runtimeAction: "product-custom-grid-columns/get-product-grid-columns",
       },
     },
+  },
+  metadata: {
+    description: "Adobe Commerce product grid custom columns in admin panel",
+    displayName: "Adobe Commerce product grid custom columns",
+    id: "product-custom-grid-columns",
+    version: "1.0.0",
   },
 });

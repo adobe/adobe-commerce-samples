@@ -12,24 +12,39 @@
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
-  metadata: {
-    id: "customer-custom-grid-columns",
-    displayName: "Adobe Commerce customer grid custom columns",
-    version: "1.0.0",
-    description: "Adobe Commerce customer grid custom columns in admin panel",
-  },
   adminUi: {
     customer: {
       gridColumns: {
-        label: "Customer grid columns",
-        description: "Adds custom columns to the customer grid",
-        runtimeAction: "customer-custom-grid-columns/get-customer-grid-columns",
         columns: [
-          { id: "first_column", label: "First App Column", type: "string", align: "left" },
-          { id: "second_column", label: "Second App Column", type: "integer", align: "left" },
-          { id: "third_column", label: "Third App Column", type: "date", align: "left" },
+          {
+            align: "left",
+            id: "first_column",
+            label: "First App Column",
+            type: "string",
+          },
+          {
+            align: "left",
+            id: "second_column",
+            label: "Second App Column",
+            type: "integer",
+          },
+          {
+            align: "left",
+            id: "third_column",
+            label: "Third App Column",
+            type: "date",
+          },
         ],
+        description: "Adds custom columns to the customer grid",
+        label: "Customer grid columns",
+        runtimeAction: "customer-custom-grid-columns/get-customer-grid-columns",
       },
     },
+  },
+  metadata: {
+    description: "Adobe Commerce customer grid custom columns in admin panel",
+    displayName: "Adobe Commerce customer grid custom columns",
+    id: "customer-custom-grid-columns",
+    version: "1.0.0",
   },
 });

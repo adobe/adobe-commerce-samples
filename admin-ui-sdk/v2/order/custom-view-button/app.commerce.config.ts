@@ -12,43 +12,43 @@
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
-  metadata: {
-    id: "order-custom-view-button",
-    displayName: "Adobe Commerce order grid custom view button",
-    version: "1.0.0",
-    description: "Adobe Commerce order grid custom view button in admin panel",
-  },
   adminUi: {
     order: {
       viewButtons: [
         {
-          id: "order-custom-view-button::delete-order",
-          label: "Delete",
-          type: "view",
-          path: "#/delete-order",
           confirm: {
             message: "Are you sure you want to proceed to delete order?",
           },
+          id: "order-custom-view-button::delete-order",
+          label: "Delete",
           level: 0,
-          sortOrder: 80,
           notifications: {
-            success: "Order deleted successfully",
             error: "Failed to delete order",
+            success: "Order deleted successfully",
           },
+          path: "#/delete-order",
+          sortOrder: 80,
+          type: "view",
         },
         {
           id: "order-custom-view-button::create-return",
           label: "Create Return",
-          type: "view",
-          path: "#/create-return",
           level: 0,
-          sortOrder: 80,
           notifications: {
-            success: "Return request created successfully",
             error: "Failed to create return request",
+            success: "Return request created successfully",
           },
+          path: "#/create-return",
+          sortOrder: 80,
+          type: "view",
         },
       ],
     },
+  },
+  metadata: {
+    description: "Adobe Commerce order grid custom view button in admin panel",
+    displayName: "Adobe Commerce order grid custom view button",
+    id: "order-custom-view-button",
+    version: "1.0.0",
   },
 });

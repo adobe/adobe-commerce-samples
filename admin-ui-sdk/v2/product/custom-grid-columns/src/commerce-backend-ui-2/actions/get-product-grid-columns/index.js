@@ -10,32 +10,37 @@
  * governing permissions and limitations under the License.
  */
 
-import { parseGridRequest, okGridResponse, errorGridResponse }
-  from '@adobe/aio-commerce-sdk/admin-ui/grid-columns'
+import {
+  errorGridResponse,
+  okGridResponse,
+  parseGridRequest,
+} from "@adobe/aio-commerce-sdk/admin-ui/grid-columns";
 
 const PRODUCT_DATA = {
-  'Test Product 1':  { first_column: 'value_1' },
-  'Test Product 2':  { first_column: 'value_2' },
-  'Test Product':    { first_column: 'Test value' },
-  'test-product-26': { first_column: 'Test product value 26' },
-  'test-product-30': { first_column: 'Test product value 30' },
-  'test-product-82': { first_column: 'Test product value 82' },
-  'LUCKY-CAT-BLUE':  { first_column: 'Lucky Cat' },
-  'APOLLO-CSM-KIT':  { first_column: 'Apollo' },
-}
+  "APOLLO-CSM-KIT": { first_column: "Apollo" },
+  "LUCKY-CAT-BLUE": { first_column: "Lucky Cat" },
+  "Test Product": { first_column: "Test value" },
+  "Test Product 1": { first_column: "value_1" },
+  "Test Product 2": { first_column: "value_2" },
+  "test-product-26": { first_column: "Test product value 26" },
+  "test-product-30": { first_column: "Test product value 30" },
+  "test-product-82": { first_column: "Test product value 82" },
+};
 
-const DEFAULTS = { first_column: 'Default value first column' }
+const DEFAULTS = { first_column: "Default value first column" };
 
-export async function main (params) {
-  let request
+export function main(params) {
+  let request;
   try {
-    request = parseGridRequest(params)
+    request = parseGridRequest(params);
   } catch (e) {
-    return errorGridResponse(400, e.message)
+    return errorGridResponse(400, e.message);
   }
-  const data = {}
+  const data = {};
   for (const id of request.ids) {
-    if (PRODUCT_DATA[id]) data[id] = PRODUCT_DATA[id]
+    if (PRODUCT_DATA[id]) {
+      data[id] = PRODUCT_DATA[id];
+    }
   }
-  return okGridResponse(data, DEFAULTS)
+  return okGridResponse(data, DEFAULTS);
 }

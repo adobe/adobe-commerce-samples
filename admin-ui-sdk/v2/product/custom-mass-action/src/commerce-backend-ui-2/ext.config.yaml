@@ -8,7 +8,7 @@ operations:
   # These worker processes definitions are auto-generated. Do not remove or manually edit.
   workerProcess:
     - type: action
-      impl: mass-actions/massAction
+      impl: mass-actions/mass-action
   view:
     - type: web
       impl: index.html
@@ -18,8 +18,8 @@ runtimeManifest:
     mass-actions:
       license: Apache-2.0
       actions:
-        massAction:
-          function: actions/massAction/index.js
+        mass-action:
+          function: actions/mass-action/index.js
           web: 'yes'
           runtime: 'nodejs:24'
           inputs:

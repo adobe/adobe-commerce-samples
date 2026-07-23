@@ -11,29 +11,29 @@
  */
 
 import {
-	useHostConnection,
-	useOrderViewButtonContext,
+  useHostConnection,
+  useOrderViewButtonContext,
 } from "@adobe/aio-commerce-lib-admin-ui/web";
 import { Button } from "@react-spectrum/s2";
 
 /** Entrypoint for the "Create Return" order view button. */
 export function CreateReturnPage() {
-	const { data, error } = useOrderViewButtonContext();
-	const { actions, error: hostError } = useHostConnection();
+  const { data, error } = useOrderViewButtonContext();
+  const { actions, error: hostError } = useHostConnection();
 
-	// Custom handling: close the iframe and flag an error state instead of rethrowing to the lib-admin-ui error boundary.
-	if (error || hostError) {
-		actions?.closeWithError();
-		return null;
-	}
+  // Custom handling: close the iframe and flag an error state instead of rethrowing to the lib-admin-ui error boundary.
+  if (error || hostError) {
+    actions?.closeWithError();
+    return null;
+  }
 
-	return (
-		<main>
-			<h1>Request Return</h1>
-			<p>Order ID is: {data.orderId}</p>
-			<Button variant="primary" onPress={() => actions.close()}>
-				Done
-			</Button>
-		</main>
-	);
+  return (
+    <main>
+      <h1>Request Return</h1>
+      <p>Order ID is: {data.orderId}</p>
+      <Button onPress={actions.close} variant="primary">
+        Done
+      </Button>
+    </main>
+  );
 }
