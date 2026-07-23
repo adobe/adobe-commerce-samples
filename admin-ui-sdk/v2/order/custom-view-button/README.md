@@ -27,7 +27,7 @@ The button definitions live in `app.commerce.config.ts`. The page implementation
 - [Node.js](https://nodejs.org/) >= 24
 - [Adobe I/O CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/) (`npm install -g @adobe/aio-cli`)
 - An App Builder project on [Adobe Developer Console](https://developer.adobe.com/console/) with a workspace configured for your Commerce instance
-- Adobe Commerce >= 2.4.7 with the [Admin UI SDK module](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/) installed and enabled
+- Adobe Commerce >= 2.4.7 with the [Admin UI SDK module](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/) >= 4.2.0 installed and enabled (required minimum version for v2 samples)
 
 ## Setup
 
