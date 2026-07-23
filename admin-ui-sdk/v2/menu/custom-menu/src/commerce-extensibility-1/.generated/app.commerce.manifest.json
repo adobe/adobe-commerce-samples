@@ -1,0 +1,16 @@
+{
+  "adminUi": {
+    "menu": {
+      "description": "First App on App Builder",
+      "id": "CustomMenu::first",
+      "label": "First App on App Builder",
+      "pageTitle": "Adobe Commerce First App on App Builder"
+    }
+  },
+  "metadata": {
+    "description": "Adobe Commerce custom menu example in admin panel",
+    "displayName": "Adobe Commerce Custom Menu",
+    "id": "custommenu",
+    "version": "1.0.0"
+  }
+}
