@@ -10,18 +10,16 @@
  * governing permissions and limitations under the License.
  */
 
-import { useIms } from "@adobe/aio-commerce-lib-admin-ui/web";
+function assertNoError<T extends { error: unknown }>(
+  result: T,
+): asserts result is Extract<T, { error: null }> {
+  if (result.error) {
+    throw result.error;
+  }
+}
 
-/** A simple welcome component that displays the IMS token and org ID. */
-export function Welcome() {
-  const { data, error } = useIms();
-  // Custom handling: render fallback UI instead of rethrowing to the lib-admin-ui error boundary.
-  if (error) return <p>{error.message}</p>;
-
-  return (
-    <>
-      <h1>Welcome to your Adobe Commerce App</h1>
-      <p>Your IMS Org ID is {data.imsOrgId}</p>
-    </>
-  );
+/** Throws a hook result's `error` if present, narrowing the result to its error-free shape. */
+export function throwIfError<T extends { error: unknown }>(result: T): Extract<T, { error: null }> {
+  assertNoError(result);
+  return result;
 }
