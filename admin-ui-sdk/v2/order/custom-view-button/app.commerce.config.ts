@@ -9,9 +9,18 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+
+/** biome-ignore-all assist/source/useSortedKeys: Makes config more difficult to read */
+
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
+  metadata: {
+    description: "Adobe Commerce order grid custom view button in admin panel",
+    displayName: "Adobe Commerce Order Grid Custom View Button",
+    id: "order-custom-view-button",
+    version: "1.0.0",
+  },
   adminUi: {
     order: {
       viewButtons: [
@@ -44,11 +53,5 @@ export default defineConfig({
         },
       ],
     },
-  },
-  metadata: {
-    description: "Adobe Commerce order grid custom view button in admin panel",
-    displayName: "Adobe Commerce order grid custom view button",
-    id: "order-custom-view-button",
-    version: "1.0.0",
   },
 });

@@ -9,9 +9,18 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+
+/** biome-ignore-all assist/source/useSortedKeys: Makes config more difficult to read */
+
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
+  metadata: {
+    description: "Adobe Commerce order grid custom columns in admin panel",
+    displayName: "Adobe Commerce Order Grid Custom Columns",
+    id: "order-custom-grid-columns",
+    version: "1.0.0",
+  },
   adminUi: {
     order: {
       gridColumns: {
@@ -40,11 +49,5 @@ export default defineConfig({
         runtimeAction: "order-custom-grid-columns/get-order-grid-columns",
       },
     },
-  },
-  metadata: {
-    description: "Adobe Commerce order grid custom columns in admin panel",
-    displayName: "Adobe Commerce order grid custom columns",
-    id: "order-custom-grid-columns",
-    version: "1.0.0",
   },
 });

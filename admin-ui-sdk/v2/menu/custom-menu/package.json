@@ -1,5 +1,6 @@
 {
-  "name": "custom-menu",
+  "name": "@adobe/commerce-sample-admin-ui-sdk-custom-menu",
+  "description": "Adobe Commerce custom menu example in admin panel",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -27,7 +28,6 @@
   "engines": {
     "node": ">=24"
   },
-  "description": "Adobe Commerce custom menu example in admin panel",
   "imports": {
     "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js",
     "#web/*": "./src/commerce-backend-ui-2/web-src/src/*"

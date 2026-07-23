@@ -1,5 +1,6 @@
 {
-  "name": "product-custom-grid-columns",
+  "name": "@adobe/commerce-sample-admin-ui-sdk-product-custom-grid-columns",
+  "description": "Adobe Commerce product grid custom columns in admin panel",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -21,7 +22,6 @@
   "engines": {
     "node": ">=24"
   },
-  "description": "Adobe Commerce product grid custom columns in admin panel",
   "imports": {
     "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js"
   }

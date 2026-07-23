@@ -30,7 +30,7 @@
   },
   "metadata": {
     "description": "Adobe Commerce customer grid custom columns in admin panel",
-    "displayName": "Adobe Commerce customer grid custom columns",
+    "displayName": "Adobe Commerce Customer Grid Custom Columns",
     "id": "customer-custom-grid-columns",
     "version": "1.0.0"
   }

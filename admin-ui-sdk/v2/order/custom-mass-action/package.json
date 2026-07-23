@@ -1,5 +1,6 @@
 {
-  "name": "order-custom-mass-action",
+  "name": "@adobe/commerce-sample-admin-ui-sdk-order-custom-mass-action",
+  "description": "Adobe Commerce order grid custom mass action in admin panel",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -27,7 +28,6 @@
   "engines": {
     "node": ">=24"
   },
-  "description": "Adobe Commerce order grid custom mass action in admin panel",
   "imports": {
     "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js",
     "#web/*": "./src/commerce-backend-ui-2/web-src/src/*"

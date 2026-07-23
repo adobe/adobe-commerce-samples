@@ -10,9 +10,17 @@
  * governing permissions and limitations under the License.
  */
 
+/** biome-ignore-all assist/source/useSortedKeys: Makes config more difficult to read */
+
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
+  metadata: {
+    description: "Adobe Commerce custom menu example in admin panel",
+    displayName: "Adobe Commerce Custom Menu",
+    id: "custommenu",
+    version: "1.0.0",
+  },
   adminUi: {
     menu: {
       description: "First App on App Builder",
@@ -20,11 +28,5 @@ export default defineConfig({
       label: "First App on App Builder",
       pageTitle: "Adobe Commerce First App on App Builder",
     },
-  },
-  metadata: {
-    description: "Adobe Commerce custom menu example in admin panel",
-    displayName: "Adobe Commerce custom menu",
-    id: "custommenu",
-    version: "1.0.0",
   },
 });

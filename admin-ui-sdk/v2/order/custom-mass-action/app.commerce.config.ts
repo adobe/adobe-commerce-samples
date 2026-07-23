@@ -10,9 +10,17 @@
  * governing permissions and limitations under the License.
  */
 
+/** biome-ignore-all assist/source/useSortedKeys: Makes config more difficult to read */
+
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
 export default defineConfig({
+  metadata: {
+    description: "Adobe Commerce order grid custom mass action in admin panel",
+    displayName: "Adobe Commerce Order Grid Custom Mass Action",
+    id: "order-custom-mass-action",
+    version: "1.0.0",
+  },
   adminUi: {
     order: {
       massActions: [
@@ -47,11 +55,5 @@ export default defineConfig({
         },
       ],
     },
-  },
-  metadata: {
-    description: "Adobe Commerce order grid custom mass action in admin panel",
-    displayName: "Adobe Commerce order grid custom mass action",
-    id: "order-custom-mass-action",
-    version: "1.0.0",
   },
 });
