@@ -1,25 +1,25 @@
 {
-  "name": "@adobe/commerce-sample-events-consumer",
-  "description": "Routes several Commerce events to one runtime action, which dispatches each to its own handler action via an OpenWhisk invoke.",
-  "private": true,
-  "version": "1.0.0",
-  "dependencies": {
-    "@adobe/aio-commerce-lib-app": "1.8.0-alpha-20260722091448",
-    "@adobe/aio-commerce-sdk": "1.4.0-alpha-20260722091448",
-    "@adobe/aio-lib-core-logging": "^3.0.2",
-    "openwhisk": "^3.21.8"
-  },
-  "imports": {
-    "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js",
-    "#lib/*": "./src/commerce-extensibility-1/lib/*.js"
-  },
-  "scripts": {
-    "postinstall": "npx aio-commerce-lib-app hooks postinstall",
-    "code:fix": "ultracite fix",
-    "code:check": "ultracite check"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.5.3",
-    "ultracite": "^7.9.4"
-  }
+	"name": "@adobe/commerce-sample-events-consumer",
+	"description": "Routes several Commerce events to one runtime action, which dispatches each to its own handler action via an OpenWhisk invoke.",
+	"private": true,
+	"version": "1.0.0",
+	"dependencies": {
+		"@adobe/aio-commerce-lib-app": "1.8.0",
+		"@adobe/aio-commerce-sdk": "1.4.0",
+		"@adobe/aio-lib-core-logging": "^3.0.2",
+		"openwhisk": "^3.21.8"
+	},
+	"imports": {
+		"#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js",
+		"#lib/*": "./src/commerce-extensibility-1/lib/*.js"
+	},
+	"scripts": {
+		"postinstall": "npx aio-commerce-lib-app hooks postinstall",
+		"code:fix": "ultracite fix",
+		"code:check": "ultracite check"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.3",
+		"ultracite": "^7.9.4"
+	}
 }
