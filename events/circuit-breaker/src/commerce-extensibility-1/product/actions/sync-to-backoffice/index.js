@@ -19,23 +19,23 @@
  * echo it back into Commerce — wrapping `main` with the breaker stops that loop.
  */
 
-import { publishEvent } from "@adobe/aio-commerce-lib-app";
+import { publishEvent, resolveIoEventCode } from "@adobe/aio-commerce-lib-app";
 import { resolveImsAuthParams } from "@adobe/aio-commerce-sdk/auth";
 import { ok } from "@adobe/aio-commerce-sdk/core/responses";
 import { createAdobeIoEventsApiClient } from "@adobe/aio-commerce-sdk/events/io-events";
 import AioLogger from "@adobe/aio-lib-core-logging";
 
-import { BACKOFFICE_PROVIDER_KEY } from "#config";
+import appConfig, {
+  BACK_OFFICE_PRODUCT_UPDATE_EVENT,
+  BACKOFFICE_PROVIDER_KEY,
+  COMMERCE_PRODUCT_UPDATE_EVENT,
+} from "#app.commerce.config";
 import { withCircuitBreaker } from "#lib/circuit-breaker";
 import {
   extractProduct,
   productFingerprint,
   productKey,
 } from "#product/change";
-import {
-  BACK_OFFICE_PRODUCT_UPDATE_EVENT,
-  COMMERCE_PRODUCT_UPDATE_EVENT,
-} from "#product/constants";
 
 /**
  * Pushes a Commerce product save to the back office by publishing the
@@ -68,7 +68,13 @@ async function syncToBackoffice(params) {
 export const main = withCircuitBreaker(syncToBackoffice, {
   // eventTypes: the event(s) this action guards; other types pass through.
   // identify: key + fingerprint of the change, so its echo is recognized later.
-  eventTypes: [COMMERCE_PRODUCT_UPDATE_EVENT],
+  eventTypes: [
+    resolveIoEventCode(
+      appConfig.metadata.id,
+      COMMERCE_PRODUCT_UPDATE_EVENT,
+      "commerce",
+    ),
+  ],
   identify: (params) => {
     const product = extractProduct(params);
     return {
