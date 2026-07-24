@@ -1,7 +1,6 @@
 # Adobe I/O Events Samples
 
-This section contains a collection of samples that demonstrate the use of Adobe I/O Events for Adobe Commerce.
-Each sample demonstrates the effective use of Adobe I/O Events to build event-driven integrations with Adobe Commerce.
+This section contains a collection of samples that demonstrate the use of Adobe I/O Events for Adobe Commerce. Each sample demonstrates the effective use of Adobe I/O Events to build event-driven integrations with Adobe Commerce.
 
 ## Applications List
 
@@ -9,6 +8,7 @@ The samples covered in this section include:
 
 - [Adobe Commerce customer login](./commerce-customer-login) — listens to the Commerce `observer.customer_login` event and forwards the payload to a Slack channel.
 - [Circuit breaker (infinite-loop breaker)](./circuit-breaker) — bidirectional product sync between Commerce and an external back-office system, guarded by a circuit breaker so a single change does not echo forever.
+- [Multi event consumer](./multi-event-consumer) — routes several Commerce events to a single runtime action, which dispatches each to its own handler action via an OpenWhisk invoke.
 
 Please refer to the README file of each individual sample for more details.
 
