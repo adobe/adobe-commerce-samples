@@ -17,27 +17,25 @@ With Adobe I/O Events, developers can create event-driven applications that take
 Before you begin, ensure you have the following:
 
 - An Adobe Developer account
-- Node.js and npm installed on your local machine (nvm 18.x.x (Mac/Linux) or nvm-windows (Windows))
-- App Builder project created and configured to work with I/O Events.
+- Node.js >=24 and npm installed on your local machine
+- App Builder project created and configured to work with I/O Events
+- App Management enabled and associated with your Adobe Commerce instance. See [App Management](https://developer.adobe.com/commerce/extensibility/app-management/)
 - A Slack App configured to receive incoming webhooks. See link: [Slack API](https://api.slack.com/messaging/webhooks)
 
 ## Explanation
 
 The runtime action ```events/customer-login``` will receive the Commerce event payload and send to the configured Slack channel.
 
-### Commerce configured io_events.xml file:
+Event registration is declared in `app.commerce.config.ts` using the [`@adobe/aio-commerce-lib-app`](https://developer.adobe.com/commerce/extensibility/app-management/) eventing configuration.
 
-```xml
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_AdobeCommerceEventsClient:etc/io_events.xsd">
-    <event name="observer.customer_login">
-        <fields>
-            <field name="customer.firstname" />
-            <field name="customer.lastname" />
-        </fields>
-    </event>
-</config>
+To generate the runtime actions and extension manifest that power App Management, run:
+
+```bash
+npm install
+npx @adobe/aio-commerce-lib-app generate all
 ```
+
+Then deploy the app and install it through App Management to complete the event registration.
 
 ### Commerce event payload example:
 

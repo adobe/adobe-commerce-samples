@@ -1,16 +1,3 @@
-application:
-  actions: actions
-  runtimeManifest:
-    packages:
-      add-to-cart-stock-validation:
-        license: Apache-2.0
-        actions:
-          product-validate-stock:
-            function: actions/commerce/product-validate-stock.js
-            web: 'yes'
-            runtime: nodejs:18
-            inputs:
-              LOG_LEVEL: debug
-            annotations:
-              require-adobe-auth: true
-              final: true
+extensions:
+  commerce/extensibility/1:
+    $include: "src/commerce-extensibility-1/ext.config.yaml"
