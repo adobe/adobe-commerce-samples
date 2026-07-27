@@ -66,19 +66,37 @@ export function withEventRouter(routes) {
       });
     }
 
-    const ow = openwhisk();
-    const invocation = await ow.actions.invoke({
-      blocking: false,
-      name: action,
-      params,
-    });
+    try {
+      const ow = openwhisk();
+      const invocation = await ow.actions.invoke({
+        blocking: false,
+        name: action,
+        params,
+      });
 
-    logger.info(
-      `Routed "${params.type}" to "${action}" (activation ${invocation.activationId}).`,
-    );
+      logger.info(
+        `Routed "${params.type}" to "${action}" (activation ${invocation.activationId}).`,
+      );
 
-    return ok({
-      body: { action, activationId: invocation.activationId, routed: true },
-    });
+      return ok({
+        body: {
+          action,
+          activationId: invocation.activationId,
+          routed: true,
+        },
+      });
+    } catch (err) {
+      logger.error(
+        `Failed to invoke "${action}" for event type "${params.type}": ${err.message}`,
+      );
+
+      return badRequest({
+        body: {
+          message: `Failed to invoke "${action}" for event type "${params.type}": ${err.message}`,
+          routed: false,
+          type: params.type,
+        },
+      });
+    }
   };
 }
