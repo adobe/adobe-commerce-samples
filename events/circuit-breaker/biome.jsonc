@@ -1,14 +1,12 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["ultracite/biome/core"],
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
+
   "files": {
-    "ignoreUnknown": true
+    "ignoreUnknown": true,
+    "includes": ["!**/.generated"]
   },
+
   "javascript": {
     "formatter": {
       "arrowParentheses": "always",
@@ -19,15 +17,6 @@
       "trailingCommas": "all"
     }
   },
-  "overrides": [
-    {
-      // Allow both PascalCase and camelCase for react app
-      "includes": ["**/.generated/**"],
-      "linter": { "enabled": false },
-      "formatter": { "enabled": false },
-      "assist": { "enabled": false }
-    }
-  ],
 
   "assist": {
     "enabled": true,
@@ -61,5 +50,11 @@
         }
       }
     }
+  },
+
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
   }
 }

@@ -10,10 +10,23 @@
  * governing permissions and limitations under the License.
  */
 
-/** The back-office product update event */
-export const BACK_OFFICE_PRODUCT_UPDATE_EVENT =
-  "be-observer.catalog_product_update";
-
-/** The Commerce product-save event. */
-export const COMMERCE_PRODUCT_UPDATE_EVENT =
-  "observer.catalog_product_save_commit_after";
+/**
+ * In-memory stand-in for `@adobe/aio-lib-state`, backed by a real `Map`. Tests
+ * exercise behavior through `get`/`put` and inspect `store` for what was
+ * actually persisted, treating stored values as opaque.
+ *
+ * @returns {{ get: Function, put: Function, store: Map<string, object> }}
+ */
+export function createFakeState() {
+  const store = new Map();
+  return {
+    get(key) {
+      return Promise.resolve(store.get(key));
+    },
+    put(key, value, options) {
+      store.set(key, { value, ...options });
+      return Promise.resolve();
+    },
+    store,
+  };
+}

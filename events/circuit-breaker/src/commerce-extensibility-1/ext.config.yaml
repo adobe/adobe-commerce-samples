@@ -1,4 +1,3 @@
-
 # The [pre-app-build] hooks are auto-generated. Do not remove or manually edit.
 hooks:
   pre-app-build: EXTENSION=extensibility/1 npx aio-commerce-lib-app hooks pre-app-build
@@ -73,7 +72,7 @@ runtimeManifest:
             AIO_COMMERCE_AUTH_IMS_SCOPES: $AIO_COMMERCE_AUTH_IMS_SCOPES
           annotations:
             require-adobe-auth: false
-            
+
         sync-to-backoffice:
           function: product/actions/sync-to-backoffice/index.js
           web: "no"
