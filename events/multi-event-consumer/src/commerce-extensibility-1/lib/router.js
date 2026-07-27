@@ -25,7 +25,11 @@
  *   withAsyncEventRouter(routes) -> wrap an action's `main` with the router
  */
 
-import { badRequest, ok } from "@adobe/aio-commerce-sdk/core/responses";
+import {
+  badRequest,
+  internalServerError,
+  ok,
+} from "@adobe/aio-commerce-sdk/core/responses";
 import AioLogger from "@adobe/aio-lib-core-logging";
 import openwhisk from "openwhisk";
 
@@ -90,7 +94,7 @@ export function withAsyncEventRouter(routes) {
         `Failed to invoke "${action}" for event type "${params.type}": ${err.message}`,
       );
 
-      return badRequest({
+      return internalServerError({
         body: {
           message: `Failed to invoke "${action}" for event type "${params.type}": ${err.message}`,
           routed: false,
