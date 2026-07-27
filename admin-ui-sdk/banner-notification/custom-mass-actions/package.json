@@ -9,6 +9,7 @@
         "@adobe/uix-core": "^0.8.3",
         "@adobe/uix-guest": "^0.8.3",
         "@spectrum-icons/workflow": "^4.2.4",
+        "cipher-base": "^1.0.5",
         "cloudevents": "^6.0.3",
         "core-js": "^3.27.2",
         "crypto": "^1.0.1",
