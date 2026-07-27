@@ -22,7 +22,7 @@
  * the caller resolves each event's I/O event code (e.g. via
  * `resolveIoEventCode`) and supplies the code -> action routes.
  *
- *   withEventRouter(routes) -> wrap an action's `main` with the router
+ *   withAsyncEventRouter(routes) -> wrap an action's `main` with the router
  */
 
 import { badRequest, ok } from "@adobe/aio-commerce-sdk/core/responses";
@@ -44,7 +44,7 @@ import openwhisk from "openwhisk";
  * @param {Route[]} routes - Events this router recognizes and where to send them.
  * @returns {(params: object) => Promise<object>} A runtime action `main`.
  */
-export function withEventRouter(routes) {
+export function withAsyncEventRouter(routes) {
   const actionByEventCode = new Map(
     routes.map(({ code, action }) => [code, action]),
   );

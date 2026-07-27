@@ -28,12 +28,12 @@ import appConfig, {
   ORDER_PLACED_EVENT,
   PRODUCT_SAVED_EVENT,
 } from "#app.commerce.config";
-import { withEventRouter } from "#lib/router";
+import { withAsyncEventRouter } from "#lib/router";
 
 const resolveEventCode = (event) =>
   resolveIoEventCode(appConfig.metadata.id, event, "commerce");
 
-export const main = withEventRouter([
+export const main = withAsyncEventRouter([
   {
     action: "multi-event-consumer/handle-order-placed",
     code: resolveEventCode(ORDER_PLACED_EVENT),
