@@ -17,10 +17,13 @@
   "scripts": {
     "postinstall": "npx aio-commerce-lib-app hooks postinstall",
     "code:fix": "ultracite fix",
-    "code:check": "ultracite check"
+    "code:check": "ultracite check",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",
-    "ultracite": "^7.9.4"
+    "ultracite": "^7.9.4",
+    "vitest": "^4.1.10"
   }
 }
