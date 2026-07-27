@@ -4,9 +4,9 @@ A minimal Adobe Commerce app (App Management) that shows how several event subsc
 
 ## Why route through one action
 
-An App Builder workspace has a limit on the number of registrations — the bindings that tie an event provider + event to a runtime action — it can have. An app with a lot of events can hit that limit if each event gets its own registration. Routing several events to a single `consumer` action collapses them into one registration, so the app can keep consuming many event types without running into the limit; the consumer then dispatches each event to the action that actually handles it.
+An App Builder workspace has a [limit of 30 event registrations per client ID](https://developer.adobe.com/events/docs/guides/#quotas). An app with a lot of events can hit that limit if each event gets its own registration. Routing several events to a single `consumer` action collapses them into one registration, so the app can keep consuming many event types without running into the limit; the consumer then dispatches each event to the action that actually handles it.
 
-This sample declares three Commerce events — order placed, customer saved, product saved — that all route to a single `consumer` action. The consumer matches the incoming event against the ones it knows about and forwards it, via an OpenWhisk invoke, to the action that actually handles it.
+This sample declares three Commerce events: order placed, customer saved, product saved, all routing to a single `consumer` action. The consumer matches the incoming event against the ones it knows about and forwards it, via an OpenWhisk invoke, to the action that actually handles it.
 
 ```mermaid
 sequenceDiagram
