@@ -1,0 +1,24 @@
+# package directories
+node_modules/
+
+# build output
+dist/
+build/
+.manifest-dist.yml
+
+# env & console config
+.env*
+.aio
+console.json
+config.json
+
+# Claude tooling (vendored locally, not part of the sample)
+.claude/
+skills-lock.json
+
+# IDE & OS
+.idea
+.vscode
+.DS_Store
+coverage
+.parcel-cache
