@@ -12,7 +12,7 @@
 
 import { defineCustomInstallationStep } from "@adobe/aio-commerce-lib-app/management";
 import libDb from "@adobe/aio-lib-db";
-import { Core } from "@adobe/aio-sdk";
+import { generateAccessToken } from "@adobe/aio-lib-core-auth";
 
 // aio-lib-db environment pin — mirrors pinStageRuntimeEnv() in
 // src/common/lib/storage.js (keep them in sync).
@@ -70,7 +70,7 @@ function isIndexExistsError(error) {
 
 async function getDbBase(params) {
   pinStageRuntimeEnv();
-  const token = await Core.AuthClient.generateAccessToken(params);
+  const token = await generateAccessToken(params);
   return libDb.init({ token: token.access_token });
 }
 

@@ -37,14 +37,10 @@ jest.mock("@adobe/aio-lib-db", () => ({
   init: jest.fn().mockResolvedValue({ connect: mockConnect }),
 }));
 
-jest.mock("@adobe/aio-sdk", () => ({
-  Core: {
-    AuthClient: {
-      generateAccessToken: jest
-        .fn()
-        .mockResolvedValue({ access_token: "mock-token" }),
-    },
-  },
+jest.mock("@adobe/aio-lib-core-auth", () => ({
+  generateAccessToken: jest
+    .fn()
+    .mockResolvedValue({ access_token: "mock-token" }),
 }));
 
 jest.mock("@adobe/aio-commerce-lib-config", () => ({

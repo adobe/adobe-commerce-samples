@@ -2,16 +2,16 @@
 
 This project is a collection of code samples that demonstrate common extensibility use cases for Adobe Commerce. 
 
-## Featured sample
+## Reference app
 
-**[Purchase Approval – B2B Approval App](purchase-approval/)** — a complete App Builder reference app implementing an end-to-end B2B purchase-approval workflow for Adobe Commerce. It combines multiple extension points in a single app:
+**[Purchase Approval – B2B Approval App](apps/purchase-approval/)** — a complete App Builder reference app implementing an end-to-end B2B purchase-approval workflow for Adobe Commerce. It combines multiple extension points in a single app:
 
 - App Management install and business configuration
 - A checkout-time approval webhook
 - An order event handler that creates approval requests
 - An approver dashboard SPA (React + Adobe Spectrum) via the Admin UI SDK
 
-See [purchase-approval/README.md](purchase-approval/README.md) for setup and architecture.
+See [apps/purchase-approval/README.md](apps/purchase-approval/README.md) for setup and architecture.
 
 ## What this project is
 

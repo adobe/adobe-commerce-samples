@@ -5,9 +5,8 @@ import config from "#app.commerce.config";
 import { ApprovalDashboardPage } from "#web/pages/approval-dashboard-page.tsx";
 
 createExtensionApp({
+  menu: <ApprovalDashboardPage />,
   metadata: {
     extensionId: config.metadata.id,
   },
-
-  routes: [{ element: <ApprovalDashboardPage />, index: true }],
 });

@@ -2,6 +2,7 @@ import { useIms } from "@adobe/aio-commerce-lib-admin-ui/web";
 import { useCallback, useMemo } from "react";
 
 import { useConfig } from "./use-config.ts";
+import { throwIfError } from "#web/lib/utils.ts";
 
 const PACKAGE = "PurchaseApprovalUi";
 
@@ -49,7 +50,7 @@ export interface DecisionParams {
  * `require-adobe-auth` web action, so the platform returns its JSON body directly.
  */
 export function useApprovalApi() {
-  const { imsOrgId, imsToken } = useIms();
+  const { data: { imsToken, imsOrgId } } = throwIfError(useIms());
   const { getActionUrl } = useConfig();
 
   const invoke = useCallback(

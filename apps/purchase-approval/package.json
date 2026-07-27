@@ -13,7 +13,6 @@
     "@adobe/aio-lib-core-logging": "^3.0.2",
     "@adobe/aio-lib-db": "^1.0.3",
     "@adobe/aio-lib-files": "^4.1.4",
-    "@adobe/aio-sdk": "^6.0.0",
     "@react-spectrum/s2": "^1.5.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -25,7 +24,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "jest": "^29",
-    "typescript": "^5",
+    "typescript": "^7.0.2",
     "ultracite": "^7.9.3"
   },
   "scripts": {

@@ -11,7 +11,7 @@
  */
 
 const libDb = require("@adobe/aio-lib-db");
-const { Core } = require("@adobe/aio-sdk");
+const { generateAccessToken } = require("@adobe/aio-lib-core-auth");
 const {
   getConfiguration,
   initialize,
@@ -52,7 +52,7 @@ function pinStageRuntimeEnv() {
 
 async function getClient(params) {
   pinStageRuntimeEnv();
-  const token = await Core.AuthClient.generateAccessToken(params);
+  const token = await generateAccessToken(params);
   const dbBase = await libDb.init({ token: token.access_token });
   return dbBase.connect();
 }
