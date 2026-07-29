@@ -1,0 +1,41 @@
+{
+  "adminUi": {
+    "product": {
+      "massActions": [
+        {
+          "confirm": {
+            "message": "Are you sure you want to proceed with Mass Action on selected products?",
+            "title": "Mass Action"
+          },
+          "id": "product-mass-action",
+          "label": "Product Mass Action",
+          "path": "#/product-mass-action",
+          "selectionLimit": 1,
+          "type": "view"
+        },
+        {
+          "id": "product-mass-action-with-redirect",
+          "label": "Mass Action With Redirect",
+          "notifications": {
+            "error": "Product custom error message",
+            "success": "Product custom success message"
+          },
+          "path": "#/product-mass-action-with-redirect",
+          "type": "view"
+        },
+        {
+          "id": "product-mass-action-no-iFrame",
+          "label": "Mass Action No iFrame",
+          "runtimeAction": "mass-actions/mass-action",
+          "type": "worker"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "description": "Adobe Commerce product grid custom mass action in admin panel",
+    "displayName": "Adobe Commerce Product Grid Custom Mass Action",
+    "id": "product-custom-mass-action",
+    "version": "1.0.0"
+  }
+}

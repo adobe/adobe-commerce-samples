@@ -1,0 +1,29 @@
+web: web-src
+
+# The [pre-app-build] hooks are auto-generated. Do not remove or manually edit.
+hooks:
+  pre-app-build: EXTENSION=backend-ui/2 npx aio-commerce-lib-app hooks pre-app-build
+
+operations:
+  # These worker processes definitions are auto-generated. Do not remove or manually edit.
+  workerProcess:
+    - type: action
+      impl: mass-actions/mass-action
+  view:
+    - type: web
+      impl: index.html
+
+runtimeManifest:
+  packages:
+    mass-actions:
+      license: Apache-2.0
+      actions:
+        mass-action:
+          function: actions/mass-action/index.js
+          web: 'yes'
+          runtime: 'nodejs:24'
+          inputs:
+            LOG_LEVEL: debug
+          annotations:
+            require-adobe-auth: true
+            final: true

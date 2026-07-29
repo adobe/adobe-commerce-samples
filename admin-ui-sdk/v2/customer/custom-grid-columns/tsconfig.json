@@ -1,0 +1,9 @@
+{
+  "extends": ["@tsconfig/bases/recommended"],
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true
+  },
+  "include": ["app.commerce.config.ts"]
+}
