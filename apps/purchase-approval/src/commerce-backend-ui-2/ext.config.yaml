@@ -1,0 +1,21 @@
+web: web-src
+
+# The [pre-app-build] hooks are auto-generated. Do not remove or manually edit.
+hooks:
+  pre-app-build: EXTENSION=backend-ui/2 npx aio-commerce-lib-app hooks pre-app-build
+
+operations:
+  # These worker processes definitions are auto-generated. Do not remove or manually edit.
+  workerProcess:
+    - type: action
+      impl: PurchaseApprovalUi/order-grid-data
+  view:
+    - type: web
+      impl: index.html
+
+runtimeManifest:
+  packages:
+    PurchaseApprovalUi:
+      license: Apache-2.0
+      actions:
+        $include: ./actions/actions.config.yaml

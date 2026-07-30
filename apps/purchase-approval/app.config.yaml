@@ -1,0 +1,20 @@
+extensions:
+  commerce/configuration/1:
+    $include: src/commerce-configuration-1/ext.config.yaml
+  commerce/extensibility/1:
+    $include: src/commerce-extensibility-1/ext.config.yaml
+  commerce/backend-ui/2:
+    $include: src/commerce-backend-ui-2/ext.config.yaml
+productDependencies:
+  - code: COMMC
+    minVersion: 2.4.5
+    maxVersion: 3.0.0
+configSchema:
+  title: Purchase Approval App Setup
+  description: Configuration for Purchase Approval App
+  properties:
+    - title: Logging Level
+      type: string
+      description: 'At which level the application should log information. Possible values are: debug, info, warn, error.'
+      envKey: LOG_LEVEL
+      default: info
