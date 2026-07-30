@@ -26,32 +26,7 @@ const MAX_LOG_ENTRIES = 500;
 // Indexes are created once per container warm-start.
 let _indexesEnsured = false;
 
-// aio-lib-db environment pin for a stage workspace.
-// This app's App Builder Database (approval requests / execution logs) lives in the *stage* store,
-// but aio-lib-db resolves its endpoint from `AIO_DB_ENVIRONMENT || getCliEnv()`, and getCliEnv()
-// defaults to "prod" inside a deployed action (AIO_CLI_ENV is absent at runtime). Without this pin
-// aio-lib-db calls hit the prod endpoint and are rejected with "401: Oauth token is not valid".
-//
-// Pin ONLY AIO_DB_ENVIRONMENT — do NOT set AIO_CLI_ENV. AIO_CLI_ENV globally overrides getCliEnv(),
-// which the app-management framework itself uses for its own aio-lib-state operations (association
-// + install/uninstall status). Overriding it mid-action leaves the framework's state split across
-// the prod and stage stores and corrupts install-status tracking ("Installation has already
-// completed" on reinstall). A real production namespace is left untouched.
-//
-// Must be called from *inside* the entry functions (not at module scope): a module-level statement
-// gets tree-shaken out of the app-management installation action bundle. Use plain `if (!x) x=` —
-// aio's webpack action bundler rejects ES2021 logical-assignment ("||=").
-function pinStageRuntimeEnv() {
-  if (
-    (process.env.__OW_NAMESPACE || "").startsWith("development-") &&
-    !process.env.AIO_DB_ENVIRONMENT
-  ) {
-    process.env.AIO_DB_ENVIRONMENT = "stage";
-  }
-}
-
 async function getClient(params) {
-  pinStageRuntimeEnv();
   const token = await generateAccessToken(params);
   const dbBase = await libDb.init({ token: token.access_token });
   return dbBase.connect();
@@ -239,7 +214,6 @@ async function appendExecutionLog(entry, params) {
 }
 
 module.exports = {
-  pinStageRuntimeEnv,
   getApprovalRequests,
   getApprovalRequestsByOrderIds,
   getApprovalRequest,

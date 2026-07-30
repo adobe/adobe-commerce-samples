@@ -14,27 +14,6 @@ import { defineCustomInstallationStep } from "@adobe/aio-commerce-lib-app/manage
 import libDb from "@adobe/aio-lib-db";
 import { generateAccessToken } from "@adobe/aio-lib-core-auth";
 
-// aio-lib-db environment pin — mirrors pinStageRuntimeEnv() in
-// src/common/lib/storage.js (keep them in sync).
-// This stage workspace's Database lives in the stage store, but aio-lib-db resolves its endpoint
-// from `AIO_DB_ENVIRONMENT || getCliEnv()`, and getCliEnv() defaults to "prod" inside a deployed
-// action. Without this pin the create/drop collection calls hit the prod endpoint and are rejected
-// with "401: Oauth token is not valid".
-//
-// Pin ONLY AIO_DB_ENVIRONMENT — do NOT set AIO_CLI_ENV. AIO_CLI_ENV globally overrides getCliEnv(),
-// which the app-management framework uses for its own install/uninstall status state (aio-lib-state);
-// overriding it here corrupts that tracking. Called from inside getDbBase() (not module scope): a
-// module-level statement is tree-shaken out of the installation action bundle. Use plain
-// `if (!x) x=` — aio's webpack action bundler rejects ES2021 logical-assignment ("||=").
-function pinStageRuntimeEnv() {
-  if (
-    (process.env.__OW_NAMESPACE || "").startsWith("development-") &&
-    !process.env.AIO_DB_ENVIRONMENT
-  ) {
-    process.env.AIO_DB_ENVIRONMENT = "stage";
-  }
-}
-
 const DB_STATUS = {
   PROVISIONED: "PROVISIONED",
   REQUESTED: "REQUESTED",
@@ -69,7 +48,6 @@ function isIndexExistsError(error) {
 }
 
 async function getDbBase(params) {
-  pinStageRuntimeEnv();
   const token = await generateAccessToken(params);
   return libDb.init({ token: token.access_token });
 }

@@ -11,7 +11,6 @@
  */
 
 const AioLogger = require("@adobe/aio-lib-core-logging");
-const { pinStageRuntimeEnv } = require("./storage");
 
 /**
  * Creates an AdobeCommerceHttpClient for the Commerce instance this app is
@@ -23,9 +22,6 @@ const { pinStageRuntimeEnv } = require("./storage");
 async function createCommerceClient(params) {
   const logger = AioLogger("commerce-client", { level: "info" });
   try {
-    // Association data is read from App Builder State, which defaults to the prod
-    // store in a deployed action unless the stage env is pinned first.
-    pinStageRuntimeEnv();
     const { getCommerceClient } = await import("@adobe/aio-commerce-lib-app");
     const { resolveImsAuthParams } = await import(
       "@adobe/aio-commerce-lib-auth"
