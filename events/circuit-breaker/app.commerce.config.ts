@@ -14,8 +14,14 @@
 
 import { defineConfig } from "@adobe/aio-commerce-lib-app/config";
 
-export const BACKOFFICE_PROVIDER_KEY = "backoffice";
 export const COMMERCE_PROVIDER_KEY = "commerce";
+export const BACKOFFICE_PROVIDER_KEY = "backoffice";
+
+export const BACK_OFFICE_PRODUCT_UPDATE_EVENT =
+  "be-observer.catalog_product_update";
+
+export const COMMERCE_PRODUCT_UPDATE_EVENT =
+  "observer.catalog_product_save_commit_after";
 
 export default defineConfig({
   metadata: {
@@ -48,7 +54,7 @@ export default defineConfig({
               { name: "description" },
             ],
             label: "Product Saved",
-            name: "observer.catalog_product_save_commit_after",
+            name: COMMERCE_PRODUCT_UPDATE_EVENT,
 
             runtimeActions: ["circuit-breaker/sync-to-backoffice"],
           },
@@ -69,7 +75,7 @@ export default defineConfig({
           {
             description: "Triggered when the back office updates a product.",
             label: "Back Office Product Update",
-            name: "be-observer.catalog_product_update",
+            name: BACK_OFFICE_PRODUCT_UPDATE_EVENT,
             runtimeActions: ["circuit-breaker/sync-to-commerce"],
           },
         ],

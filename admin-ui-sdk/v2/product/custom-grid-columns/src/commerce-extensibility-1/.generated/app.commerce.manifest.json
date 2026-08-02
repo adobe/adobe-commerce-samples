@@ -1,0 +1,25 @@
+{
+  "adminUi": {
+    "product": {
+      "gridColumns": {
+        "columns": [
+          {
+            "align": "left",
+            "id": "first_column",
+            "label": "App Column",
+            "type": "string"
+          }
+        ],
+        "description": "Adds custom columns to the product grid",
+        "label": "Product grid columns",
+        "runtimeAction": "product-custom-grid-columns/get-product-grid-columns"
+      }
+    }
+  },
+  "metadata": {
+    "description": "Adobe Commerce product grid custom columns in admin panel",
+    "displayName": "Adobe Commerce Product Grid Custom Columns",
+    "id": "product-custom-grid-columns",
+    "version": "1.0.0"
+  }
+}

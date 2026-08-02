@@ -1,0 +1,41 @@
+{
+  "adminUi": {
+    "order": {
+      "viewButtons": [
+        {
+          "confirm": {
+            "message": "Are you sure you want to proceed to delete order?"
+          },
+          "id": "order-custom-view-button::delete-order",
+          "label": "Delete",
+          "level": 0,
+          "notifications": {
+            "error": "Failed to delete order",
+            "success": "Order deleted successfully"
+          },
+          "path": "#/delete-order",
+          "sortOrder": 80,
+          "type": "view"
+        },
+        {
+          "id": "order-custom-view-button::create-return",
+          "label": "Create Return",
+          "level": 0,
+          "notifications": {
+            "error": "Failed to create return request",
+            "success": "Return request created successfully"
+          },
+          "path": "#/create-return",
+          "sortOrder": 80,
+          "type": "view"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "description": "Adobe Commerce order grid custom view button in admin panel",
+    "displayName": "Adobe Commerce Order Grid Custom View Button",
+    "id": "order-custom-view-button",
+    "version": "1.0.0"
+  }
+}
