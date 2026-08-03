@@ -55,6 +55,13 @@ function holdOrder(client, orderId) {
  */
 async function unholdOrder(client, orderId) {
   const logger = AioLogger("commerce-client", { level: "info" });
+  const order = await getOrder(client, orderId);
+  if (order.status !== "holded" && order.state !== "holded") {
+    logger.info(
+      `Order ${orderId} is not on hold (status: ${order.status}); skipping unhold.`,
+    );
+    return true;
+  }
   const response = await client.post(`orders/${orderId}/unhold`).json();
   logger.info(
     `unholdOrder response for order ${orderId}:`,
