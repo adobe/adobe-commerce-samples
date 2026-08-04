@@ -58,6 +58,7 @@ beforeEach(() => {
   mockGetApprovalConfig.mockResolvedValue({});
   mockCreateCommerceClient.mockResolvedValue({});
   mockOrderFn.mockResolvedValue(true);
+  mockGetOrder.mockResolvedValue({ status: "holded", state: "holded" });
   mockUpdateApprovalRequest.mockResolvedValue({
     ...PENDING_REQUEST,
     status: "approved",
@@ -123,8 +124,31 @@ describe("processApprovalDecision", () => {
     );
   });
 
+  test("marks request expired when order is no longer on hold", async () => {
+    mockGetOrder.mockResolvedValue({
+      status: "processing",
+      state: "processing",
+    });
+    mockUpdateApprovalRequest.mockResolvedValue({
+      ...PENDING_REQUEST,
+      status: "expired",
+    });
+    const result = await processApprovalDecision(params, baseOptions);
+    expect(result.statusCode).toBe(200);
+    expect(result.body.status).toBe("expired");
+    expect(result.body.message).toContain("no longer on hold");
+    expect(mockUpdateApprovalRequest).toHaveBeenCalledWith(
+      "req-1",
+      expect.objectContaining({ status: "expired" }),
+      params,
+    );
+    expect(mockOrderFn).not.toHaveBeenCalled();
+  });
+
   test("adds comment when comment param is provided", async () => {
-    mockGetOrder.mockResolvedValue({ status: "processing" });
+    mockGetOrder
+      .mockResolvedValueOnce({ status: "holded", state: "holded" })
+      .mockResolvedValueOnce({ status: "processing" });
     const result = await processApprovalDecision(
       { ...params, comment: "Looks good" },
       baseOptions,

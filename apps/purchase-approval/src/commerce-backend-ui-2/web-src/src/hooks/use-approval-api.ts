@@ -6,7 +6,7 @@ import { throwIfError } from "#web/lib/utils.ts";
 
 const PACKAGE = "PurchaseApprovalUi";
 
-export type ApprovalStatus = "pending" | "approved" | "rejected";
+export type ApprovalStatus = "pending" | "approved" | "rejected" | "expired";
 
 export interface ApprovalRequest {
   id: string;
@@ -19,6 +19,7 @@ export interface ApprovalRequest {
   storeName?: string;
   status: ApprovalStatus;
   comment?: string;
+  message?: string;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -50,7 +51,9 @@ export interface DecisionParams {
  * `require-adobe-auth` web action, so the platform returns its JSON body directly.
  */
 export function useApprovalApi() {
-  const { data: { imsToken, imsOrgId } } = throwIfError(useIms());
+  const {
+    data: { imsToken, imsOrgId },
+  } = throwIfError(useIms());
   const { getActionUrl } = useConfig();
 
   const invoke = useCallback(
