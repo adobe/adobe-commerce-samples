@@ -1,0 +1,55 @@
+{
+  "name": "@adobe/commerce-sample-admin-ui-sdk-custom-menu-with-navigation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Adobe Commerce custom menu example with an in-app navigation pane",
+  "imports": {
+    "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js",
+    "#web/*": "./src/commerce-backend-ui-2/web-src/src/*"
+  },
+  "scripts": {
+    "code:check": "ultracite check",
+    "code:fix": "ultracite fix",
+    "postinstall": "npx aio-commerce-lib-app hooks postinstall",
+    "typecheck": "npm run typecheck:actions && npm run typecheck:web-src",
+    "typecheck:actions": "tsc --noEmit -p tsconfig.json",
+    "typecheck:web-src": "tsc --noEmit -p src/commerce-backend-ui-2/web-src/tsconfig.json"
+  },
+  "dependencies": {
+    "@adobe/aio-commerce-lib-admin-ui": "^1.0.0",
+    "@adobe/aio-commerce-lib-app": "^1.10.0",
+    "@adobe/aio-commerce-sdk": "^1.4.1",
+    "@react-spectrum/s2": "^1.5.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.3",
+    "@tsconfig/bases": "^1.0.26",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "ts-loader": "^9.6.2",
+    "typescript": "^6.0.3",
+    "ultracite": "^7.9.4"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "@parcel/bundler-default": {
+    "manualSharedBundles": [
+      {
+        "assets": [
+          "**/@react-spectrum/s2/**",
+          "src/commerce-backend-ui-2/web-src/*.{js,jsx,ts,tsx}"
+        ],
+        "name": "s2-styles",
+        "types": [
+          "css"
+        ]
+      }
+    ]
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
+}
