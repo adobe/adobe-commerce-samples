@@ -45,6 +45,7 @@ export function ApprovalRequestDetail({
   >(null);
   const [comment, setComment] = useState("");
   const [actionError, setActionError] = useState<string | null>(null);
+  const [infoMessage, setInfoMessage] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -74,12 +75,24 @@ export function ApprovalRequestDetail({
   const submitDecision = useCallback(
     async (
       action: "approve" | "reject",
-      decide: (id: string, params: { comment?: string }) => Promise<unknown>,
+      decide: (
+        id: string,
+        params: { comment?: string },
+      ) => Promise<ApprovalRequest>,
     ) => {
       setSubmittingAction(action);
       setActionError(null);
+      setInfoMessage(null);
       try {
-        await decide(id, { comment: comment || undefined });
+        const result = await decide(id, { comment: comment || undefined });
+        if (result?.status === "expired") {
+          setRequest(result);
+          setInfoMessage(
+            result.message ??
+              "This order is no longer on hold, so the approval request has expired.",
+          );
+          return;
+        }
         onResolved();
       } catch (error) {
         setActionError(
@@ -166,6 +179,13 @@ export function ApprovalRequestDetail({
           <DetailRow label="Comment" value={request.comment} />
         )}
       </div>
+
+      {infoMessage && (
+        <InlineAlert variant="notice">
+          <Heading>Request expired</Heading>
+          <Content>{infoMessage}</Content>
+        </InlineAlert>
+      )}
 
       {isPending && (
         <div

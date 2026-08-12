@@ -72,6 +72,28 @@ async function processApprovalDecision(
       });
     }
 
+    // The order can change out-of-band (e.g. an admin releases the hold, or it is
+    // cancelled) between the time the request is created and the time it is
+    // decided. If it is no longer on hold, the request can no longer be honoured,
+    // so mark it expired and surface a message instead of approving/rejecting.
+    const currentOrder = await getOrder(client, orderId);
+    if (currentOrder.status !== "holded" && currentOrder.state !== "holded") {
+      const message = `Order ${orderId} is no longer on hold, so this approval request has expired.`;
+      logger.info(message);
+
+      const expired = await updateApprovalRequest(
+        id,
+        {
+          status: "expired",
+          comment,
+          approvedBy: params.approvedBy || body.approvedBy || "dashboard",
+        },
+        params,
+      );
+
+      return jsonResponse(200, { ...expired, message });
+    }
+
     const result = await orderFn(client, orderId);
     logger.info(
       `Order ${orderId} ${actionName} result: ${JSON.stringify(result)}`,
@@ -87,6 +109,9 @@ async function processApprovalDecision(
 
     if (comment) {
       try {
+        // Re-fetch to capture the post-action status (the order just moved off
+        // hold), so the comment records the order's current state rather than
+        // the pre-decision "holded" status.
         const order = await getOrder(client, orderId);
         await addOrderComment(client, orderId, comment, order.status, true);
         logger.info(`Comment added to order ${orderId}.`);

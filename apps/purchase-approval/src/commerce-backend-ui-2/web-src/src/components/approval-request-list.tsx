@@ -28,11 +28,12 @@ import type { Key } from "react-aria-components";
 
 const STATUS_VARIANTS: Record<
   ApprovalStatus,
-  "neutral" | "positive" | "negative"
+  "neutral" | "positive" | "negative" | "notice"
 > = {
   approved: "positive",
   pending: "neutral",
   rejected: "negative",
+  expired: "notice",
 };
 
 const ALL = "all";
@@ -107,6 +108,7 @@ export function ApprovalRequestList({ onSelect }: ApprovalRequestListProps) {
           <PickerItem id="pending">Pending</PickerItem>
           <PickerItem id="approved">Approved</PickerItem>
           <PickerItem id="rejected">Rejected</PickerItem>
+          <PickerItem id="expired">Expired</PickerItem>
         </Picker>
       </div>
 
