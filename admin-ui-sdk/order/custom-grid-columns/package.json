@@ -39,5 +39,8 @@
   },
   "engines": {
     "node": "^16.13 || >=18"
+  },
+  "overrides": {
+    "cipher-base": ">=1.0.5"
   }
 }
