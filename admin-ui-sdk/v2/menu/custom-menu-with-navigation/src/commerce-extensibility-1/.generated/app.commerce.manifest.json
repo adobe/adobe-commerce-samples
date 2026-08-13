@@ -1,0 +1,17 @@
+{
+  "adminUi": {
+    "menu": {
+      "description": "App with Navigation Pane",
+      "id": "CustomMenuNavigation::main",
+      "label": "App with Navigation Pane",
+      "pageTitle": "Adobe Commerce App with Navigation Pane",
+      "parentMenu": "content"
+    }
+  },
+  "metadata": {
+    "description": "Adobe Commerce custom menu example with an in-app navigation pane",
+    "displayName": "Adobe Commerce Custom Menu with Navigation Pane",
+    "id": "custom-menu-with-navigation",
+    "version": "1.0.0"
+  }
+}
