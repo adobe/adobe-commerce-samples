@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "rewriteRelativeImportExtensions": false
+  },
+  "extends": ["@tsconfig/bases/recommended"],
+  "include": ["src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/**/*.jsx"]
+}

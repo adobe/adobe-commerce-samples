@@ -10,13 +10,31 @@
  * governing permissions and limitations under the License.
  */
 
-import { NavigationPane } from "#web/components/navigation-pane.tsx";
+import { AboutView } from "#web/components/about-view.tsx";
+import { SettingsView } from "#web/components/settings-view.tsx";
+import { Welcome } from "#web/components/welcome.tsx";
+import { Tab, TabList, TabPanel, Tabs } from "@react-spectrum/s2";
 
 /** Entrypoint for the main page of the app. */
 export function MainPage() {
   return (
     <main>
-      <NavigationPane />
+      <Tabs aria-label="App sections" orientation="vertical">
+        <TabList aria-label="App sections">
+          <Tab id="overview">Overview</Tab>
+          <Tab id="settings">Settings</Tab>
+          <Tab id="about">About</Tab>
+        </TabList>
+        <TabPanel id="overview">
+          <Welcome />
+        </TabPanel>
+        <TabPanel id="settings">
+          <SettingsView />
+        </TabPanel>
+        <TabPanel id="about">
+          <AboutView />
+        </TabPanel>
+      </Tabs>
     </main>
   );
 }
