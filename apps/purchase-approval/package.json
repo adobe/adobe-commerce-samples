@@ -39,7 +39,7 @@
 		"deploy": "AIO_CLI_ENV=prod aio app build --web-optimize && aio app deploy --no-build"
 	},
 	"engines": {
-		"node": ">=24"
+		"node": ">=22.21.0"
 	},
 	"imports": {
 		"#web/*": "./src/commerce-backend-ui-2/web-src/src/*",
