@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "noEmit": true
@@ -13,7 +11,6 @@
     "@tsconfig/bases/node24"
   ],
   "include": [
-    "src/**/.generated/actions/**/*.js",
     "app.commerce.config.ts",
     "app.commerce.config.mts",
     "app.commerce.config.cts",
