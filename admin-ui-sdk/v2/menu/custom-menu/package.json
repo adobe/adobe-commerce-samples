@@ -4,19 +4,19 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@adobe/aio-commerce-lib-admin-ui": "^0.2.0",
-    "@adobe/aio-commerce-lib-app": "^1.8.0",
-    "@adobe/aio-commerce-sdk": "^1.4.0",
+    "@adobe/aio-commerce-lib-admin-ui": "^1.0.1",
+    "@adobe/aio-commerce-lib-app": "^1.10.1",
+    "@adobe/aio-commerce-sdk": "^1.4.2",
     "@react-spectrum/s2": "^1.5.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",
-    "@tsconfig/bases": "latest",
+    "@tsconfig/bases": "^1.0.26",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "typescript": "latest",
+    "typescript": "^6.0.3",
     "ultracite": "^7.9.4"
   },
   "scripts": {
