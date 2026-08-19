@@ -4,7 +4,10 @@
   "private": true,
   "description": "Adobe Commerce custom menu example with an in-app navigation pane",
   "imports": {
-    "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js",
+    "#app.commerce.config": {
+      "types": "./app.commerce.config.ts",
+      "default": "./src/commerce-extensibility-1/.generated/app.commerce.config.js"
+    },
     "#web/*": "./src/commerce-backend-ui-2/web-src/src/*"
   },
   "scripts": {

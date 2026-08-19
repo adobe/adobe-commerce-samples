@@ -4,10 +4,7 @@
     "checkJs": true,
     "module": "esnext",
     "moduleResolution": "bundler",
-    "noEmit": true,
-    "paths": {
-      "#app.commerce.config": ["./app.commerce.config.ts"]
-    }
+    "noEmit": true
   },
   "exclude": ["src/**/web-src/**"],
   "extends": [
