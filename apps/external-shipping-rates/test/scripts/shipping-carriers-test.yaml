@@ -1,0 +1,24 @@
+shipping_carriers:
+  - carrier:
+      code: 'carrier-1'
+      title: 'Carrier one'
+      stores:
+        - default
+      countries:
+        - US
+        - CA
+      sort_order: 10
+      active: true
+      tracking_available: true
+      shipping_labels_available: true
+  - carrier:
+      code: 'carrier-2'
+      title: 'Carrier two'
+      stores:
+        - default
+      countries:
+        - US
+      sort_order: 50
+      active: true
+      tracking_available: false
+      shipping_labels_available: true
