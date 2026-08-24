@@ -1,0 +1,32 @@
+[
+  {
+    "default": "1000",
+    "label": "Approval threshold amount",
+    "name": "approvalThresholdAmount",
+    "type": "text"
+  },
+  {
+    "default": "USD",
+    "label": "Currency code",
+    "name": "currency",
+    "type": "text"
+  },
+  {
+    "default": "",
+    "label": "Approver emails (comma-separated)",
+    "name": "approverEmails",
+    "type": "text"
+  },
+  {
+    "default": "This order requires manager approval before fulfillment.",
+    "label": "Message when order requires approval",
+    "name": "requireApprovalMessage",
+    "type": "text"
+  },
+  {
+    "default": "",
+    "label": "Optional alert webhook URL (e.g. Slack) for evaluation failures",
+    "name": "alertWebhookUrl",
+    "type": "url"
+  }
+]

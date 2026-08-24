@@ -4,13 +4,13 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@adobe/aio-commerce-lib-app": "^1.8.0",
-    "@adobe/aio-commerce-sdk": "^1.4.0"
+    "@adobe/aio-commerce-lib-app": "^1.10.1",
+    "@adobe/aio-commerce-sdk": "^1.4.2"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",
-    "@tsconfig/bases": "latest",
-    "typescript": "latest",
+    "@tsconfig/bases": "^1.0.26",
+    "typescript": "^6.0.3",
     "ultracite": "^7.9.4"
   },
   "scripts": {

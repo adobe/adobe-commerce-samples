@@ -8,9 +8,6 @@ build
 dist
 .manifest-dist.yml
 
-# Auto-generated manifest and app-management actions (run `npm run manifest` to regenerate)
-.generated
-
 # Config
 config.json
 .env*

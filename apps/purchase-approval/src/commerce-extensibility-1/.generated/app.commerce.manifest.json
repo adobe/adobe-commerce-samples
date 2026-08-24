@@ -1,0 +1,192 @@
+{
+  "adminUi": {
+    "menu": {
+      "aclProtected": true,
+      "description": "Review and approve purchase requests from Commerce Admin.",
+      "id": "approval_dashboard",
+      "label": "Approval Dashboard"
+    },
+    "order": {
+      "gridColumns": {
+        "columns": [
+          {
+            "aclProtected": true,
+            "align": "left",
+            "id": "approval_status",
+            "label": "Approval Status",
+            "type": "string"
+          },
+          {
+            "aclProtected": true,
+            "align": "left",
+            "id": "approver",
+            "label": "Approver",
+            "type": "string"
+          },
+          {
+            "aclProtected": true,
+            "align": "left",
+            "id": "requested_at",
+            "label": "Requested At",
+            "type": "datetime"
+          }
+        ],
+        "description": "Approval-workflow columns on the order grid.",
+        "label": "Approval data",
+        "runtimeAction": "PurchaseApprovalUi/order-grid-data"
+      }
+    }
+  },
+  "businessConfig": {
+    "schema": [
+      {
+        "default": "1000",
+        "label": "Approval threshold amount",
+        "name": "approvalThresholdAmount",
+        "type": "text"
+      },
+      {
+        "default": "USD",
+        "label": "Currency code",
+        "name": "currency",
+        "type": "text"
+      },
+      {
+        "default": "",
+        "label": "Approver emails (comma-separated)",
+        "name": "approverEmails",
+        "type": "text"
+      },
+      {
+        "default": "This order requires manager approval before fulfillment.",
+        "label": "Message when order requires approval",
+        "name": "requireApprovalMessage",
+        "type": "text"
+      },
+      {
+        "default": "",
+        "label": "Optional alert webhook URL (e.g. Slack) for evaluation failures",
+        "name": "alertWebhookUrl",
+        "type": "url"
+      }
+    ]
+  },
+  "eventing": {
+    "commerce": [
+      {
+        "events": [
+          {
+            "description": "Fires when checkout completes and the order is placed",
+            "fields": [
+              {
+                "name": "order.increment_id"
+              },
+              {
+                "name": "order.entity_id"
+              },
+              {
+                "name": "order.grand_total"
+              },
+              {
+                "name": "order.status"
+              },
+              {
+                "name": "order.state"
+              },
+              {
+                "name": "order.store_name"
+              },
+              {
+                "name": "order.customer_email"
+              },
+              {
+                "name": "order.customer_firstname"
+              },
+              {
+                "name": "order.customer_lastname"
+              }
+            ],
+            "label": "Order Placed",
+            "name": "observer.checkout_submit_all_after",
+            "priority": true,
+            "runtimeActions": [
+              "PurchaseApproval/order-event-handler"
+            ]
+          }
+        ],
+        "provider": {
+          "description": "Order events for approval workflow",
+          "key": "purchase-approval-provider",
+          "label": "Purchase Approval Commerce Events"
+        }
+      }
+    ]
+  },
+  "installation": {
+    "customInstallationSteps": [
+      {
+        "description": "Create database collections and indexes for approval requests and execution logs",
+        "name": "Setup Database",
+        "script": "./scripts/setup-database.js"
+      }
+    ],
+    "messages": {
+      "postInstallation": "Installation complete. Configure approval rules in the App Management UI, then use the Purchase Approval dashboard to review and approve orders.",
+      "preInstallation": "Ensure your Adobe I/O Runtime namespace has sufficient quota. Configure approval threshold and approver emails after installation from the App Management UI."
+    }
+  },
+  "metadata": {
+    "description": "B2B approval workflows for Adobe Commerce: configure approval rules, evaluate orders at checkout via webhooks, and manage pending approvals from a dashboard.",
+    "displayName": "Purchase Approval",
+    "id": "purchase-approval",
+    "version": "1.0.6"
+  },
+  "webhooks": [
+    {
+      "category": "validation",
+      "description": "Evaluates approval rules at checkout; orders above the threshold require approval before fulfillment.",
+      "label": "Checkout approval check",
+      "requireAdobeAuth": true,
+      "runtimeAction": "PurchaseApproval/checkout-approval-check",
+      "webhook": {
+        "batch_name": "purchase_approval_check",
+        "fields": [
+          {
+            "name": "order.grand_total"
+          },
+          {
+            "name": "order.increment_id"
+          },
+          {
+            "name": "order.entity_id"
+          },
+          {
+            "name": "order.customer_email"
+          },
+          {
+            "name": "order.customer_firstname"
+          },
+          {
+            "name": "order.customer_lastname"
+          },
+          {
+            "name": "order.order_currency_code"
+          },
+          {
+            "name": "order.store_name"
+          },
+          {
+            "name": "order.status"
+          },
+          {
+            "name": "order.state"
+          }
+        ],
+        "hook_name": "checkout_approval_validation",
+        "method": "POST",
+        "webhook_method": "observer.sales_order_place_before",
+        "webhook_type": "after"
+      }
+    }
+  ]
+}

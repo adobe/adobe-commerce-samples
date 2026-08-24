@@ -7,3 +7,5 @@ extensions:
   - extensionPointId: commerce/backend-ui/2
 apis:
   - code: AdobeIOManagementAPISDK
+  - code: commerceeventing
+  - code: CloudIntegrationSDK

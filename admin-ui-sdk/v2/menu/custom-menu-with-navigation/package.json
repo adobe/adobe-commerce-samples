@@ -16,9 +16,9 @@
     "typecheck:web-src": "tsc --noEmit -p src/commerce-backend-ui-2/web-src/tsconfig.json"
   },
   "dependencies": {
-    "@adobe/aio-commerce-lib-admin-ui": "^1.0.0",
-    "@adobe/aio-commerce-lib-app": "^1.10.0",
-    "@adobe/aio-commerce-sdk": "^1.4.1",
+    "@adobe/aio-commerce-lib-admin-ui": "^1.0.1",
+    "@adobe/aio-commerce-lib-app": "^1.10.1",
+    "@adobe/aio-commerce-sdk": "^1.4.2",
     "@react-spectrum/s2": "^1.5.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
