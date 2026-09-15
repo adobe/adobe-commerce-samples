@@ -50,6 +50,7 @@ runtimeManifest:
           annotations:
             final: true
             require-adobe-auth: true
+            include-ims-credentials: true
           limits:
             timeout: 600000
 
