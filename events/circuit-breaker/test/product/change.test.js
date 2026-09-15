@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { describe, expect, test } from "vtestest";
+import { describe, expect, test } from "vitest";
 
 import {
 	extractProduct,
