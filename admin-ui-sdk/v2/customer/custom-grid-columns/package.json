@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/commerce-sample-admin-ui-sdk-customer-custom-grid-columns",
+  "name": "customer-custom-grid-columns",
   "description": "Adobe Commerce customer grid custom columns in admin panel",
   "version": "1.0.0",
   "private": true,
@@ -9,7 +9,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",
-    "@tsconfig/bases": "^1.0.26",
+    "@tsconfig/bases": "^1.0.28",
+    "@types/node": "^24.13.4",
+    "ts-loader": "^9.6.2",
     "typescript": "^6.0.3",
     "ultracite": "^7.9.4"
   },
@@ -17,7 +19,8 @@
     "postinstall": "npx aio-commerce-lib-app hooks postinstall",
     "code:check": "ultracite check",
     "code:fix": "ultracite fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && npm run typecheck:actions",
+    "typecheck:actions": "tsc --noEmit -p tsconfig.json"
   },
   "engines": {
     "node": ">=24"

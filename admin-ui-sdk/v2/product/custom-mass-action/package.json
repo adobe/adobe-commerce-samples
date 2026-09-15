@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/commerce-sample-admin-ui-sdk-product-custom-mass-action",
+  "name": "product-custom-mass-action",
   "description": "Adobe Commerce product grid custom mass action in admin panel",
   "version": "1.0.0",
   "private": true,
@@ -16,9 +16,11 @@
     "@babel/core": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "@biomejs/biome": "^2.5.3",
-    "@tsconfig/bases": "^1.0.26",
+    "@tsconfig/bases": "^1.0.28",
+    "@types/node": "^24.13.4",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "ts-loader": "^9.6.2",
     "typescript": "^6.0.3",
     "ultracite": "^7.9.4"
   },
@@ -26,7 +28,8 @@
     "postinstall": "npx aio-commerce-lib-app hooks postinstall",
     "code:check": "ultracite check",
     "code:fix": "ultracite fix",
-    "typecheck": "tsc --noEmit -p src/commerce-backend-ui-2/web-src/tsconfig.json"
+    "typecheck": "tsc --noEmit -p src/commerce-backend-ui-2/web-src/tsconfig.json && npm run typecheck:actions",
+    "typecheck:actions": "tsc --noEmit -p tsconfig.json"
   },
   "engines": {
     "node": ">=24"

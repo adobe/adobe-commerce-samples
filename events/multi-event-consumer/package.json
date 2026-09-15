@@ -1,6 +1,6 @@
 {
-  "name": "@adobe/commerce-sample-events-consumer",
-  "description": "Routes several Commerce events to one runtime action, which dispatches each to its own handler action via an OpenWhisk invoke.",
+  "name": "multi-event-consumer-sample",
+  "description": "Routes several Commerce events to one runtime action, which dispatches each event to its own handler action via an OpenWhisk invoke.",
   "private": true,
   "version": "1.0.0",
   "dependencies": {
@@ -16,10 +16,15 @@
   "scripts": {
     "postinstall": "npx aio-commerce-lib-app hooks postinstall",
     "code:fix": "ultracite fix",
-    "code:check": "ultracite check"
+    "code:check": "ultracite check",
+    "typecheck:actions": "tsc --noEmit -p tsconfig.json",
+    "typecheck": "npm run typecheck:actions"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",
+    "@tsconfig/bases": "^1.0.28",
+    "@types/node": "^24.13.4",
+    "ts-loader": "^9.6.2",
     "ultracite": "^7.9.4"
   }
 }

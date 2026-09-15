@@ -1,6 +1,6 @@
 {
-  "name": "@adobe/purchase-approval-reference-app",
-  "version": "1.0.7",
+  "name": "purchase-approval",
+  "version": "1.0.6",
   "author": "Adobe Inc.",
   "private": true,
   "dependencies": {
@@ -22,10 +22,11 @@
     "@babel/core": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "@biomejs/biome": "^2.5.3",
-    "@tsconfig/bases": "^1.0.26",
+    "@tsconfig/bases": "^1.0.28",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "jest": "^29",
+    "ts-loader": "^9.6.2",
     "typescript": "^6.0.3",
     "ultracite": "^7.9.3"
   },
@@ -36,9 +37,11 @@
     "lint:fix": "biome lint --write --no-errors-on-unmatched",
     "format": "biome format --write --no-errors-on-unmatched",
     "format:check": "biome format --no-errors-on-unmatched",
-    "typecheck": "tsc --noEmit -p src/commerce-backend-ui-2/web-src/tsconfig.json",
+    "typecheck": "tsc --noEmit -p src/commerce-backend-ui-2/web-src/tsconfig.json && npm run typecheck:actions",
     "manifest": "npx aio-commerce-lib-app generate all",
-    "deploy": "AIO_CLI_ENV=prod aio app build --web-optimize && aio app deploy --no-build"
+    "deploy": "AIO_CLI_ENV=prod aio app build --web-optimize && aio app deploy --no-build",
+    "typecheck:actions": "tsc --noEmit -p tsconfig.json",
+    "postinstall": "npx aio-commerce-lib-app hooks postinstall"
   },
   "engines": {
     "node": ">=22.21.0"
@@ -64,5 +67,6 @@
         ]
       }
     ]
-  }
+  },
+  "description": "B2B approval workflows for Adobe Commerce: configure approval rules, evaluate orders at checkout via webhooks, and manage pending approvals from a dashboard."
 }
