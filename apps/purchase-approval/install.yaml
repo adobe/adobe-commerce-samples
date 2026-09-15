@@ -9,3 +9,4 @@ apis:
   - code: AdobeIOManagementAPISDK
   - code: commerceeventing
   - code: CloudIntegrationSDK
+  - code: AppBuilderDataServicesSDK
