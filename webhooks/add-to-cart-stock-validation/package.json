@@ -1,6 +1,6 @@
 {
-  "name": "add-to-cart-stock-validation",
-  "version": "1.0.0",
+  "name": "AdobeSampleWebhooks",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@adobe/aio-commerce-lib-app": "^2.0.0",
@@ -29,6 +29,5 @@
   },
   "imports": {
     "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js"
-  },
-  "description": "Validates product stock when a shopper adds an item to the cart."
+  }
 }

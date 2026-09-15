@@ -1,6 +1,6 @@
 {
-  "name": "commerce-customer-login",
-  "version": "1.0.0",
+  "name": "adobeSampleEvents",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@adobe/aio-commerce-lib-app": "^2.0.0",
@@ -29,6 +29,5 @@
   },
   "imports": {
     "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js"
-  },
-  "description": "Sends a Slack notification whenever a customer logs in to Adobe Commerce."
+  }
 }

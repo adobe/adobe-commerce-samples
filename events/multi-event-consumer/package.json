@@ -1,6 +1,6 @@
 {
-  "name": "multi-event-consumer-sample",
-  "description": "Routes several Commerce events to one runtime action, which dispatches each event to its own handler action via an OpenWhisk invoke.",
+  "name": "@adobe/commerce-sample-events-consumer",
+  "description": "Routes several Commerce events to one runtime action, which dispatches each to its own handler action via an OpenWhisk invoke.",
   "private": true,
   "version": "1.0.0",
   "dependencies": {

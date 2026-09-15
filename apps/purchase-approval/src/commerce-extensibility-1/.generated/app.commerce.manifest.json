@@ -140,7 +140,7 @@
     "displayName": "Purchase Approval",
     "id": "purchase-approval",
     "upgradeMode": "manual",
-    "version": "1.0.6"
+    "version": "1.0.8"
   },
   "webhooks": [
     {

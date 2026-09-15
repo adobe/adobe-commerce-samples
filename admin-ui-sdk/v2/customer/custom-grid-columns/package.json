@@ -1,5 +1,5 @@
 {
-  "name": "customer-custom-grid-columns",
+  "name": "@adobe/commerce-sample-admin-ui-sdk-customer-custom-grid-columns",
   "description": "Adobe Commerce customer grid custom columns in admin panel",
   "version": "1.0.0",
   "private": true,

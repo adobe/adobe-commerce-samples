@@ -1,6 +1,6 @@
 {
-  "name": "purchase-approval",
-  "version": "1.0.6",
+  "name": "@adobe/purchase-approval-reference-app",
+  "version": "1.0.8",
   "author": "Adobe Inc.",
   "private": true,
   "dependencies": {
@@ -67,6 +67,5 @@
         ]
       }
     ]
-  },
-  "description": "B2B approval workflows for Adobe Commerce: configure approval rules, evaluate orders at checkout via webhooks, and manage pending approvals from a dashboard."
+  }
 }

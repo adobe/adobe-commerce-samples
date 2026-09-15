@@ -1,5 +1,5 @@
 {
-  "name": "custommenu",
+  "name": "@adobe/commerce-sample-admin-ui-sdk-custom-menu",
   "description": "Adobe Commerce custom menu example in admin panel",
   "version": "1.0.0",
   "private": true,

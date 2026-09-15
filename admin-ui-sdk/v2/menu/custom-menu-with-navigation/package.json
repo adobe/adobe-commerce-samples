@@ -1,5 +1,5 @@
 {
-  "name": "custom-menu-with-navigation",
+  "name": "@adobe/commerce-sample-admin-ui-sdk-custom-menu-with-navigation",
   "version": "1.0.0",
   "private": true,
   "description": "Adobe Commerce custom menu example with an in-app navigation pane",

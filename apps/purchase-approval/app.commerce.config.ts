@@ -25,7 +25,7 @@ export default defineConfig({
     displayName: "Purchase Approval",
     description:
       "B2B approval workflows for Adobe Commerce: configure approval rules, evaluate orders at checkout via webhooks, and manage pending approvals from a dashboard.",
-    version: "1.0.6",
+    version: "1.0.8",
   },
 
   businessConfig: {

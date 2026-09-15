@@ -1,5 +1,5 @@
 {
-  "name": "order-custom-grid-columns",
+  "name": "@adobe/commerce-sample-admin-ui-sdk-order-custom-grid-columns",
   "description": "Adobe Commerce order grid custom columns in admin panel",
   "version": "1.0.0",
   "private": true,

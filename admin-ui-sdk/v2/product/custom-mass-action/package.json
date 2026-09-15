@@ -1,5 +1,5 @@
 {
-  "name": "product-custom-mass-action",
+  "name": "@adobe/commerce-sample-admin-ui-sdk-product-custom-mass-action",
   "description": "Adobe Commerce product grid custom mass action in admin panel",
   "version": "1.0.0",
   "private": true,
