@@ -1,0 +1,14 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        ["@babel/preset-react", { "runtime": "automatic", "development": true }]
+      ]
+    },
+    "production": {
+      "presets": [
+        ["@babel/preset-react", { "runtime": "automatic", "development": false }]
+      ]
+    }
+  }
+}

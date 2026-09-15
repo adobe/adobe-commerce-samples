@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@adobe/aio-commerce-lib-app": "^1.10.1",
-    "@adobe/aio-commerce-sdk": "^1.4.2"
+    "@adobe/aio-commerce-lib-app": "^2.0.0",
+    "@adobe/aio-commerce-sdk": "^2.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",

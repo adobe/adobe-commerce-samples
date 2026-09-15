@@ -1,0 +1,37 @@
+{
+  "eventing": {
+    "commerce": [
+      {
+        "events": [
+          {
+            "description": "Commerce event containing the first and last name of the logged-in customer.",
+            "fields": [
+              {
+                "name": "customer.firstname"
+              },
+              {
+                "name": "customer.lastname"
+              }
+            ],
+            "label": "Customer Login",
+            "name": "observer.customer_login",
+            "runtimeActions": [
+              "events/customer-login"
+            ]
+          }
+        ],
+        "provider": {
+          "description": "Events emitted when a customer logs in to Adobe Commerce",
+          "label": "Customer Login Events"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "description": "Sends a Slack notification whenever a customer logs in to Adobe Commerce.",
+    "displayName": "Commerce Customer Login",
+    "id": "commerce-customer-login",
+    "upgradeMode": "manual",
+    "version": "1.0.0"
+  }
+}

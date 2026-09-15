@@ -5,5 +5,11 @@ import { configRuntimeAction } from "@adobe/aio-commerce-lib-app/actions/config"
 
 import config from "#app.commerce.config";
 
-const args = { configSchema: config.businessConfig.schema };
+const businessConfig = /** @type {NonNullable<typeof config.businessConfig>} */ (
+  config.businessConfig
+);
+const configSchema = /** @type {NonNullable<typeof businessConfig.schema>} */ (
+  businessConfig.schema
+);
+const args = { configSchema };
 export const main = configRuntimeAction(args);
