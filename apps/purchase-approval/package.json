@@ -44,7 +44,7 @@
     "postinstall": "npx aio-commerce-lib-app hooks postinstall"
   },
   "engines": {
-    "node": ">=22.21.0"
+    "node": ">=24"
   },
   "imports": {
     "#web/*": "./src/commerce-backend-ui-2/web-src/src/*",
