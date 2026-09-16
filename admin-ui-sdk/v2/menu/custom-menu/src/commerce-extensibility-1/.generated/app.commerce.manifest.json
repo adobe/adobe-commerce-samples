@@ -11,6 +11,7 @@
     "description": "Adobe Commerce custom menu example in admin panel",
     "displayName": "Adobe Commerce Custom Menu",
     "id": "custommenu",
+    "upgradeMode": "manual",
     "version": "1.0.0"
   }
 }

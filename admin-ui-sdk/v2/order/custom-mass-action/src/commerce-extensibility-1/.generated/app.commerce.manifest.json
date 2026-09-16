@@ -37,6 +37,7 @@
     "description": "Adobe Commerce order grid custom mass action in admin panel",
     "displayName": "Adobe Commerce Order Grid Custom Mass Action",
     "id": "order-custom-mass-action",
+    "upgradeMode": "manual",
     "version": "1.0.0"
   }
 }

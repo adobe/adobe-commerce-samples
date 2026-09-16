@@ -12,6 +12,7 @@
     "description": "Adobe Commerce custom menu example with an in-app navigation pane",
     "displayName": "Adobe Commerce Custom Menu with Navigation Pane",
     "id": "custom-menu-with-navigation",
+    "upgradeMode": "manual",
     "version": "1.0.0"
   }
 }

@@ -4,8 +4,8 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "@adobe/aio-commerce-lib-app": "1.8.0",
-    "@adobe/aio-commerce-sdk": "1.4.0",
+    "@adobe/aio-commerce-lib-app": "^2.0.0",
+    "@adobe/aio-commerce-sdk": "^2.0.0",
     "@adobe/aio-lib-core-logging": "^3.0.2",
     "@adobe/aio-lib-state": "^5.3.1"
   },
@@ -19,10 +19,15 @@
     "code:fix": "ultracite fix",
     "code:check": "ultracite check",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck:actions": "tsc --noEmit -p tsconfig.json",
+    "typecheck": "npm run typecheck:actions"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",
+    "@tsconfig/bases": "^1.0.28",
+    "@types/node": "^24.13.4",
+    "ts-loader": "^9.6.2",
     "ultracite": "^7.9.4",
     "vitest": "^4.1.10"
   }

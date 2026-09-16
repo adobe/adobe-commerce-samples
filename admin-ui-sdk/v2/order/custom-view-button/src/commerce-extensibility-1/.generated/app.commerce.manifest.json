@@ -36,6 +36,7 @@
     "description": "Adobe Commerce order grid custom view button in admin panel",
     "displayName": "Adobe Commerce Order Grid Custom View Button",
     "id": "order-custom-view-button",
+    "upgradeMode": "manual",
     "version": "1.0.0"
   }
 }

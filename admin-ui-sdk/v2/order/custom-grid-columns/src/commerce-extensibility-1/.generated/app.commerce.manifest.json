@@ -32,6 +32,7 @@
     "description": "Adobe Commerce order grid custom columns in admin panel",
     "displayName": "Adobe Commerce Order Grid Custom Columns",
     "id": "order-custom-grid-columns",
+    "upgradeMode": "manual",
     "version": "1.0.0"
   }
 }

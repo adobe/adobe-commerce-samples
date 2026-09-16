@@ -32,6 +32,7 @@
     "description": "Adobe Commerce customer grid custom columns in admin panel",
     "displayName": "Adobe Commerce Customer Grid Custom Columns",
     "id": "customer-custom-grid-columns",
+    "upgradeMode": "manual",
     "version": "1.0.0"
   }
 }

@@ -139,7 +139,8 @@
     "description": "B2B approval workflows for Adobe Commerce: configure approval rules, evaluate orders at checkout via webhooks, and manage pending approvals from a dashboard.",
     "displayName": "Purchase Approval",
     "id": "purchase-approval",
-    "version": "1.0.6"
+    "upgradeMode": "manual",
+    "version": "1.0.8"
   },
   "webhooks": [
     {

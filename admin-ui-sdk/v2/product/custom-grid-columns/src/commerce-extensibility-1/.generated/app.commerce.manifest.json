@@ -20,6 +20,7 @@
     "description": "Adobe Commerce product grid custom columns in admin panel",
     "displayName": "Adobe Commerce Product Grid Custom Columns",
     "id": "product-custom-grid-columns",
+    "upgradeMode": "manual",
     "version": "1.0.0"
   }
 }

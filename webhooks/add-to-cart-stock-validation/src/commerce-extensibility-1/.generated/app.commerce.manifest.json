@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "description": "Validates product stock when a shopper adds an item to the cart.",
+    "displayName": "Add to Cart Stock Validation",
+    "id": "add-to-cart-stock-validation",
+    "upgradeMode": "manual",
+    "version": "1.0.0"
+  },
+  "webhooks": [
+    {
+      "category": "validation",
+      "description": "Checks product stock before allowing an add-to-cart request.",
+      "label": "Validate stock",
+      "runtimeAction": "add-to-cart-stock-validation/product-validate-stock",
+      "webhook": {
+        "batch_name": "stock",
+        "fallback_error_message": "The product stock validation failed",
+        "fields": [
+          {
+            "name": "info.qty",
+            "source": "data.info.qty"
+          },
+          {
+            "name": "product.name",
+            "source": "data.product.name"
+          },
+          {
+            "name": "product.quantity_and_stock_status.is_in_stock",
+            "source": "data.product.quantity_and_stock_status.is_in_stock"
+          },
+          {
+            "name": "product.quantity_and_stock_status.qty",
+            "source": "data.product.quantity_and_stock_status.qty"
+          }
+        ],
+        "hook_name": "validate_stock",
+        "method": "POST",
+        "priority": 100,
+        "required": true,
+        "soft_timeout": 100,
+        "timeout": 5000,
+        "webhook_method": "observer.checkout_cart_product_add_before",
+        "webhook_type": "before"
+      }
+    }
+  ]
+}
