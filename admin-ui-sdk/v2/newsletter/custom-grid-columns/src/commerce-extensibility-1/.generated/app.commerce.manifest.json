@@ -1,0 +1,38 @@
+{
+  "adminUi": {
+    "newsletter": {
+      "gridColumns": {
+        "columns": [
+          {
+            "align": "left",
+            "id": "first_column",
+            "label": "First App Column",
+            "type": "string"
+          },
+          {
+            "align": "left",
+            "id": "second_column",
+            "label": "Second App Column",
+            "type": "integer"
+          },
+          {
+            "align": "left",
+            "id": "third_column",
+            "label": "Third App Column",
+            "type": "date"
+          }
+        ],
+        "description": "Adds custom columns to the newsletter subscriber grid",
+        "label": "Newsletter grid columns",
+        "runtimeAction": "newsletter-custom-grid-columns/get-newsletter-grid-columns"
+      }
+    }
+  },
+  "metadata": {
+    "description": "Adobe Commerce newsletter subscriber grid custom columns in admin panel",
+    "displayName": "Adobe Commerce Newsletter Grid Custom Columns",
+    "id": "newsletter-custom-grid-columns",
+    "upgradeMode": "manual",
+    "version": "1.0.0"
+  }
+}
