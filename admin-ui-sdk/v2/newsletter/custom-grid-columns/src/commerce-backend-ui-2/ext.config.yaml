@@ -1,0 +1,26 @@
+# The [pre-app-build] hooks are auto-generated. Do not remove or manually edit.
+hooks:
+  pre-app-build: EXTENSION=backend-ui/2 npx aio-commerce-lib-app hooks pre-app-build
+  pre-app-dev: EXTENSION=backend-ui/2 npx aio-commerce-lib-app hooks pre-app-dev
+  pre-app-run: EXTENSION=backend-ui/2 npx aio-commerce-lib-app hooks pre-app-run
+
+operations:
+  # These worker processes definitions are auto-generated. Do not remove or manually edit.
+  workerProcess:
+    - type: action
+      impl: newsletter-custom-grid-columns/get-newsletter-grid-columns
+
+runtimeManifest:
+  packages:
+    newsletter-custom-grid-columns:
+      license: Apache-2.0
+      actions:
+        get-newsletter-grid-columns:
+          function: actions/get-newsletter-grid-columns/index.js
+          web: 'yes'
+          runtime: 'nodejs:24'
+          inputs:
+            LOG_LEVEL: debug
+          annotations:
+            require-adobe-auth: true
+            final: true
