@@ -1,0 +1,9 @@
+{
+  "name": "commerce-bundle-product-special-price-mesh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Adobe API Mesh workaround that adjusts bundle option prices on the PDP using the parent bundle's special and tier prices.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

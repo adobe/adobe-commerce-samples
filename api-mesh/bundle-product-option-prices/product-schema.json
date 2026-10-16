@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "type_id": {
+      "type": "string"
+    },
+    "custom_attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "attribute_code": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tier_prices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "customer_group_id": {
+            "type": "number"
+          },
+          "qty": {
+            "type": "number"
+          },
+          "value": {
+            "type": "number"
+          },
+          "extension_attributes": {
+            "type": "object",
+            "properties": {
+              "percentage_value": {
+                "type": "number"
+              },
+              "website_id": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
