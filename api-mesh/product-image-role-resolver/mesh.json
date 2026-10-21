@@ -1,0 +1,72 @@
+{
+  "meshConfig": {
+    "responseConfig": {
+      "cache": false
+    },
+    "sources": [
+      {
+        "name": "CommerceGraphQL",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://<REGION>.api.commerce.adobe.com/<TENANT_ID>/graphql",
+            "operationHeaders": {
+              "Authorization": "{context.headers['authorization']}",
+              "Magento-Store-View-Code": "<STORE_VIEW_CODE>",
+              "Magento-Website-Code": "<WEBSITE_CODE>",
+              "Magento-Store-Code": "<STORE_CODE>",
+              "Magento-Environment-Id": "<TENANT_ID>",
+              "Magento-Customer-Group": "<CUSTOMER_GROUP>",
+              "X-Api-Key": "not_used",
+              "Content-Type": "application/json"
+            },
+            "schemaHeaders": {
+              "Magento-Environment-Id": "<TENANT_ID>",
+              "x-api-key": "not_used"
+            }
+          }
+        }
+      },
+      {
+        "name": "CommerceRest",
+        "handler": {
+          "JsonSchema": {
+            "baseUrl": "https://<REGION>.api.commerce.adobe.com/<TENANT_ID>",
+            "operationHeaders": {
+              "Store": "<STORE_VIEW_CODE>",
+              "Authorization": "Bearer {context.headers['x-ims-auth-token']}"
+            },
+            "operations": [
+              {
+                "type": "Query",
+                "field": "restProductMedia",
+                "path": "/V1/products/{args.sku}/media",
+                "method": "GET",
+                "responseTypeName": "CommerceRestMediaEntries",
+                "responseSchema": "./responseSchema/rest-media-response-schema.json",
+                "argTypeMap": {
+                  "sku": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "state": {
+      "enabled": true
+    },
+    "plugins": [
+      {
+        "hooks": {
+          "beforeAll": {
+            "composer": "./hooks.js#accsRestAuth",
+            "blocking": true
+          }
+        }
+      }
+    ],
+    "additionalResolvers": ["./resolvers/product-images.js"]
+  }
+}

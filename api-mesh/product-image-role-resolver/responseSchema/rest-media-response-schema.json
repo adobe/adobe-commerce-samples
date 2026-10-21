@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CommerceRestMediaEntries",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "CommerceRestMediaEntry",
+    "properties": {
+      "id": { "type": "integer" },
+      "file": { "type": "string" },
+      "types": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    }
+  }
+}
