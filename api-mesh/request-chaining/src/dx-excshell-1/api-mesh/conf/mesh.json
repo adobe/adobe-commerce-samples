@@ -1,0 +1,18 @@
+{
+    "meshConfig": {
+        "sources": [
+            {
+                "name": "ACOMGQL",
+                "handler": {
+                    "graphql": {
+                        "endpoint": "https://venia.magento.com/graphql"
+                    }
+                }
+            }
+        ],
+        "additionalTypeDefs": "type CreateGuestCartAndAddProductsToCartOutput { createGuestCart: String! addProductsToCart: AddProductsToCartOutput! } extend type Mutation { createGuestCartAndAddProductsToCart( cartItem: CartItemInput! ): CreateGuestCartAndAddProductsToCartOutput }",
+        "additionalResolvers": [
+            "./resolvers/chain-mutation.js"
+        ]
+    }
+}
