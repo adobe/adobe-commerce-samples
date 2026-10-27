@@ -54,6 +54,13 @@
         }
       }
     ],
+    "transforms": [
+      {
+        "filterSchema": {
+          "filters": ["Query.!restProductMedia"]
+        }
+      }
+    ],
     "state": {
       "enabled": true
     },
