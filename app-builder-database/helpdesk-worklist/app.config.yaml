@@ -1,0 +1,45 @@
+application:
+  actions: actions
+  web: web-src
+  hooks:
+    post-app-deploy: scripts/setup-database.js
+  runtimeManifest:
+    database:
+      auto-provision: true
+      region: amer
+    packages:
+      helpdesk-worklist:
+        license: Apache-2.0
+        inputs:
+          DB_REGION: amer
+        actions:
+          create-ticket:
+            function: actions/create-ticket/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: info
+            annotations:
+              require-adobe-auth: true
+              include-ims-credentials: true
+              final: true
+          list-open:
+            function: actions/list-open/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: info
+            annotations:
+              require-adobe-auth: true
+              include-ims-credentials: true
+              final: true
+          claim-ticket:
+            function: actions/claim-ticket/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: info
+            annotations:
+              require-adobe-auth: true
+              include-ims-credentials: true
+              final: true
