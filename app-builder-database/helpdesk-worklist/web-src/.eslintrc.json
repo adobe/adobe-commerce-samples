@@ -1,0 +1,11 @@
+{
+  "env": { "browser": true },
+  "extends": ["plugin:react/recommended"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": { "jsx": true }
+  },
+  "settings": { "react": { "version": "detect" } },
+  "rules": { "react/prop-types": "off" },
+  "ignorePatterns": ["src/exc-runtime.js"]
+}
