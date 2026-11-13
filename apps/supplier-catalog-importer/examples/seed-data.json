@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "suppliers": [
+    {
+      "supplierId": "acme",
+      "name": "Acme Home",
+      "country": "United States",
+      "description": "Everyday ceramics and home essentials"
+    },
+    {
+      "supplierId": "nordic",
+      "name": "Nordic Living",
+      "country": "Denmark",
+      "description": "Scandinavian furniture and lighting"
+    },
+    {
+      "supplierId": "terra",
+      "name": "Terra Outdoors",
+      "country": "Australia",
+      "description": "Equipment for the trail and garden"
+    }
+  ],
+  "catalog": [
+    {
+      "supplierId": "acme",
+      "sku": "MUG-001",
+      "name": "Stoneware mug",
+      "price": 12.5,
+      "reviewStatus": "pending"
+    },
+    {
+      "supplierId": "acme",
+      "sku": "BOWL-001",
+      "name": "Breakfast bowl",
+      "price": 18,
+      "reviewStatus": "approved"
+    },
+    {
+      "supplierId": "acme",
+      "sku": "PLATE-001",
+      "name": "Dinner plate",
+      "price": 22,
+      "reviewStatus": "rejected"
+    },
+    {
+      "supplierId": "nordic",
+      "sku": "LAMP-001",
+      "name": "Table lamp",
+      "price": 89,
+      "reviewStatus": "pending"
+    },
+    {
+      "supplierId": "nordic",
+      "sku": "CHAIR-001",
+      "name": "Oak dining chair",
+      "price": 145,
+      "reviewStatus": "approved"
+    },
+    {
+      "supplierId": "nordic",
+      "sku": "SHELF-001",
+      "name": "Wall shelf",
+      "price": 39,
+      "reviewStatus": "rejected"
+    },
+    {
+      "supplierId": "terra",
+      "sku": "PACK-001",
+      "name": "Trail backpack",
+      "price": 65,
+      "reviewStatus": "pending"
+    },
+    {
+      "supplierId": "terra",
+      "sku": "FLASK-001",
+      "name": "Insulated flask",
+      "price": 24,
+      "reviewStatus": "approved"
+    },
+    {
+      "supplierId": "terra",
+      "sku": "CHAIR-001",
+      "name": "Camping chair",
+      "price": 45,
+      "reviewStatus": "rejected"
+    }
+  ]
+}

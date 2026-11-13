@@ -1,0 +1,71 @@
+/*
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+.workbench-code {
+  --code-background: #f6f8fa;
+  --code-text: #24292f;
+  --code-comment: #57606a;
+  --code-keyword: #cf222e;
+  --code-string: #0a3069;
+  --code-property: #0550ae;
+  --code-number: #8250df;
+  --code-operator: #953800;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow: auto;
+  max-height: 28rem;
+  padding: 1rem;
+  border: 1px solid var(--spectrum-global-color-gray-300);
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  background-color: var(--code-background);
+  color: var(--code-text);
+}
+
+.workbench-code[data-color-scheme="dark"] {
+  --code-background: #161b22;
+  --code-text: #e6edf3;
+  --code-comment: #9da7b3;
+  --code-keyword: #ff7b72;
+  --code-string: #a5d6ff;
+  --code-property: #79c0ff;
+  --code-number: #d2a8ff;
+  --code-operator: #ffa657;
+}
+
+.workbench-code .token.comment {
+  color: var(--code-comment);
+}
+
+.workbench-code .token.keyword,
+.workbench-code .token.boolean,
+.workbench-code .token.null {
+  color: var(--code-keyword);
+}
+
+.workbench-code .token.string {
+  color: var(--code-string);
+}
+
+.workbench-code .token.property,
+.workbench-code .token.literal-property {
+  color: var(--code-property);
+}
+
+.workbench-code .token.number,
+.workbench-code .token.function {
+  color: var(--code-number);
+}
+
+.workbench-code .token.operator {
+  color: var(--code-operator);
+}

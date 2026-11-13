@@ -1,0 +1,5 @@
+[
+  { "sku": "MUG-001", "name": "Stoneware mug", "price": 12.5 },
+  { "sku": "BOWL-001", "name": "Breakfast bowl", "price": 18 },
+  { "sku": "PLATE-001", "name": "Dinner plate", "price": 22 }
+]
