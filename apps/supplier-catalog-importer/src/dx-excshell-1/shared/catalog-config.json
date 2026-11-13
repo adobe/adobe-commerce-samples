@@ -1,0 +1,28 @@
+{
+  "CATALOG_PAGE_SIZE": 50,
+  "EXPLORER_PAGE_SIZE": 25,
+  "MAX_OFFSET": 10000,
+  "EXPLORER_COLLECTIONS": {
+    "catalog": {
+      "name": "supplier_catalog_staging",
+      "label": "Catalog",
+      "sortFields": [
+        "updatedAt",
+        "sku",
+        "name",
+        "price",
+        "reviewStatus",
+        "supplierId"
+      ],
+      "defaultSort": "updatedAt",
+      "defaultDirection": "desc"
+    },
+    "suppliers": {
+      "name": "supplier_catalog_suppliers",
+      "label": "Suppliers",
+      "sortFields": ["name", "supplierId", "createdAt"],
+      "defaultSort": "name",
+      "defaultDirection": "asc"
+    }
+  }
+}

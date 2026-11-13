@@ -1,0 +1,10 @@
+[
+  {
+    "type": "upsert",
+    "sku": "MUG-001",
+    "name": "Stoneware mug",
+    "price": 13.5
+  },
+  { "type": "upsert", "sku": "CUP-001", "name": "Espresso cup", "price": 9 },
+  { "type": "discontinue", "sku": "PLATE-001" }
+]

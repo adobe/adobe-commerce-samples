@@ -13,6 +13,11 @@ This project is a collection of code samples that demonstrate common extensibili
 
 See [apps/purchase-approval/README.md](apps/purchase-approval/README.md) for setup and architecture.
 
+**[Supplier Catalog Importer](apps/supplier-catalog-importer/)** — a standalone App
+Builder Database tutorial with a review UI, CRUD, sort/projection, supplier/SKU
+upserts, saved review after-images, batched imports and mixed feeds, lazy cursor
+iteration, and a collection/index deploy hook. No Commerce instance is required.
+
 ## What this project is
 
 This project is intended as a reference for developers to learn how to extend and integrate Adobe Commerce. The code is meant to showcase concepts and may not necessarily implement real-world scenarios. 

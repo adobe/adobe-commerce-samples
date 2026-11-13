@@ -1,0 +1,18 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
+  "files": {
+    "includes": [
+      "**",
+      "!build",
+      "!dist",
+      "!node_modules",
+      "!.aws.tmp.creds.json",
+      "!src/dx-excshell-1/web-src/src/config.json",
+      "!src/dx-excshell-1/web-src/src/exc-runtime.js"
+    ]
+  },
+  "formatter": { "indentStyle": "space" },
+  "linter": { "enabled": true, "rules": { "preset": "recommended" } },
+  "javascript": { "formatter": { "quoteStyle": "double" } },
+  "assist": { "enabled": false }
+}
