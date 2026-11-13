@@ -1,0 +1,8 @@
+{
+  "id": "external_shipping_rates",
+  "name": "external_shipping_rates",
+  "displayName": "External Shipping Rates",
+  "description": "External Shipping Rates on App Builder",
+  "platform": "web",
+  "version": "1.0.0"
+}

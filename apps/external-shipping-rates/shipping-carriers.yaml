@@ -1,0 +1,17 @@
+shipping_carriers:
+  - carrier:
+      code: "external_shipping"
+      title: "External Shipping Service"
+      stores:
+        - default
+      countries:
+        - US
+        - CA
+        - GB
+        - DE
+        - FR
+        - AU
+      sort_order: 10
+      active: true
+      tracking_available: false
+      shipping_labels_available: false

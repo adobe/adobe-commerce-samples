@@ -1,0 +1,35 @@
+methods:
+  - payment_method:
+      code: 'method-1'
+      title: 'Method one'
+      active: true
+      backend_integration_url: http://oope-payment-method.pay/event
+      stores:
+        - default
+      order_status: complete
+      countries:
+        - ES
+        - US
+      currencies:
+        - EUR
+        - USD
+      custom_config:
+        - key: foo
+          value: bar
+  - payment_method:
+      code: 'method-2'
+      title: 'Method Two'
+      active: true
+      backend_integration_url: http://oope-payment-method.pay/event
+      stores:
+        - default
+      order_status: complete
+      countries:
+        - ES
+        - US
+      currencies:
+        - EUR
+        - USD
+      custom_config:
+        - key: foo
+          value: bar

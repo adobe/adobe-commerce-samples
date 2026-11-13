@@ -1,0 +1,13 @@
+tax_integrations:
+  - tax_integration:
+      code: 'tax-integration-1'
+      title: 'My tax integration enabled'
+      active: true
+      stores:
+        - default
+  - tax_integration:
+      code: 'tax-integration-2'
+      title: 'My tax integration disabled'
+      active: false
+      stores:
+        - default
